@@ -26,3 +26,6 @@ Key facts:
 - [Free design review](https://boundlesscaddesign-dev.github.io/review/): free second-opinion check of a lab's own design
 - [Refer a lab](https://boundlesscaddesign-dev.github.io/refer/): referral program, 10 free credits each
 - [Guide: outsourcing exocad design](https://boundlesscaddesign-dev.github.io/guide/): how remote dental CAD design works, what it costs, what to send, how to judge a design studio
+
+## For milling centres
+- White-label design partner program (design + milling under the centre's own brand, overnight, margin calculator): https://boundlesscaddesign-dev.github.io/partner/
