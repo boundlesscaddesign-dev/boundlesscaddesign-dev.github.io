@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>3D Case — BoundlessCAD</title>
+<meta name="description" content="Inspect an exocad design by BoundlessCAD in 3D.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+html,body{height:100%}
+body{display:flex;flex-direction:column;overflow:hidden}
+header{flex:none;height:60px;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:0 18px;border-bottom:1px solid var(--line);background:rgba(11,24,38,.9);z-index:5}
+header .left{display:flex;align-items:center;gap:16px;min-width:0}
+.back{color:var(--muted);font-size:14px;font-weight:700;white-space:nowrap;transition:color .2s}
+.back:hover{color:var(--teal)}
+.app{flex:1;display:grid;grid-template-columns:1fr 340px;min-height:0}
+.stage{position:relative;min-height:0;background:radial-gradient(ellipse at 50% 38%,#1b3a55 0%,#0f2033 55%,#0a1522 100%);overflow:hidden}
+#cv{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none;cursor:grab}
+#cv:active{cursor:grabbing}
+iframe.exo{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff}
+.load{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;transition:opacity .5s}
+.load.done{opacity:0}
+.load .box{text-align:center;color:var(--muted);font-size:13px;font-weight:700;letter-spacing:.4px}
+.ring{width:54px;height:54px;border-radius:50%;border:3px solid rgba(127,209,199,.15);border-top-color:var(--teal);margin:0 auto 14px;animation:rot 1s linear infinite}
+@keyframes rot{to{transform:rotate(360deg)}}
+.pbar{width:180px;height:3px;border-radius:3px;background:rgba(255,255,255,.08);margin:10px auto 0;overflow:hidden}
+.pbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--mint));transition:width .2s}
+.tools{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);display:flex;gap:6px;padding:6px;border-radius:14px;background:rgba(11,24,38,.72);backdrop-filter:blur(10px);border:1px solid var(--line)}
+.tools button{font:inherit;font-size:12.5px;font-weight:700;color:var(--muted);background:transparent;border:0;border-radius:9px;padding:8px 11px;cursor:pointer;transition:.2s;white-space:nowrap}
+.tools button:hover{color:#fff;background:rgba(255,255,255,.06)}
+.tools button.on{color:#06241f;background:var(--teal)}
+.tip{position:absolute;left:18px;top:16px;color:var(--muted);font-size:12.5px;font-weight:600;background:rgba(11,24,38,.6);padding:7px 11px;border-radius:10px;border:1px solid var(--line);transition:opacity .6s}
+.tip.hide{opacity:0}
+.fs{position:absolute;right:16px;top:14px;font-size:12.5px;font-weight:700;color:var(--muted);background:rgba(11,24,38,.72);border:1px solid var(--line);padding:7px 11px;border-radius:10px}
+.fs:hover{color:#fff}
+aside{border-left:1px solid var(--line);background:var(--bg);overflow-y:auto;padding:24px 22px 28px;display:flex;flex-direction:column;gap:20px}
+aside h1{font-size:25px;line-height:1.15;letter-spacing:-.6px;margin-top:8px}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.notes{color:var(--muted);font-size:14.5px}
+.sec h4{font-size:11.5px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.part{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;background:var(--panel);border:1px solid var(--line);margin-bottom:8px}
+.part .dot{width:12px;height:12px;border-radius:50%;box-shadow:0 0 0 2px rgba(255,255,255,.08)}
+.part label{font-size:14px;font-weight:700;cursor:pointer}
+.part input[type=range]{grid-column:1/-1;width:100%;accent-color:var(--teal);height:18px}
+.sw{position:relative;width:36px;height:20px;border-radius:999px;background:#2a3f53;cursor:pointer;transition:.2s;border:0}
+.sw::after{content:"";position:absolute;left:3px;top:3px;width:14px;height:14px;border-radius:50%;background:#fff;transition:transform .2s var(--ease)}
+.sw[aria-pressed=true]{background:var(--teal2)}
+.sw[aria-pressed=true]::after{transform:translateX(16px)}
+.cta{padding:18px;border-radius:16px;background:linear-gradient(135deg,#12324a,#0f2033);border:1px solid rgba(127,209,199,.2)}
+.cta h3{font-size:18px;letter-spacing:-.3px;line-height:1.25}
+.cta p{color:#b6c7d3;font-size:13.5px;margin:6px 0 14px}
+.cta .row{display:flex;gap:8px;flex-wrap:wrap}
+.nav2{display:flex;justify-content:space-between;gap:10px;font-size:13.5px;font-weight:700}
+.nav2 a{color:var(--muted);max-width:48%}
+.nav2 a:hover{color:var(--teal)}
+.msg{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:30px;color:var(--muted)}
+.msg a{color:var(--teal);font-weight:700}
+.msg img{max-width:min(520px,90%);border-radius:14px;margin:0 auto 18px}
+@media (max-width:900px){
+  body{overflow:auto;height:auto}
+  .app{grid-template-columns:1fr;display:block}
+  .stage{height:62vh;min-height:360px}
+  aside{border-left:0;border-top:1px solid var(--line)}
+  header .btn.ghost{display:none}
+  .tools{bottom:12px;max-width:calc(100% - 24px);overflow-x:auto}
+}
+@media (max-width:520px){header .logo span{display:none}}
+</style>
+<script type="importmap">{"imports":{"three":"./lib/three.module.min.js"}}</script>
+</head>
+<body>
+<header>
+  <div class="left">
+    <a class="logo" href="../" aria-label="BoundlessCAD home"><svg width="28" height="28" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="#7FD1C7" stroke-width="4" stroke-linecap="round" stroke-dasharray="118 52"/><path d="M24 22c-3 0-5 3-5 6 0 5 2 7 3 11 1 4 2 7 3.5 7s2.5-3 3.2-6.5c.6-1.8 1.4-2.5 3.3-2.5s2.7.7 3.3 2.5c.7 3.5 1.7 6.5 3.2 6.5S43 43 44 39c1-4 3-6 3-11 0-3-2-6-5-6-2.5 0-4 1.6-9 1.6S26.5 22 24 22z" fill="#fff"/></svg><span>Boundless<b>CAD</b></span></a>
+    <a class="back" href="./">← All 3D cases</a>
+  </div>
+  <div style="display:flex;gap:8px"><a class="btn ghost" href="../#pricing">Pricing</a><a class="btn" href="../#contact">Free first case →</a></div>
+</header>
+
+<div class="app">
+  <div class="stage" id="stage">
+    <div class="load" id="load"><div class="box"><div class="ring"></div><span id="ltxt">Loading 3D design…</span><div class="pbar"><i id="pb"></i></div></div></div>
+  </div>
+  <aside id="side">
+    <div>
+      <div class="eyebrow" id="cat">Case</div>
+      <h1 id="title">Loading…</h1>
+      <div class="meta" id="meta"></div>
+    </div>
+    <p class="notes" id="notes" hidden></p>
+    <div class="sec" id="partsSec" hidden><h4>Layers</h4><div id="parts"></div></div>
+    <div class="cta">
+      <h3>Like what you see? <span class="serif">Try us on your case.</span></h3>
+      <p>First case free · 24–48 h turnaround · revisions until approved.</p>
+      <div class="row"><a class="btn" id="mail" href="mailto:boundlesscad.design@gmail.com?subject=Free%20test%20case">Send a case →</a><a class="btn ghost" id="wa" href="https://wa.me/989124390969" target="_blank" rel="noopener">WhatsApp</a></div>
+    </div>
+    <div class="nav2" id="nav2"></div>
+  </aside>
+</div>
+
+<script type="module">
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const CAT={single:'Crowns & abutments',bridge:'Bridge',full:'Full-arch implant'};
+const stage=$('stage');
+const slug=new URLSearchParams(location.search).get('c');
+
+function fail(html){$('load').classList.add('done');stage.insertAdjacentHTML('beforeend',`<div class="msg"><div>${html}</div></div>`)}
+
+let list=[];
+try{list=await (await fetch('cases.json',{cache:'no-cache'})).json()}catch(e){}
+const idx=list.findIndex(c=>c.slug===slug);
+const c=list[idx];
+if(!c){
+  $('title').textContent='Case not found';
+  fail('This case is not available. <br><a href="./">Browse all 3D cases →</a>');
+}else{
+  document.title=`${c.title} — 3D | BoundlessCAD`;
+  $('cat').textContent=CAT[c.category]||'Case';
+  $('title').textContent=c.title;
+  $('meta').innerHTML=(c.teeth?`<span class="chip">Tooth ${esc(c.teeth)}</span>`:'')+(c.details||[]).map(d=>`<span class="chip">${esc(d)}</span>`).join('');
+  if(c.notes){$('notes').textContent=c.notes;$('notes').hidden=false}
+  const ref=encodeURIComponent(`Hi BoundlessCAD, I saw your 3D case "${c.title}" and I'd like to send a free test case.`);
+  $('wa').href=`https://wa.me/989124390969?text=${ref}`;
+  $('mail').href=`mailto:boundlesscad.design@gmail.com?subject=${encodeURIComponent('Free test case — saw '+c.title)}`;
+  const prev=list[(idx-1+list.length)%list.length],next=list[(idx+1)%list.length];
+  if(list.length>1)$('nav2').innerHTML=`<a href="view.html?c=${encodeURIComponent(prev.slug)}">← ${esc(prev.title)}</a><a style="text-align:right" href="view.html?c=${encodeURIComponent(next.slug)}">${esc(next.title)} →</a>`;
+  if(c.type==='exocad')exocad(c);else mesh(c).catch(e=>{console.error(e);fail(`Could not load the 3D files.<br><a href="./">Back to all cases</a>`)});
+}
+
+function exocad(c){
+  const f=document.createElement('iframe');
+  f.className='exo';f.src=c.file;f.title=c.title;f.allow='fullscreen';f.setAttribute('allowfullscreen','');
+  f.addEventListener('load',()=>$('load').classList.add('done'));
+  stage.appendChild(f);
+  stage.insertAdjacentHTML('beforeend',`<a class="fs" href="${esc(c.file)}" target="_blank" rel="noopener">Open full screen ↗</a>`);
+}
+
+async function mesh(c){
+  const cv=document.createElement('canvas');
+  const gl=cv.getContext('webgl2')||cv.getContext('webgl');
+  if(!gl){fail((c.thumb?`<img src="${esc(c.thumb)}" alt="">`:'')+'Your browser can\'t show 3D here. Try a recent Chrome, Edge, Firefox or Safari.');return}
+  const THREE=await import('three');
+  const {OrbitControls}=await import('./lib/OrbitControls.js');
+  const {STLLoader}=await import('./lib/STLLoader.js');
+  const {PLYLoader}=await import('./lib/PLYLoader.js');
+  const {RoomEnvironment}=await import('./lib/RoomEnvironment.js');
+
+  cv.id='cv';stage.prepend(cv);
+  const renderer=new THREE.WebGLRenderer({canvas:cv,context:gl,antialias:true,alpha:true,preserveDrawingBuffer:false});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  renderer.outputColorSpace=THREE.SRGBColorSpace;
+  renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.05;
+  const scene=new THREE.Scene();
+  const pm=new THREE.PMREMGenerator(renderer);
+  scene.environment=pm.fromScene(new RoomEnvironment(),0.04).texture;
+  const cam=new THREE.PerspectiveCamera(35,1,0.1,5000);
+  const up=(c.up||'z').toLowerCase();
+  cam.up.set(up==='y'?0:0,up==='y'?1:0,up==='z'?1:0);
+  scene.add(cam);
+  const key=new THREE.DirectionalLight(0xffffff,1.6);key.position.set(0.6,0.8,1);cam.add(key);
+  const fill=new THREE.DirectionalLight(0xcfe8ff,.5);fill.position.set(-1,-.4,.6);cam.add(fill);
+  scene.add(new THREE.HemisphereLight(0xffffff,0x2b3d50,.55));
+
+  const controls=new OrbitControls(cam,cv);
+  controls.enableDamping=true;controls.dampingFactor=.08;controls.rotateSpeed=.9;controls.zoomSpeed=.9;
+  controls.autoRotate=!matchMedia('(prefers-reduced-motion: reduce)').matches;controls.autoRotateSpeed=1.2;
+
+  const group=new THREE.Group();scene.add(group);
+  const parts=c.parts||[];
+  const prog=new Array(parts.length).fill(0);
+  const onProg=i=>e=>{if(e.lengthComputable){prog[i]=e.loaded/e.total;$('pb').style.width=(prog.reduce((a,b)=>a+b,0)/parts.length*100)+'%'}};
+  const loadOne=(p,i)=>new Promise((res,rej)=>{
+    const ext=p.file.split('?')[0].split('.').pop().toLowerCase();
+    const L=ext==='ply'?new PLYLoader():new STLLoader();
+    L.load(p.file,g=>{prog[i]=1;res(g)},onProg(i),rej);
+  });
+  const geos=await Promise.all(parts.map(loadOne));
+  const meshes=geos.map((g,i)=>{
+    const p=parts[i];
+    if(!g.attributes.normal)g.computeVertexNormals();
+    const hasVC=!!g.attributes.color&&!p.color;
+    const metal=!!p.metal;
+    const m=new THREE.MeshPhysicalMaterial({
+      color:hasVC?0xffffff:new THREE.Color(p.color||'#efe9dd'),vertexColors:hasVC,
+      roughness:metal?.28:(p.roughness??.42),metalness:metal?.9:0,
+      clearcoat:metal?0:(p.clearcoat??.35),clearcoatRoughness:.35,
+      side:THREE.DoubleSide,transparent:(p.opacity??1)<1,opacity:p.opacity??1,depthWrite:(p.opacity??1)>=1
+    });
+    const me=new THREE.Mesh(g,m);me.visible=p.visible!==false;group.add(me);return me;
+  });
+
+  // center and fit
+  const box=new THREE.Box3().setFromObject(group);
+  const ctr=box.getCenter(new THREE.Vector3());group.position.sub(ctr);
+  const size=box.getSize(new THREE.Vector3()).length();
+  function resize(){const w=stage.clientWidth,h=stage.clientHeight;renderer.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix()}
+  resize();
+  const fitDist=()=>{const v=THREE.MathUtils.degToRad(cam.fov),hf=2*Math.atan(Math.tan(v/2)*cam.aspect);return (size/2)/Math.sin(Math.min(v,hf)/2)*0.92};
+  let dist=fitDist();
+  cam.near=size/200;cam.far=size*40;cam.updateProjectionMatrix();
+  controls.minDistance=size*.15;controls.maxDistance=size*6;
+  const V={
+    front: up==='z'?[0,-1,0.35]:[0,0.35,1],
+    occlusal: up==='z'?[0,-0.12,1]:[0,1,0.12],
+    left: up==='z'?[-1,-.25,.25]:[-1,.25,.25],
+    right: up==='z'?[1,-.25,.25]:[1,.25,.25]
+  };
+  let anim=null;
+  function go(name,instant){
+    dist=fitDist();
+    const d=new THREE.Vector3(...(c.views?.[name]||V[name])).normalize().multiplyScalar(dist);
+    if(instant){cam.position.copy(d);controls.target.set(0,0,0);controls.update();return}
+    const from=cam.position.clone(),t0=performance.now(),tgt0=controls.target.clone();
+    anim=t=>{const k=Math.min(1,(t-t0)/650),e=1-Math.pow(1-k,3);
+      const r=from.length()+(d.length()-from.length())*e;
+      cam.position.copy(from.clone().normalize().lerp(d.clone().normalize(),e).normalize().multiplyScalar(r));
+      controls.target.copy(tgt0.clone().lerp(new THREE.Vector3(),e));if(k===1)anim=null};
+  }
+  go(c.startView||'front',true);
+
+  // UI: layers
+  if(parts.length>1||parts.some(p=>p.opacity!==undefined)){
+    $('partsSec').hidden=false;
+    $('parts').innerHTML=parts.map((p,i)=>`<div class="part"><span class="dot" style="background:${esc(p.color||'#efe9dd')}"></span><label for="sw${i}">${esc(p.name||('Part '+(i+1)))}</label><button class="sw" id="sw${i}" data-i="${i}" aria-pressed="${p.visible!==false}" aria-label="Show ${esc(p.name||'part')}"></button><input type="range" min="0.1" max="1" step="0.05" value="${p.opacity??1}" data-i="${i}" aria-label="${esc(p.name||'part')} opacity"></div>`).join('');
+    $('parts').addEventListener('click',e=>{const b=e.target.closest('.sw');if(!b)return;const m=meshes[b.dataset.i];m.visible=!m.visible;b.setAttribute('aria-pressed',m.visible)});
+    $('parts').addEventListener('input',e=>{if(e.target.type!=='range')return;const mat=meshes[e.target.dataset.i].material,v=+e.target.value;mat.opacity=v;mat.transparent=v<1;mat.depthWrite=v>=1;mat.needsUpdate=true});
+  }
+
+  // toolbar
+  stage.insertAdjacentHTML('beforeend',`<div class="tip" id="tip">${matchMedia('(pointer:coarse)').matches?'Drag to rotate · pinch to zoom':'Drag to rotate · scroll to zoom · right-drag to pan'}</div>
+  <div class="tools" id="tools"><button data-v="front">Front</button><button data-v="occlusal">Occlusal</button><button data-v="left">Left</button><button data-v="right">Right</button><button id="spin" class="${controls.autoRotate?'on':''}">Spin</button></div>`);
+  $('tools').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+    if(b.id==='spin'){controls.autoRotate=!controls.autoRotate;b.classList.toggle('on',controls.autoRotate);return}
+    controls.autoRotate=false;$('spin').classList.remove('on');go(b.dataset.v)});
+  controls.addEventListener('start',()=>{controls.autoRotate=false;$('spin').classList.remove('on');$('tip').classList.add('hide')});
+
+  new ResizeObserver(resize).observe(stage);
+  renderer.setAnimationLoop(t=>{if(anim)anim(t);controls.update();renderer.render(scene,cam)});
+  $('load').classList.add('done');
+  window.__viewerReady=true;
+}
+</script>
+</body>
+</html>
