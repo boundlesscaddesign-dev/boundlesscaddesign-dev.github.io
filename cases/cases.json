@@ -1,3 +1,17 @@
 [
-{"slug":"crown-33","title":"Single crown","category":"single","type":"exocad","file":"files/crown-33.html"}
+  {"slug":"crown-33","title":"Single crown","category":"single","type":"exocad","file":"files/crown-33.html"},
+  {"slug":"crown-12","title":"Single anterior crown","category":"single","type":"exocad","file":"files/crown-12.html"},
+  {"slug":"implant-bridges-posterior","title":"Posterior implant bridges","category":"bridges","type":"exocad","file":"files/implant-bridges-posterior.html"},
+  {"slug":"anterior-14-24","title":"Anterior aesthetic","category":"bridges","type":"exocad","file":"files/anterior-14-24.html"},
+  {"slug":"upper-bridges-15-25","title":"Upper bridges","category":"bridges","type":"exocad","file":"files/upper-bridges-15-25.html"},
+  {"slug":"upper-bridge-16-26","title":"Upper full-arch bridge","category":"bridges","type":"exocad","file":"files/upper-bridge-16-26.html"},
+  {"slug":"full-mouth-bridges","title":"Full-mouth bridges","category":"full","type":"exocad","file":"files/full-mouth-bridges.html"},
+  {"slug":"full-mouth-bridges-gingiva","title":"Full-mouth bridges with gingiva","category":"full","type":"exocad","file":"files/full-mouth-bridges-gingiva.html"},
+  {"slug":"lower-full-arch-4-implants","title":"Lower full-arch on 4 implants","category":"full","type":"exocad","file":"files/lower-full-arch-4-implants.html"},
+  {"slug":"lower-full-arch-implant","title":"Lower full-arch implant","category":"full","type":"exocad","file":"files/lower-full-arch-implant.html"},
+  {"slug":"all-on-4-both-arches","title":"All-on-4 both arches","category":"full","type":"exocad","file":"files/all-on-4-both-arches.html"},
+  {"slug":"full-mouth-implant-a","title":"Full-mouth implant 6+6","category":"full","type":"exocad","file":"files/full-mouth-implant-a.html"},
+  {"slug":"full-mouth-implant-b","title":"Full-mouth implant 5+4","category":"full","type":"exocad","file":"files/full-mouth-implant-b.html"},
+  {"slug":"full-mouth-implant-c","title":"Full-mouth implant 6+6","category":"full","type":"exocad","file":"files/full-mouth-implant-c.html"},
+  {"slug":"full-mouth-implant-d","title":"Full-mouth implant 6+6","category":"full","type":"exocad","file":"files/full-mouth-implant-d.html"}
 ]
