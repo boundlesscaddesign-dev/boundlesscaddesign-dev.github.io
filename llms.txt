@@ -1,0 +1,21 @@
+# BoundlessCAD
+
+> BoundlessCAD is a remote exocad dental CAD design studio. It designs crowns, bridges, veneers, inlays/onlays, implant crowns, custom abutments, full-arch implant prostheses (All-on-4 / All-on-6), night guards / occlusal splints and surgical guides for dental laboratories and digital clinics worldwide, and returns production-ready STL files plus the exocad project in 24–48 hours. The first case is designed free.
+
+Key facts:
+- Service: outsourced / remote dental CAD design in exocad DentalCAD for dental labs and clinics (white-label).
+- Turnaround: 24–48 hours for standard crowns and bridges; full-arch and guide cases scheduled on agreement.
+- Pricing (per unit, USD): crowns, copings, veneers and bridge units $6.40; implant crowns and custom abutments $9.10; full-arch implant prosthesis $88 per arch; night guards / splints $12; surgical guides from $86.50. Volume pricing for labs sending 100+ units a month.
+- First case: free, so a lab can judge quality on a real job.
+- Files accepted: intraoral or model scans as STL or PLY, or a complete exocad project, plus a prescription (teeth, restoration type, material, shade; for implants: system, platform and scan body).
+- Delivered: production-ready STL files and the exocad project; revisions included until approved; the lab's own design parameters (cement gap, minimum thickness, connectors, tooth library) are followed.
+- Privacy: anonymized files under a case code only, never patient names.
+- Languages: English and Spanish.
+- Contact: boundlesscad.design@gmail.com · Instagram @boundless.cad
+
+## Pages
+- [Home (English)](https://boundlesscaddesign-dev.github.io/): services, how it works, pricing, portfolio, FAQ
+- [Inicio (Español)](https://boundlesscaddesign-dev.github.io/es/): the same site in Spanish
+- [3D case library](https://boundlesscaddesign-dev.github.io/cases/): real exocad designs that open in 3D in the browser (single crowns, bridges, implant bridges, full-arch implant cases)
+- [Send a case](https://boundlesscaddesign-dev.github.io/send/): which files to send, a digital prescription with FDI tooth chart, and how to share large scans
+- [Guide: outsourcing exocad design](https://boundlesscaddesign-dev.github.io/guide/): how remote dental CAD design works, what it costs, what to send, how to judge a design studio

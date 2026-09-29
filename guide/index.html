@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Outsourcing exocad design: a practical guide for dental labs — BoundlessCAD</title>
+<meta name="description" content="How remote exocad dental design works: what labs outsource, typical per-unit prices, turnaround, which files to send, and how to judge a design studio before committing.">
+<link rel="canonical" href="https://boundlesscaddesign-dev.github.io/guide/">
+<meta property="og:title" content="Outsourcing exocad design: a practical guide for dental labs">
+<meta property="og:description" content="What labs outsource, typical prices and turnaround, what to send, and how to judge a remote design studio.">
+<meta property="og:image" content="https://boundlesscaddesign-dev.github.io/og.png">
+<meta property="og:type" content="article">
+<meta name="theme-color" content="#0b1826">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../cases/shared.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Article","headline":"Outsourcing exocad design: a practical guide for dental labs","description":"How remote exocad dental design works: what labs outsource, typical per-unit prices, turnaround, which files to send, and how to judge a design studio.","author":{"@type":"Organization","name":"BoundlessCAD","url":"https://boundlesscaddesign-dev.github.io/"},"publisher":{"@type":"Organization","name":"BoundlessCAD","url":"https://boundlesscaddesign-dev.github.io/"},"datePublished":"2026-09-29","dateModified":"2026-09-29","mainEntityOfPage":"https://boundlesscaddesign-dev.github.io/guide/","image":"https://boundlesscaddesign-dev.github.io/og.png","inLanguage":"en"},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is remote exocad design?","acceptedAnswer":{"@type":"Answer","text":"A dental lab or clinic sends intraoral or model scans (STL/PLY or an exocad project) and a prescription to an external designer, who designs the restoration in exocad DentalCAD and returns production-ready STL files and the project, usually within 24–48 hours. The lab then mills or prints in-house."}},
+{"@type":"Question","name":"How much does outsourced crown design cost?","acceptedAnswer":{"@type":"Answer","text":"Per-unit design fees for crowns and bridge units commonly fall around 5–10 USD; implant crowns and custom abutments cost somewhat more, and full-arch implant prostheses and surgical guides are priced per arch or per case. BoundlessCAD charges 6.40 USD per crown unit, 9.10 USD per implant crown or custom abutment, 88 USD per full-arch implant prosthesis, 12 USD per night guard and from 86.50 USD per surgical guide, with the first case free."}},
+{"@type":"Question","name":"What files should a lab send for remote design?","acceptedAnswer":{"@type":"Answer","text":"The prepared arch, the antagonist and a bite registration as STL or PLY (or a complete exocad project), plus a prescription with tooth numbers, restoration type, material and shade. For implant cases add the implant system, platform and scan body. Use a case code instead of the patient's name."}},
+{"@type":"Question","name":"How fast is remote dental CAD design?","acceptedAnswer":{"@type":"Answer","text":"Standard crowns and bridges are typically returned in 24–48 hours. Full-arch implant prostheses and surgical guides take longer and are usually scheduled per case."}},
+{"@type":"Question","name":"How do I judge a remote design studio before committing?","acceptedAnswer":{"@type":"Answer","text":"Ask for a free test case on a real job, inspect margins, contacts, occlusion and minimum thickness in the exocad project or a 3D webview, check that your own parameters were followed, and confirm revision policy, turnaround and data-privacy handling."}}
+]}]}
+</script>
+<style>
+header{position:sticky;top:0;z-index:20;background:rgba(11,24,38,.85);backdrop-filter:blur(14px) saturate(1.3);border-bottom:1px solid var(--line)}
+.bar{max-width:1100px;margin:0 auto;padding:0 22px;height:66px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.bar nav{display:flex;gap:8px}
+article{max-width:760px;margin:0 auto;padding:56px 22px 40px}
+h1{font-size:clamp(32px,4.6vw,50px);line-height:1.07;letter-spacing:-1.3px;margin:14px 0 16px}
+.meta{color:var(--muted);font-size:14px;margin-bottom:30px}
+.tldr{background:var(--panel);border:1px solid rgba(127,209,199,.25);border-radius:18px;padding:22px 24px;margin:0 0 34px}
+.tldr b{color:var(--mint)}
+.tldr ul{margin:10px 0 0 18px;display:grid;gap:6px;color:#dce7ee}
+h2{font-size:27px;letter-spacing:-.5px;margin:42px 0 12px}
+h3{font-size:19px;margin:24px 0 8px;color:var(--mint)}
+p,li{color:#c9d6df;font-size:16.5px;line-height:1.7}
+p{margin:0 0 14px}
+ul.b,ol.b{margin:0 0 16px 22px;display:grid;gap:6px}
+table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15px}
+th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line)}
+th{color:var(--mint);font-size:13px;letter-spacing:1px;text-transform:uppercase}
+td{color:#dce7ee}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.02)}
+a.in{color:var(--teal);font-weight:700;border-bottom:1px solid rgba(127,209,199,.4)}
+.cta{margin:46px 0 10px;padding:28px;border-radius:20px;background:linear-gradient(135deg,#12324a,#0f2033);border:1px solid rgba(127,209,199,.2)}
+.cta h2{margin:0 0 6px;font-size:24px}.cta .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+footer{border-top:1px solid var(--line);padding:24px 22px;color:var(--muted);font-size:13px;text-align:center}
+</style>
+</head>
+<body>
+<header><div class="bar">
+  <a class="logo" href="../" aria-label="BoundlessCAD home"><svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="#7FD1C7" stroke-width="4" stroke-linecap="round" stroke-dasharray="118 52"/><path d="M24 22c-3 0-5 3-5 6 0 5 2 7 3 11 1 4 2 7 3.5 7s2.5-3 3.2-6.5c.6-1.8 1.4-2.5 3.3-2.5s2.7.7 3.3 2.5c.7 3.5 1.7 6.5 3.2 6.5S43 43 44 39c1-4 3-6 3-11 0-3-2-6-5-6-2.5 0-4 1.6-9 1.6S26.5 22 24 22z" fill="#fff"/></svg><span>Boundless<b>CAD</b></span></a>
+  <nav><a class="btn ghost" href="../cases/">3D cases</a><a class="btn" href="../send/">Free first case →</a></nav>
+</div></header>
+
+<article>
+  <div class="eyebrow">Guide for dental labs</div>
+  <h1>Outsourcing exocad design: <span class="serif">a practical guide.</span></h1>
+  <p class="meta">By BoundlessCAD · Updated 29 September 2026 · 7 min read</p>
+
+  <div class="tldr"><b>In short</b>
+    <ul>
+      <li>Remote design means you send scans + a prescription, a designer works in exocad, and you get production-ready STL files back — typically in 24–48 h for crowns and bridges.</li>
+      <li>Per-unit fees for crown design commonly sit around 5–10 USD; implant, full-arch and guide work costs more.</li>
+      <li>The best way to judge a studio is a free test case on your own job, checked in 3D.</li>
+    </ul>
+  </div>
+
+  <h2>What is remote exocad design?</h2>
+  <p>Remote (outsourced) dental CAD design separates the design step from production. Your lab or clinic keeps scanning, milling, printing, sintering and finishing in-house, while an external designer builds the restoration in exocad DentalCAD from your digital impressions and returns the finished design files.</p>
+  <p>Labs use it to absorb peak weeks, cover holidays and sick leave, add capacity without hiring another CAD technician, or get help with case types their team designs less often, such as full-arch implant prostheses and surgical guides.</p>
+
+  <h2>What can be outsourced?</h2>
+  <ul class="b">
+    <li>Crowns, copings, inlays, onlays and veneers (anatomic or with cut-back for layering)</li>
+    <li>Bridges, including long-span and segmented bridges</li>
+    <li>Implant crowns, screw-retained units and custom abutments</li>
+    <li>Full-arch implant prostheses (All-on-4 / All-on-6) and implant bridges</li>
+    <li>Night guards and occlusal splints</li>
+    <li>Surgical guides, tooth-supported and full-arch</li>
+  </ul>
+
+  <h2>How the workflow looks</h2>
+  <ol class="b">
+    <li><b>Send the case</b> — scans as STL/PLY or a complete exocad project, plus the prescription.</li>
+    <li><b>Design</b> — margins, anatomy, contacts, occlusion, connectors and emergence profile, set to your material and CAM parameters.</li>
+    <li><b>Review</b> — you check screenshots or an exocad webview/3D file and ask for revisions.</li>
+    <li><b>Produce</b> — you receive the final STL files and the exocad project and mill or print as usual.</li>
+  </ol>
+
+  <h2>What does it cost?</h2>
+  <p>Remote design is priced per unit for crowns and bridges and per arch or per case for full-arch and guide work. Rates vary by studio, but crown design commonly falls in the 5–10 USD per unit range. For reference, these are BoundlessCAD's current prices:</p>
+  <div class="tw"><table>
+    <tr><th>Design</th><th>Price</th></tr>
+    <tr><td>Crown, coping, inlay/onlay, veneer, bridge unit</td><td>$6.40 / unit</td></tr>
+    <tr><td>Implant crown or custom abutment</td><td>$9.10 / unit</td></tr>
+    <tr><td>Full-arch implant prosthesis (All-on-4 / All-on-6)</td><td>$88 / arch</td></tr>
+    <tr><td>Night guard / occlusal splint</td><td>$12 / unit</td></tr>
+    <tr><td>Surgical guide</td><td>from $86.50</td></tr>
+    <tr><td>First case</td><td>Free</td></tr>
+  </table></div>
+  <p>When comparing, check what is included: revisions, delivery of the exocad project (not only STL), and whether your own design parameters are applied.</p>
+
+  <h2>Turnaround</h2>
+  <p>Standard crowns and bridges are typically returned in 24–48 hours. Full-arch implant prostheses and surgical guides involve more planning and are usually scheduled per case. Time-zone differences can work in your favour: a case sent at the end of your working day can be designed overnight.</p>
+
+  <h2>What to send for a good result</h2>
+  <h3>Scans</h3>
+  <ul class="b"><li>Prepared arch and antagonist (STL or PLY)</li><li>Bite registration or buccal scan</li><li>Or the complete exocad project</li></ul>
+  <h3>Implant cases</h3>
+  <ul class="b"><li>Implant system and platform</li><li>Scan body used</li><li>Preferred Ti-base / link, screw-retained or cemented</li></ul>
+  <h3>Your parameters</h3>
+  <ul class="b"><li>Material and shade</li><li>Cement gap and minimum thickness</li><li>Connector size for bridges, preferred tooth library</li></ul>
+  <p>Always use a case code instead of the patient's name. Our <a class="in" href="../send/">Send a case</a> page has a one-minute digital prescription with an FDI tooth chart.</p>
+
+  <h2>How to judge a remote design studio</h2>
+  <ol class="b">
+    <li><b>Test on a real case.</b> A free first case shows more than any portfolio.</li>
+    <li><b>Inspect in 3D.</b> Look at margins, proximal contacts, occlusal contacts and minimum thickness in the project or a 3D webview — for example in our <a class="in" href="../cases/">3D case library</a>.</li>
+    <li><b>Check your rules were followed.</b> Cement gap, connectors and library should match what you sent.</li>
+    <li><b>Ask about revisions and turnaround</b> — and what happens on weekends and holidays.</li>
+    <li><b>Confirm data handling.</b> Anonymized files, white-label delivery, no contact with your clients.</li>
+  </ol>
+
+  <h2>Frequently asked questions</h2>
+  <h3>Do I lose control over the design?</h3>
+  <p>No. You receive the exocad project together with the STL files, so your team can still adjust anything before production.</p>
+  <h3>Can a remote designer follow our lab's style?</h3>
+  <p>Yes. Send your parameters and preferred libraries once; a good studio applies them to every case and refines them after the first few jobs.</p>
+  <h3>Is it only for labs?</h3>
+  <p>No. Digital clinics with in-house milling or printing use remote design in the same way.</p>
+
+  <div class="cta">
+    <h2>Try it on your next case</h2>
+    <p>Send one real crown, bridge or abutment case — we design it free and return it in 24–48 hours.</p>
+    <div class="row"><a class="btn" href="../send/">Send a case →</a><a class="btn ghost" href="../cases/">See designs in 3D</a></div>
+  </div>
+</article>
+<footer>© 2026 BoundlessCAD · Remote exocad design for dental labs · boundlesscad.design@gmail.com · exocad and DentalCAD are trademarks of exocad GmbH.</footer>
+</body>
+</html>
