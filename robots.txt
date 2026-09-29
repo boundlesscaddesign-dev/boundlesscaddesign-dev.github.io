@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /ig/
+Disallow: /v/
 
 # AI assistants and AI search crawlers are welcome
 User-agent: GPTBot
