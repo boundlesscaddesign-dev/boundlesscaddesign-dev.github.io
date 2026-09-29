@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Send a case — BoundlessCAD</title>
+<meta name="description" content="Send your first exocad design case to BoundlessCAD: which files we need, a quick digital prescription with tooth chart, and how to share large scans. First case free.">
+<meta property="og:title" content="Send a case — BoundlessCAD">
+<meta property="og:description" content="Files we need, a 1-minute digital prescription, and how to share your scans. Your first case is designed free.">
+<meta property="og:image" content="https://boundlesscaddesign-dev.github.io/og.png">
+<link rel="canonical" href="https://boundlesscaddesign-dev.github.io/send/">
+<meta name="theme-color" content="#0b1826">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../cases/shared.css">
+<style>
+header{position:sticky;top:0;z-index:20;background:rgba(11,24,38,.85);backdrop-filter:blur(14px) saturate(1.3);border-bottom:1px solid var(--line)}
+.bar{max-width:1100px;margin:0 auto;padding:0 22px;height:66px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.bar nav{display:flex;gap:8px;align-items:center}
+.lg{font:inherit;font-size:13px;font-weight:800;color:var(--muted);background:transparent;border:1px solid var(--line);border-radius:999px;padding:8px 12px;cursor:pointer}
+.lg:hover{color:#fff;border-color:var(--teal)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 22px}
+.hero{padding:60px 0 20px;position:relative}
+.hero::before{content:"";position:absolute;width:620px;height:620px;right:-240px;top:-300px;border-radius:50%;background:radial-gradient(circle,rgba(127,209,199,.15),transparent 62%);pointer-events:none}
+h1{font-size:clamp(32px,5vw,54px);line-height:1.05;letter-spacing:-1.4px;margin:14px 0 14px;max-width:780px}
+.lead{color:var(--muted);font-size:17px;max-width:640px}
+.steps{display:grid;gap:22px;margin:34px auto 70px}
+.sec{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:28px}
+.sec h2{display:flex;align-items:center;gap:14px;font-size:22px;letter-spacing:-.4px;margin-bottom:6px}
+.sec h2 .n{flex:none;width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:var(--teal);color:#06241f;font-size:15px;font-weight:800}
+.sec>.sub{color:var(--muted);margin:0 0 20px 50px;font-size:14.5px}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.box{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:14px;padding:16px}
+.box h3{font-size:15px;margin-bottom:8px;color:var(--mint)}
+.box ul{list-style:none;display:grid;gap:7px;font-size:14px;color:#c9d6df}
+.box li{display:flex;gap:8px}.box li::before{content:"✓";color:var(--teal);font-weight:800}
+form{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+label{display:grid;gap:6px;font-size:13px;font-weight:700;color:var(--muted)}
+label.full{grid-column:1/-1}
+input,select,textarea{font:inherit;font-size:15px;color:var(--txt);background:#0d1c2c;border:1px solid rgba(255,255,255,.12);border-radius:11px;padding:11px 13px;outline:none;transition:border-color .2s,box-shadow .2s;width:100%}
+input:focus,select:focus,textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(127,209,199,.15)}
+textarea{min-height:90px;resize:vertical}
+.chart{grid-column:1/-1;background:#0d1c2c;border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:14px;display:grid;gap:8px;overflow-x:auto}
+.chart .row{display:flex;gap:4px;justify-content:center;min-width:560px}
+.chart .gap{width:14px}
+.t{width:32px;height:38px;border-radius:9px 9px 12px 12px;border:1px solid rgba(255,255,255,.14);background:#132a40;color:var(--muted);font:inherit;font-size:12px;font-weight:800;cursor:pointer;transition:.15s}
+.t:hover{border-color:var(--teal);color:#fff}
+.t.on{background:var(--teal);color:#06241f;border-color:var(--teal)}
+.chart .hint{text-align:center;color:var(--muted);font-size:12.5px}
+.acts{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.note{grid-column:1/-1;color:var(--muted);font-size:13px}
+.share{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.share .box p{font-size:14px;color:#c9d6df}
+.cta{margin-bottom:70px;padding:30px;border-radius:22px;background:linear-gradient(135deg,#12324a,#0f2033);border:1px solid rgba(127,209,199,.2);display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
+.cta h2{font-size:clamp(22px,3vw,30px);letter-spacing:-.6px}
+.cta p{color:#b6c7d3;margin-top:4px}
+footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:13px}
+.toast{opacity:0;visibility:hidden;position:fixed;left:50%;bottom:24px;transform:translate(-50%,120px);background:var(--teal);color:#06241f;font-weight:800;padding:12px 18px;border-radius:12px;transition:transform .35s var(--ease);z-index:50}
+.toast.on{transform:translate(-50%,0);opacity:1;visibility:visible}
+@media (max-width:640px){.chart .row{flex-wrap:wrap;min-width:0;max-width:290px;margin:0 auto;row-gap:6px}.chart .gap{flex-basis:100%;height:0}.t{width:32px}}
+@media (max-width:820px){.cols,.share{grid-template-columns:1fr}form{grid-template-columns:1fr}.sec{padding:20px}.sec>.sub{margin-left:0}.bar nav .ghost{display:none}}
+@media print{
+ body{background:#fff;color:#000}header,.hero,.s1,.s3,.cta,footer,.acts,.toast,.chart .hint{display:none!important}
+ .sec{border:1px solid #999;background:#fff}.sec h2 .n{background:#000;color:#fff}
+ input,select,textarea{background:#fff;color:#000;border:1px solid #999}label{color:#333}
+ .t{background:#fff;color:#000;border:1px solid #999}.t.on{background:#000;color:#fff}.chart{background:#fff;border-color:#999}
+}
+</style>
+</head>
+<body>
+<header><div class="bar">
+  <a class="logo" href="../" aria-label="BoundlessCAD home"><svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="#7FD1C7" stroke-width="4" stroke-linecap="round" stroke-dasharray="118 52"/><path d="M24 22c-3 0-5 3-5 6 0 5 2 7 3 11 1 4 2 7 3.5 7s2.5-3 3.2-6.5c.6-1.8 1.4-2.5 3.3-2.5s2.7.7 3.3 2.5c.7 3.5 1.7 6.5 3.2 6.5S43 43 44 39c1-4 3-6 3-11 0-3-2-6-5-6-2.5 0-4 1.6-9 1.6S26.5 22 24 22z" fill="#fff"/></svg><span>Boundless<b>CAD</b></span></a>
+  <nav><a class="btn ghost" href="../cases/" data-i="nav3d">3D cases</a><button class="lg" id="lg" type="button">ES</button></nav>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <div class="eyebrow" data-i="eyebrow">Send a case</div>
+  <h1 data-i="h1html">Your first case, <span class="serif">designed free.</span></h1>
+  <p class="lead" data-i="lead">Three short steps: check the files, fill a one-minute prescription, and send. We confirm receipt and return the design in 24–48 hours.</p>
+</div></section>
+
+<main class="wrap steps">
+  <section class="sec s1">
+    <h2><span class="n">1</span><span data-i="s1t">Files we need</span></h2>
+    <p class="sub" data-i="s1s">Anonymized files only — use a case code, never the patient's name.</p>
+    <div class="cols">
+      <div class="box"><h3 data-i="b1t">Scans</h3><ul data-i="b1l"><li>Prepared arch (STL / PLY)</li><li>Antagonist</li><li>Bite registration or buccal scan</li><li>Or a complete exocad project (.dentalProject)</li></ul></div>
+      <div class="box"><h3 data-i="b2t">Implant cases</h3><ul data-i="b2l"><li>Implant system and platform</li><li>Scan body used</li><li>Ti-base / link, if you have a preference</li><li>Screw-retained or cemented</li></ul></div>
+      <div class="box"><h3 data-i="b3t">Your preferences</h3><ul data-i="b3l"><li>Material and shade</li><li>Cement gap and minimum thickness</li><li>Connector size for bridges</li><li>Tooth library, if you use one</li></ul></div>
+    </div>
+  </section>
+
+  <section class="sec s2">
+    <h2><span class="n">2</span><span data-i="s2t">Digital prescription</span></h2>
+    <p class="sub" data-i="s2s">Fill it in, then email it, send it by WhatsApp, or save it as PDF and attach it to your files.</p>
+    <form id="rx" onsubmit="return false">
+      <label><span data-i="f_lab">Lab / clinic name</span><input name="lab" autocomplete="organization"></label>
+      <label><span data-i="f_code">Case code</span><input name="code" placeholder="e.g. LAB-0142"></label>
+      <label><span data-i="f_type">Restoration type</span><select name="type" id="type"></select></label>
+      <label><span data-i="f_mat">Material</span><select name="mat" id="mat"></select></label>
+      <div class="chart" id="chart"><div class="row" id="up"></div><div class="row" id="lo"></div><div class="hint" data-i="chint">Tap the teeth involved (FDI numbering)</div></div>
+      <label><span data-i="f_teeth">Teeth</span><input name="teeth" id="teeth" placeholder="e.g. 36 or 14–16"></label>
+      <label><span data-i="f_shade">Shade</span><input name="shade" placeholder="e.g. A2"></label>
+      <label><span data-i="f_imp">Implant system / scan body (if any)</span><input name="imp"></label>
+      <label><span data-i="f_due">Needed by</span><input name="due" type="date"></label>
+      <label class="full"><span data-i="f_notes">Notes (cement gap, contacts, occlusion, anything special)</span><textarea name="notes"></textarea></label>
+      <div class="acts">
+        <button class="btn" id="mail" type="button" data-i="a_mail">Email this prescription →</button>
+        <button class="btn ghost" id="wa" type="button">WhatsApp</button>
+        <button class="btn ghost" id="copy" type="button" data-i="a_copy">Copy text</button>
+        <button class="btn ghost" id="pdf" type="button" data-i="a_pdf">Save as PDF</button>
+      </div>
+      <p class="note" data-i="f_note">Nothing is uploaded or stored by this page — it only prepares the message for you.</p>
+    </form>
+  </section>
+
+  <section class="sec s3">
+    <h2><span class="n">3</span><span data-i="s3t">Send the files</span></h2>
+    <p class="sub" data-i="s3s">Use whatever is easiest for you.</p>
+    <div class="share">
+      <div class="box"><h3 data-i="c1t">Email attachment</h3><p data-i="c1p">Up to ~25 MB: attach the files to the prescription email to boundlesscad.design@gmail.com.</p></div>
+      <div class="box"><h3 data-i="c2t">Download link</h3><p data-i="c2p">Larger cases: share a WeTransfer, Google Drive or Dropbox link in the email.</p></div>
+      <div class="box"><h3 data-i="c3t">Your portal</h3><p data-i="c3p">Already use a case portal or cloud folder? Invite our email and tell us the case code.</p></div>
+    </div>
+  </section>
+
+  <div class="cta">
+    <div><h2 data-i="ctah">Not sure what to send?</h2><p data-i="ctap">Write to us with a screenshot of the case — we'll tell you exactly what we need.</p></div>
+    <a class="btn" href="mailto:boundlesscad.design@gmail.com" data-i="ctab">boundlesscad.design@gmail.com</a>
+  </div>
+</main>
+
+<footer><div class="wrap">© 2026 BoundlessCAD · <span data-i="foot">Remote exocad design for dental labs</span></div></footer>
+<div class="toast" id="toast"></div>
+
+<script>
+const T={
+en:{nav3d:"3D cases",eyebrow:"Send a case",h1html:'Your first case, <span class="serif">designed free.</span>',lead:"Three short steps: check the files, fill a one-minute prescription, and send. We confirm receipt and return the design in 24–48 hours.",
+s1t:"Files we need",s1s:"Anonymized files only — use a case code, never the patient's name.",b1t:"Scans",b1l:["Prepared arch (STL / PLY)","Antagonist","Bite registration or buccal scan","Or a complete exocad project (.dentalProject)"],b2t:"Implant cases",b2l:["Implant system and platform","Scan body used","Ti-base / link, if you have a preference","Screw-retained or cemented"],b3t:"Your preferences",b3l:["Material and shade","Cement gap and minimum thickness","Connector size for bridges","Tooth library, if you use one"],
+s2t:"Digital prescription",s2s:"Fill it in, then email it, send it by WhatsApp, or save it as PDF and attach it to your files.",f_lab:"Lab / clinic name",f_code:"Case code",f_type:"Restoration type",f_mat:"Material",chint:"Tap the teeth involved (FDI numbering)",f_teeth:"Teeth",f_shade:"Shade",f_imp:"Implant system / scan body (if any)",f_due:"Needed by",f_notes:"Notes (cement gap, contacts, occlusion, anything special)",a_mail:"Email this prescription →",a_copy:"Copy text",a_pdf:"Save as PDF",f_note:"Nothing is uploaded or stored by this page — it only prepares the message for you.",
+s3t:"Send the files",s3s:"Use whatever is easiest for you.",c1t:"Email attachment",c1p:"Up to ~25 MB: attach the files to the prescription email to boundlesscad.design@gmail.com.",c2t:"Download link",c2p:"Larger cases: share a WeTransfer, Google Drive or Dropbox link in the email.",c3t:"Your portal",c3p:"Already use a case portal or cloud folder? Invite our email and tell us the case code.",
+ctah:"Not sure what to send?",ctap:"Write to us with a screenshot of the case — we'll tell you exactly what we need.",ctab:"boundlesscad.design@gmail.com",foot:"Remote exocad design for dental labs",
+types:["Crown","Bridge","Implant crown","Custom abutment","Implant bridge","Full-arch implant (All-on-X)","Veneer","Inlay / onlay","Night guard / splint","Surgical guide","Other"],
+mats:["Zirconia","Lithium disilicate (e.max)","PMMA / temporary","Composite / hybrid","Metal / CoCr","Titanium","Printed resin","Other"],
+subj:"Free test case",rx:"PRESCRIPTION — BoundlessCAD",L:{lab:"Lab",code:"Case code",type:"Restoration",mat:"Material",teeth:"Teeth",shade:"Shade",imp:"Implant / scan body",due:"Needed by",notes:"Notes"},copied:"Copied",files:"Files: attached / link below",lg:"ES",title:"Send a case — BoundlessCAD"},
+es:{nav3d:"Casos 3D",eyebrow:"Enviar un caso",h1html:'Su primer caso, <span class="serif">diseñado gratis.</span>',lead:"Tres pasos cortos: revise los archivos, llene una receta de un minuto y envíe. Confirmamos la recepción y devolvemos el diseño en 24–48 horas.",
+s1t:"Archivos que necesitamos",s1s:"Solo archivos anónimos: use un código de caso, nunca el nombre del paciente.",b1t:"Escaneos",b1l:["Arcada preparada (STL / PLY)","Antagonista","Registro de mordida o escaneo bucal","O un proyecto exocad completo (.dentalProject)"],b2t:"Casos de implantes",b2l:["Sistema y plataforma del implante","Scan body utilizado","Ti-base / link, si tiene preferencia","Atornillado o cementado"],b3t:"Sus preferencias",b3l:["Material y color","Espacio de cemento y espesor mínimo","Tamaño de conectores en puentes","Biblioteca de dientes, si usa una"],
+s2t:"Receta digital",s2s:"Llénela y luego envíela por correo o WhatsApp, o guárdela en PDF y adjúntela a sus archivos.",f_lab:"Laboratorio / clínica",f_code:"Código de caso",f_type:"Tipo de restauración",f_mat:"Material",chint:"Toque los dientes involucrados (numeración FDI)",f_teeth:"Dientes",f_shade:"Color",f_imp:"Sistema de implante / scan body (si aplica)",f_due:"Fecha requerida",f_notes:"Notas (espacio de cemento, contactos, oclusión, algo especial)",a_mail:"Enviar receta por correo →",a_copy:"Copiar texto",a_pdf:"Guardar en PDF",f_note:"Esta página no sube ni guarda nada: solo prepara el mensaje para usted.",
+s3t:"Envíe los archivos",s3s:"Use lo que le resulte más fácil.",c1t:"Adjunto de correo",c1p:"Hasta ~25 MB: adjunte los archivos al correo de la receta a boundlesscad.design@gmail.com.",c2t:"Enlace de descarga",c2p:"Casos más grandes: comparta un enlace de WeTransfer, Google Drive o Dropbox en el correo.",c3t:"Su portal",c3p:"¿Ya usa un portal de casos o carpeta en la nube? Invite a nuestro correo e indíquenos el código de caso.",
+ctah:"¿No sabe qué enviar?",ctap:"Escríbanos con una captura del caso y le diremos exactamente qué necesitamos.",ctab:"boundlesscad.design@gmail.com",foot:"Diseño remoto en exocad para laboratorios dentales",
+types:["Corona","Puente","Corona sobre implante","Pilar personalizado","Puente sobre implantes","Arcada completa sobre implantes (All-on-X)","Carilla","Incrustación","Guarda / férula oclusal","Guía quirúrgica","Otro"],
+mats:["Zirconia","Disilicato de litio (e.max)","PMMA / provisional","Composite / híbrido","Metal / CoCr","Titanio","Resina impresa","Otro"],
+subj:"Caso de prueba gratis",rx:"RECETA — BoundlessCAD",L:{lab:"Laboratorio",code:"Código de caso",type:"Restauración",mat:"Material",teeth:"Dientes",shade:"Color",imp:"Implante / scan body",due:"Fecha requerida",notes:"Notas"},copied:"Copiado",files:"Archivos: adjuntos / enlace abajo",lg:"EN",title:"Enviar un caso — BoundlessCAD"}};
+const qs=new URLSearchParams(location.search);
+let lang=qs.get('lang')||(document.referrer.includes('/es/')||navigator.language.startsWith('es')?'es':'en');
+const $=id=>document.getElementById(id),form=$('rx');
+function apply(){const t=T[lang];document.documentElement.lang=lang;document.title=t.title;
+ document.querySelectorAll('[data-i]').forEach(el=>{const k=el.dataset.i,v=t[k];if(v===undefined)return;
+  if(Array.isArray(v))el.innerHTML=v.map(x=>`<li>${x}</li>`).join('');else if(k.endsWith('html'))el.innerHTML=v;else el.textContent=v});
+ const ts=$('type').value,ms=$('mat').value;
+ $('type').innerHTML=t.types.map((x,i)=>`<option value="${i}">${x}</option>`).join('');$('mat').innerHTML=t.mats.map((x,i)=>`<option value="${i}">${x}</option>`).join('');
+ if(ts)$('type').value=ts;if(ms)$('mat').value=ms;$('lg').textContent=t.lg}
+$('lg').onclick=()=>{lang=lang==='en'?'es':'en';const u=new URL(location);u.searchParams.set('lang',lang);history.replaceState(null,'',u);apply()};
+// tooth chart
+const up=[18,17,16,15,14,13,12,11,0,21,22,23,24,25,26,27,28],lo=[48,47,46,45,44,43,42,41,0,31,32,33,34,35,36,37,38],sel=new Set();
+const mk=a=>a.map(n=>n?`<button type="button" class="t" data-n="${n}" aria-pressed="false">${n}</button>`:'<span class="gap"></span>').join('');
+$('up').innerHTML=mk(up);$('lo').innerHTML=mk(lo);
+$('chart').addEventListener('click',e=>{const b=e.target.closest('.t');if(!b)return;const n=+b.dataset.n;sel.has(n)?sel.delete(n):sel.add(n);b.classList.toggle('on');b.setAttribute('aria-pressed',sel.has(n));
+ const order=[...up,...lo].filter(Boolean);$('teeth').value=order.filter(x=>sel.has(x)).join(', ')});
+function text(){const t=T[lang],f=new FormData(form),L=t.L;const v=k=>(f.get(k)||'').toString().trim();
+ const rows=[['lab',v('lab')],['code',v('code')],['type',t.types[+v('type')]],['mat',t.mats[+v('mat')]],['teeth',v('teeth')],['shade',v('shade')],['imp',v('imp')],['due',v('due')],['notes',v('notes')]].filter(r=>r[1]);
+ return t.rx+'\n'+rows.map(r=>`${L[r[0]]}: ${r[1]}`).join('\n')+'\n\n'+t.files+'\n'}
+function toast(m){const el=$('toast');el.textContent=m;el.classList.add('on');setTimeout(()=>el.classList.remove('on'),1800)}
+$('mail').onclick=()=>{const t=T[lang],code=form.code.value.trim();location.href=`mailto:boundlesscad.design@gmail.com?subject=${encodeURIComponent(t.subj+(code?' — '+code:''))}&body=${encodeURIComponent(text())}`};
+$('wa').onclick=()=>window.open(`https://wa.me/989124390969?text=${encodeURIComponent(text())}`,'_blank','noopener');
+$('copy').onclick=async()=>{try{await navigator.clipboard.writeText(text());toast(T[lang].copied+' ✓')}catch(e){prompt('',text())}};
+$('pdf').onclick=()=>print();
+apply();
+</script>
+</body>
+</html>

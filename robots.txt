@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://boundlesscaddesign-dev.github.io/sitemap.xml
