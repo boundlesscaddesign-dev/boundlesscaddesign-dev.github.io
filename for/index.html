@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Your overnight design team — BoundlessCAD</title>
+<meta name="description" content="Remote exocad design for your lab: overnight turnaround, per-unit or monthly Design Seat pricing, first case free.">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://boundlesscaddesign-dev.github.io/for/">
+<meta property="og:title" content="Your overnight exocad design team — BoundlessCAD">
+<meta property="og:description" content="Send by evening, design ready by morning. See what it would cost your lab.">
+<meta property="og:image" content="https://boundlesscaddesign-dev.github.io/og.png">
+<meta name="theme-color" content="#0b1826">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../cases/shared.css">
+<style>
+header{position:sticky;top:0;z-index:20;background:rgba(11,24,38,.85);backdrop-filter:blur(14px) saturate(1.3);border-bottom:1px solid var(--line)}
+.bar{max-width:1100px;margin:0 auto;padding:0 22px;height:66px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.bar nav{display:flex;gap:8px;align-items:center}
+.lg{font:inherit;font-size:13px;font-weight:800;color:var(--muted);background:transparent;border:1px solid var(--line);border-radius:999px;padding:8px 11px;cursor:pointer}
+.lg.on,.lg:hover{color:#fff;border-color:var(--teal)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 22px}
+.hero{padding:64px 0 30px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;width:680px;height:680px;right:-240px;top:-320px;border-radius:50%;background:radial-gradient(circle,rgba(127,209,199,.16),transparent 62%);pointer-events:none}
+h1{font-size:clamp(34px,5.2vw,60px);line-height:1.04;letter-spacing:-1.6px;margin:14px 0 16px;max-width:860px}
+h1 .lab{color:var(--mint)}
+.lead{color:var(--muted);font-size:18px;max-width:660px}
+.ref{display:none;margin-top:20px;padding:12px 16px;border-radius:14px;background:rgba(242,201,138,.1);border:1px solid rgba(242,201,138,.35);color:#f6ddb5;font-weight:700;font-size:14.5px;max-width:660px}
+.ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+section.blk{padding:34px 0}
+h2{font-size:clamp(26px,3.4vw,38px);letter-spacing:-.8px;line-height:1.1;margin:10px 0 10px}
+.sub{color:var(--muted);max-width:660px}
+/* overnight timeline */
+.tl{margin-top:26px;background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:28px 26px;position:relative;overflow:hidden}
+.tl .track{position:relative;height:74px;margin:12px 6px 0;border-radius:40px;background:linear-gradient(90deg,#f2c98a33 0%,#0b1826 22%,#0b1826 78%,#7FD1C733 100%);border:1px solid var(--line)}
+.tl .stars{position:absolute;inset:0;background-image:radial-gradient(#fff 1px,transparent 1.4px);background-size:38px 22px;opacity:.12;border-radius:40px}
+.tl .dot{position:absolute;top:50%;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;display:grid;place-items:center;font-size:20px;background:#0b1826;border:2px solid var(--teal);box-shadow:0 0 22px rgba(127,209,199,.35)}
+.tl .run{position:absolute;top:50%;left:12%;width:26px;height:26px;margin-top:-13px;border-radius:8px;background:var(--teal);box-shadow:0 0 18px var(--teal);animation:run 6s ease-in-out infinite}
+@keyframes run{0%{left:10%}100%{left:86%}}
+.tl .lbl{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.tl .lbl div{font-size:14px;color:var(--muted)}.tl .lbl b{display:block;color:#fff;font-size:20px;letter-spacing:-.3px}
+.tl .lbl div:nth-child(2){text-align:center}.tl .lbl div:nth-child(3){text-align:right}
+.tl .fine{margin-top:16px;font-size:12.5px;color:var(--muted)}
+/* calculator */
+.calc{margin-top:24px;display:grid;grid-template-columns:1.05fr 1fr;gap:18px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:24px}
+.card h3{font-size:16px;color:var(--mint);margin-bottom:14px}
+label{display:grid;gap:8px;font-size:13px;font-weight:700;color:var(--muted);margin-bottom:18px}
+input[type=range]{accent-color:var(--teal);width:100%}
+.num{font-size:34px;font-weight:800;color:#fff;letter-spacing:-1px}
+.row{display:flex;align-items:center;gap:10px}
+.row input[type=number]{font:inherit;font-size:16px;font-weight:700;color:var(--txt);background:#0d1c2c;border:1px solid rgba(255,255,255,.12);border-radius:11px;padding:10px 12px;width:160px}
+.row span{color:var(--muted);font-weight:700}
+.src{font-size:12px;color:var(--muted)}.src a{color:var(--teal)}
+.cmp{display:grid;gap:12px}
+.bar2{display:grid;gap:6px}
+.bar2 .t{display:flex;justify-content:space-between;font-size:14px;color:#dce7ee;font-weight:700}
+.bar2 .g{height:14px;border-radius:10px;background:#0d1c2c;overflow:hidden}
+.bar2 .g i{display:block;height:100%;border-radius:10px;transition:width .6s var(--ease)}
+.bar2.a .g i{background:#6f8394}.bar2.b .g i{background:linear-gradient(90deg,var(--teal),var(--mint))}
+.save{margin-top:8px;padding:16px;border-radius:16px;background:rgba(127,209,199,.1);border:1px solid rgba(127,209,199,.3)}
+.save b{font-size:30px;color:#fff;letter-spacing:-.8px}
+.save p{color:#c9d6df;font-size:14px;margin-top:4px}
+.plan{font-size:13.5px;color:var(--muted);margin-top:8px}
+/* tiles */
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px}
+.tile .i{font-size:26px}.tile h4{font-size:16px;margin:10px 0 6px}.tile p{font-size:14px;color:var(--muted)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+.promo{display:block;padding:24px;border-radius:20px;background:linear-gradient(135deg,#12324a,#0f2033);border:1px solid rgba(127,209,199,.22);transition:transform .3s var(--ease),border-color .3s}
+.promo:hover{transform:translateY(-4px);border-color:var(--teal)}
+.promo h3{font-size:21px;letter-spacing:-.4px;margin:8px 0 6px}.promo p{color:#b6c7d3;font-size:14.5px}.promo .go{color:var(--teal);font-weight:800;margin-top:12px;display:inline-block}
+.final{margin:36px 0 70px;padding:34px;border-radius:24px;background:linear-gradient(135deg,#143a52,#0f2033);border:1px solid rgba(127,209,199,.25);text-align:center}
+.final h2{margin-top:0}.final .ctas{justify-content:center}
+footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:13px}
+@media (max-width:860px){.calc,.two{grid-template-columns:1fr}.tiles{grid-template-columns:1fr 1fr}.bar nav .ghost{display:none}.tl .lbl b{font-size:16px}}
+@media (max-width:480px){.tiles{grid-template-columns:1fr}.lg{padding:7px 9px}}
+@media (prefers-reduced-motion:reduce){.tl .run{animation:none;left:48%}}
+</style>
+</head>
+<body>
+<header><div class="bar">
+  <a class="logo" href="../" aria-label="BoundlessCAD home"><svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="#7FD1C7" stroke-width="4" stroke-linecap="round" stroke-dasharray="118 52"/><path d="M24 22c-3 0-5 3-5 6 0 5 2 7 3 11 1 4 2 7 3.5 7s2.5-3 3.2-6.5c.6-1.8 1.4-2.5 3.3-2.5s2.7.7 3.3 2.5c.7 3.5 1.7 6.5 3.2 6.5S43 43 44 39c1-4 3-6 3-11 0-3-2-6-5-6-2.5 0-4 1.6-9 1.6S26.5 22 24 22z" fill="#fff"/></svg><span>Boundless<b>CAD</b></span></a>
+  <nav><a class="btn ghost" href="../cases/" data-i="n3d">3D cases</a><button class="lg" data-l="en">EN</button><button class="lg" data-l="es">ES</button><button class="lg" data-l="de">DE</button></nav>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <div class="eyebrow" data-i="eb">Prepared for your lab</div>
+  <h1 id="h1"></h1>
+  <p class="lead" data-i="lead"></p>
+  <div class="ref" id="ref"></div>
+  <div class="ctas"><a class="btn" id="cta1" href="../send/" data-i="c1">Send your first case free →</a><a class="btn ghost" href="#calc" data-i="c2">See your savings</a></div>
+</div></section>
+
+<section class="blk"><div class="wrap">
+  <div class="eyebrow" data-i="oeb">Overnight design</div>
+  <h2 data-i="oh">Scan tonight. <span class="serif">Mill at 8 am.</span></h2>
+  <p class="sub" data-i="os"></p>
+  <div class="tl">
+    <div class="track"><div class="stars"></div><div class="dot" style="left:6%">🌆</div><div class="run"></div><div class="dot" style="left:50%">🦷</div><div class="dot" style="left:94%">☀️</div></div>
+    <div class="lbl"><div><b id="t1">18:00</b><span data-i="l1">You send the scans</span></div><div><b data-i="l2b">While you sleep</b><span data-i="l2">We design in exocad</span></div><div><b id="t2">08:00</b><span data-i="l3">Design in your inbox</span></div></div>
+    <p class="fine" id="fine"></p>
+  </div>
+</div></section>
+
+<section class="blk" id="calc"><div class="wrap">
+  <div class="eyebrow" data-i="ceb">Your numbers</div>
+  <h2 data-i="ch">Extra capacity <span class="serif">vs. another hire.</span></h2>
+  <p class="sub" data-i="cs"></p>
+  <div class="calc">
+    <div class="card">
+      <h3 data-i="in">Your lab</h3>
+      <label><span data-i="u">Units you would outsource per month</span><div class="row"><input type="range" id="u" min="10" max="400" step="5"><span class="num" id="uv">100</span></div></label>
+      <label><span data-i="sal">Monthly gross salary of one dental technician</span><div class="row"><input type="number" id="sal" min="0" step="50"><span id="cur">EUR</span></div><span class="src" id="src"></span></label>
+    </div>
+    <div class="card cmp">
+      <h3 data-i="out">Monthly cost</h3>
+      <div class="bar2 a"><div class="t"><span data-i="hire">Hiring one more technician</span><span id="hv">—</span></div><div class="g"><i id="hb"></i></div></div>
+      <div class="bar2 b"><div class="t"><span data-i="us">BoundlessCAD</span><span id="bv">—</span></div><div class="g"><i id="bb"></i></div></div>
+      <p class="plan" id="plan"></p>
+      <div class="save" id="save"></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="blk"><div class="wrap">
+  <div class="tiles">
+    <div class="tile"><div class="i">🌙</div><h4 data-i="t1h">Overnight option</h4><p data-i="t1p">Crowns and bridges ready by morning; standard 24–48 h.</p></div>
+    <div class="tile"><div class="i">🔁</div><h4 data-i="t2h">Revisions included</h4><p data-i="t2p">We adjust until you approve, with your own parameters.</p></div>
+    <div class="tile"><div class="i">🏷️</div><h4 data-i="t3h">White-label</h4><p data-i="t3p">Case codes only. Your clients never hear from us.</p></div>
+    <div class="tile"><div class="i">🎁</div><h4 data-i="t4h">First case free</h4><p data-i="t4p">Judge the margins on a real job before you commit.</p></div>
+  </div>
+  <div class="two">
+    <a class="promo" href="../cases/"><div class="eyebrow" data-i="p1e">See it first</div><h3 data-i="p1h">Rotate our designs in 3D</h3><p data-i="p1p">Real exocad cases open in your browser — check margins, contacts and occlusion.</p><span class="go" data-i="p1g">Open the 3D library →</span></a>
+    <a class="promo" id="rv" href="../review/"><div class="eyebrow" data-i="p2e">Zero risk</div><h3 data-i="p2h">Free design review</h3><p data-i="p2p">Send one of your own designs — we return a short check of margins, contacts and thickness.</p><span class="go" data-i="p2g">How it works →</span></a>
+  </div>
+</div></section>
+
+<div class="wrap"><div class="final">
+  <h2 data-i="fh">Try us on your next case.</h2>
+  <p class="sub" style="margin:0 auto" data-i="fp">The first design is free. If you like it, choose per-unit pricing or a monthly Design Seat.</p>
+  <div class="ctas"><a class="btn" id="cta2" href="../send/" data-i="c1">Send your first case free →</a><a class="btn ghost" id="cta3" href="../plans/" data-i="c3">See Design Seat plans</a></div>
+</div></div>
+
+<footer><div class="wrap">© 2026 BoundlessCAD · boundlesscad.design@gmail.com · <span data-i="foot">Salary figures are public estimates for a general dental technician (gross, before employer costs) — adjust them to your lab.</span></div></footer>
+
+<script>
+const SAL={"DE":[2908,"EUR",3307,"StepStone Gehaltsreport","https://www.stepstone.de/gehalt/Zahntechniker-in.html"],"AT":[2512,"EUR",2857,"karriere.at Gehaltsrechner","https://www.karriere.at/gehalt/zahntechniker"],"CH":[4583,"CHF",5510,"Glassdoor Switzerland","https://de.glassdoor.ch/Geh%C3%A4lter/zahntechniker-gehalt-SRCH_KO0,13.htm"],"ES":[1822,"EUR",2072,"Indeed España","https://es.indeed.com/career/prot%C3%A9sico-dental/salaries"],"IT":[1365,"EUR",1552,"Indeed Italia","https://it.indeed.com/career/odontotecnico/salaries"],"FR":[2146,"EUR",2441,"Indeed France","https://fr.indeed.com/career/proth%C3%A9siste-dentaire/salaries"],"GB":[3253,"GBP",4312,"Indeed UK","https://uk.indeed.com/career/dental-technician/salaries"],"NL":[3000,"EUR",3412,"Glassdoor","https://www.glassdoor.com/Salaries/netherlands-dental-technician-salary-SRCH_IL.0,11_IN178_KO12,29.htm"],"PL":[5083,"PLN",1322,"Indeed Polska","https://pl.indeed.com/career/technik-dentystyczny/salaries"],"PT":[1083,"EUR",1232,"Talent.com Portugal","https://pt.talent.com/salary?job=tecnico+de+protese+dentaria"],"TR":[42000,"TRY",857,"Glassdoor","https://www.glassdoor.com/Salaries/turkey-dental-technician-salary-SRCH_IL.0,6_IN238_KO7,24.htm"],"MX":[11463,"MXN",640,"Indeed México","https://mx.indeed.com/career/t%C3%A9cnico-dental/salaries"],"CO":[2070503,"COP",627,"Glassdoor","https://www.glassdoor.com/Salaries/colombia-dental-technician-salary-SRCH_IL.0,8_IN54_KO9,26.htm"],"CL":[950000,"CLP",988,"Talent.com Chile","https://cl.talent.com/salary?job=tecnico+dental"],"BR":[2100,"BRL",403,"Salario.com.br","https://www.salario.com.br/profissao/protetico-dentario-cbo-322410/"],"AU":[5750,"AUD",4035,"Payscale Australia","https://www.payscale.com/research/AU/Job=Dental_Technician/Salary"],"NZ":[4750,"NZD",2691,"Payscale New Zealand","https://www.payscale.com/research/NZ/Job=Dental_Technician/Salary"],"AE":[5000,"AED",1361,"Glassdoor","https://www.glassdoor.com/Salaries/dubai-dental-technician-salary-SRCH_IL.0,5_IM954_KO6,23.htm"],"SA":[5667,"SAR",1511,"Payscale Saudi Arabia","https://www.payscale.com/research/SA/Job=Dental_Technician/Salary"]};
+const TZ={DE:"Europe/Berlin",AT:"Europe/Vienna",CH:"Europe/Zurich",LI:"Europe/Vaduz",ES:"Europe/Madrid",IT:"Europe/Rome",FR:"Europe/Paris",GB:"Europe/London",NL:"Europe/Amsterdam",BE:"Europe/Brussels",PL:"Europe/Warsaw",PT:"Europe/Lisbon",GR:"Europe/Athens",TR:"Europe/Istanbul",MX:"America/Mexico_City",GT:"America/Guatemala",CO:"America/Bogota",CL:"America/Santiago",AR:"America/Argentina/Buenos_Aires",PE:"America/Lima",EC:"America/Guayaquil",BR:"America/Sao_Paulo",AU:"Australia/Sydney",NZ:"Pacific/Auckland",AE:"Asia/Dubai",SA:"Asia/Riyadh",IQ:"Asia/Baghdad",IN:"Asia/Kolkata",IE:"Europe/Dublin",SE:"Europe/Stockholm",FI:"Europe/Helsinki",DK:"Europe/Copenhagen",NO:"Europe/Oslo"};
+const ESC=["ES","MX","GT","CO","CL","AR","PE","EC","UY","PY","BO","VE","CR","PA","DO","HN","SV","NI"],DEC=["DE","AT","CH","LI"];
+const PLANS=[{n:"Seat 50",p:290,u:50,r:5.80},{n:"Seat 100",p:549,u:100,r:5.49},{n:"Seat 250",p:1290,u:250,r:5.16}],PAYG=6.40;
+const T={
+en:{n3d:"3D cases",eb:"Prepared for your lab",h1:l=>l?`${l}, meet your <span class="serif">overnight design team.</span>`:`Meet your <span class="serif">overnight design team.</span>`,
+lead:"BoundlessCAD designs crowns, bridges, custom abutments, full-arch implant prostheses and guides in exocad — and returns production-ready files while your lab is closed.",
+ref:r=>`🎁 Referred by ${r}: when you place your first paid order, you both get 10 free design credits.`,
+c1:"Send your first case free →",c2:"See your savings",c3:"See Design Seat plans",oeb:"Overnight design",oh:'Scan tonight. <span class="serif">Mill at 8 am.</span>',
+os:"Our studio works while your lab sleeps. Send single units or bridges in the evening and start the day with finished designs.",
+l1:"You send the scans",l2b:"While you sleep",l2:"We design in exocad",l3:"Design in your inbox",
+fine:tz=>`Times shown in your local time (${tz}). Overnight service is for crowns and bridges sent by 18:00; full-arch and guide cases are scheduled per case. Standard turnaround 24–48 h.`,
+ceb:"Your numbers",ch:'Extra capacity <span class="serif">vs. another hire.</span>',cs:"Move the slider to your monthly volume. We compare it with the salary of one more technician — before employer costs, exocad licence, holidays and idle weeks.",
+in:"Your lab",u:"Units you would outsource per month",sal:"Monthly gross salary of one dental technician",src:(s,u)=>`Default: public estimate from <a href="${u}" target="_blank" rel="noopener">${s}</a>. Edit it to your real figure.`,src0:"Enter the gross monthly salary in USD.",
+out:"Monthly cost",hire:"One more technician (salary only)",us:"BoundlessCAD",plan:(p,x)=>`Best option for ${x} units: ${p}.`,payg:"pay per unit ($6.40)",
+save:v=>`<b>≈ $${v} / year</b><p>saved compared with one more salary — and you only pay when you have work.</p>`,
+nosave:"<b>Pay only for real work</b><p>No idle weeks, no licence, no holidays or sick days to cover — capacity when you need it.</p>",
+t1h:"Overnight option",t1p:"Crowns and bridges ready by morning; standard 24–48 h.",t2h:"Revisions included",t2p:"We adjust until you approve, with your own parameters.",t3h:"White-label",t3p:"Case codes only. Your clients never hear from us.",t4h:"First case free",t4p:"Judge the margins on a real job before you commit.",
+p1e:"See it first",p1h:"Rotate our designs in 3D",p1p:"Real exocad cases open in your browser — check margins, contacts and occlusion.",p1g:"Open the 3D library →",
+p2e:"Zero risk",p2h:"Free design review",p2p:"Send one of your own designs — we return a short check of margins, contacts and thickness.",p2g:"How it works →",
+fh:"Try us on your next case.",fp:"The first design is free. If you like it, choose per-unit pricing or a monthly Design Seat.",
+foot:"Salary figures are public estimates for a general dental technician (gross, before employer costs) — adjust them to your lab.",title:"Your overnight design team — BoundlessCAD"},
+es:{n3d:"Casos 3D",eb:"Preparado para su laboratorio",h1:l=>l?`${l}, conozca a su <span class="serif">equipo de diseño nocturno.</span>`:`Conozca a su <span class="serif">equipo de diseño nocturno.</span>`,
+lead:"BoundlessCAD diseña coronas, puentes, pilares personalizados, prótesis completas sobre implantes y guías en exocad, y le devuelve archivos listos para producir mientras su laboratorio está cerrado.",
+ref:r=>`🎁 Recomendado por ${r}: con su primer pedido pagado, ambos reciben 10 créditos de diseño gratis.`,
+c1:"Envíe su primer caso gratis →",c2:"Vea su ahorro",c3:"Ver planes Design Seat",oeb:"Diseño nocturno",oh:'Escanee esta noche. <span class="serif">Fresee a las 8.</span>',
+os:"Nuestro estudio trabaja mientras su laboratorio descansa. Envíe coronas o puentes por la tarde y empiece el día con los diseños terminados.",
+l1:"Usted envía los escaneos",l2b:"Mientras duerme",l2:"Diseñamos en exocad",l3:"Diseño en su correo",
+fine:tz=>`Horas en su hora local (${tz}). El servicio nocturno es para coronas y puentes enviados antes de las 18:00; arcadas completas y guías se programan por caso. Entrega estándar 24–48 h.`,
+ceb:"Sus números",ch:'Más capacidad <span class="serif">vs. otra contratación.</span>',cs:"Mueva el control a su volumen mensual. Lo comparamos con el sueldo de un técnico más, sin contar cargas sociales, licencia de exocad, vacaciones ni semanas sin trabajo.",
+in:"Su laboratorio",u:"Unidades que subcontrataría al mes",sal:"Sueldo bruto mensual de un técnico dental",src:(s,u)=>`Valor inicial: estimación pública de <a href="${u}" target="_blank" rel="noopener">${s}</a>. Ajústelo a su cifra real.`,src0:"Ingrese el sueldo bruto mensual en USD.",
+out:"Costo mensual",hire:"Un técnico más (solo sueldo)",us:"BoundlessCAD",plan:(p,x)=>`Mejor opción para ${x} unidades: ${p}.`,payg:"pago por unidad (6,40 USD)",
+save:v=>`<b>≈ ${v} USD / año</b><p>de ahorro frente a un sueldo más, y solo paga cuando tiene trabajo.</p>`,
+nosave:"<b>Pague solo por trabajo real</b><p>Sin semanas muertas, sin licencia, sin vacaciones ni bajas que cubrir: capacidad cuando la necesita.</p>",
+t1h:"Opción nocturna",t1p:"Coronas y puentes listos por la mañana; estándar 24–48 h.",t2h:"Correcciones incluidas",t2p:"Ajustamos hasta que apruebe, con sus parámetros.",t3h:"Marca blanca",t3p:"Solo códigos de caso. Sus clientes nunca sabrán de nosotros.",t4h:"Primer caso gratis",t4p:"Evalúe los márgenes en un trabajo real antes de decidir.",
+p1e:"Véalo primero",p1h:"Gire nuestros diseños en 3D",p1p:"Casos reales de exocad en su navegador: revise márgenes, contactos y oclusión.",p1g:"Abrir biblioteca 3D →",
+p2e:"Cero riesgo",p2h:"Revisión de diseño gratis",p2p:"Envíe uno de sus propios diseños y le devolvemos una revisión breve de márgenes, contactos y espesores.",p2g:"Cómo funciona →",
+fh:"Pruébenos en su próximo caso.",fp:"El primer diseño es gratis. Si le gusta, elija pago por unidad o un Design Seat mensual.",
+foot:"Los sueldos son estimaciones públicas para un técnico dental general (bruto, sin cargas del empleador): ajústelos a su laboratorio.",title:"Su equipo de diseño nocturno — BoundlessCAD"},
+de:{n3d:"3D-Fälle",eb:"Für Ihr Labor vorbereitet",h1:l=>l?`${l}, Ihr <span class="serif">Nacht-Designteam.</span>`:`Ihr <span class="serif">Nacht-Designteam.</span>`,
+lead:"BoundlessCAD konstruiert Kronen, Brücken, individuelle Abutments, implantatgetragene Vollbögen und Bohrschablonen in exocad – und liefert fertige Dateien, während Ihr Labor geschlossen ist.",
+ref:r=>`🎁 Empfohlen von ${r}: Mit Ihrem ersten bezahlten Auftrag erhalten Sie beide 10 kostenlose Design-Credits.`,
+c1:"Ersten Fall kostenlos senden →",c2:"Ersparnis berechnen",c3:"Design-Seat-Pakete ansehen",oeb:"Konstruktion über Nacht",oh:'Heute Abend scannen. <span class="serif">Um 8 Uhr fräsen.</span>',
+os:"Unser Studio arbeitet, während Ihr Labor schläft. Senden Sie Kronen oder Brücken am Abend und beginnen Sie den Tag mit fertigen Konstruktionen.",
+l1:"Sie senden die Scans",l2b:"Während Sie schlafen",l2:"Wir konstruieren in exocad",l3:"Konstruktion im Postfach",
+fine:tz=>`Zeiten in Ihrer Ortszeit (${tz}). Der Nachtservice gilt für Kronen und Brücken, die bis 18:00 Uhr eingehen; Vollbögen und Schablonen werden pro Fall geplant. Standard-Lieferzeit 24–48 h.`,
+ceb:"Ihre Zahlen",ch:'Zusätzliche Kapazität <span class="serif">statt Neueinstellung.</span>',cs:"Stellen Sie Ihr Monatsvolumen ein. Wir vergleichen es mit dem Gehalt eines weiteren Technikers – ohne Lohnnebenkosten, exocad-Lizenz, Urlaub und Leerlauf.",
+in:"Ihr Labor",u:"Einheiten pro Monat, die Sie auslagern würden",sal:"Monatliches Bruttogehalt eines Zahntechnikers",src:(s,u)=>`Vorgabe: öffentliche Schätzung von <a href="${u}" target="_blank" rel="noopener">${s}</a>. Passen Sie den Wert an.`,src0:"Bruttogehalt pro Monat in USD eingeben.",
+out:"Monatliche Kosten",hire:"Ein weiterer Techniker (nur Gehalt)",us:"BoundlessCAD",plan:(p,x)=>`Beste Option für ${x} Einheiten: ${p}.`,payg:"Abrechnung pro Einheit (6,40 USD)",
+save:v=>`<b>≈ ${v} USD / Jahr</b><p>gespart gegenüber einem weiteren Gehalt – und Sie zahlen nur, wenn Arbeit anfällt.</p>`,
+nosave:"<b>Nur echte Arbeit bezahlen</b><p>Kein Leerlauf, keine Lizenz, keine Urlaubs- oder Krankheitsvertretung – Kapazität, wenn Sie sie brauchen.</p>",
+t1h:"Nachtservice",t1p:"Kronen und Brücken am Morgen fertig; Standard 24–48 h.",t2h:"Korrekturen inklusive",t2p:"Wir passen an, bis Sie freigeben – mit Ihren Parametern.",t3h:"White Label",t3p:"Nur Fallcodes. Ihre Kunden erfahren nichts von uns.",t4h:"Erster Fall gratis",t4p:"Prüfen Sie die Ränder an einem echten Fall, bevor Sie sich entscheiden.",
+p1e:"Erst ansehen",p1h:"Unsere Konstruktionen in 3D drehen",p1p:"Echte exocad-Fälle im Browser – Ränder, Kontakte und Okklusion prüfen.",p1g:"3D-Bibliothek öffnen →",
+p2e:"Null Risiko",p2h:"Kostenloser Design-Check",p2p:"Senden Sie eine eigene Konstruktion – wir prüfen Ränder, Kontakte und Wandstärken.",p2g:"So funktioniert's →",
+fh:"Testen Sie uns mit Ihrem nächsten Fall.",fp:"Die erste Konstruktion ist kostenlos. Danach Abrechnung pro Einheit oder ein monatlicher Design Seat.",
+foot:"Gehälter sind öffentliche Schätzwerte für allgemeine Zahntechniker (brutto, ohne Arbeitgeberkosten) – bitte an Ihr Labor anpassen.",title:"Ihr Nacht-Designteam — BoundlessCAD"}};
+const q=new URLSearchParams(location.search);
+const clean=s=>(s||'').replace(/[<>"'`]/g,'').replace(/\s+/g,' ').trim().slice(0,60);
+const lab=clean(q.get('lab')),ref=clean(q.get('ref')),cc=(q.get('c')||'').toUpperCase().slice(0,2);
+let lang=(q.get('lang')||'').toLowerCase();if(!T[lang])lang=ESC.includes(cc)?'es':DEC.includes(cc)?'de':(navigator.language||'en').slice(0,2);if(!T[lang])lang='en';
+const $=id=>document.getElementById(id);
+const S=SAL[cc];const fx=S?S[2]/S[0]:1;
+$('u').value=Math.min(400,Math.max(10,parseInt(q.get('u'))||100));
+$('sal').value=S?S[0]:'';$('sal').placeholder=S?'':'e.g. 900';$('cur').textContent=S?S[1]:'USD';
+const fmt=(n,d=0)=>Math.round(n).toLocaleString(lang==='en'?'en-US':lang==='es'?'es-ES':'de-DE');
+function times(){const tz=TZ[cc]||Intl.DateTimeFormat().resolvedOptions().timeZone;let name=tz;
+ try{name=new Intl.DateTimeFormat(lang,{timeZone:tz,timeZoneName:'short'}).formatToParts(new Date()).find(p=>p.type==='timeZoneName').value}catch(e){}
+ return (tz.split('/').pop().replace(/_/g,' '))+', '+name}
+function best(u){const opts=[{n:T[lang].payg,c:u*PAYG}].concat(PLANS.map(p=>({n:`${p.n} ($${p.p}${u>p.u?` + ${u-p.u} × $${p.r.toFixed(2)}`:''})`,c:p.p+Math.max(0,u-p.u)*p.r})));return opts.sort((a,b)=>a.c-b.c)[0]}
+function calc(){const t=T[lang],u=+$('u').value;$('uv').textContent=u;
+ const hire=(+$('sal').value||0)*fx,b=best(u),mx=Math.max(hire,b.c,1);
+ $('hv').textContent=hire>0?'$'+fmt(hire):'—';$('bv').textContent='$'+fmt(b.c);$('hb').style.width=(hire/mx*100)+'%';$('bb').style.width=(b.c/mx*100)+'%';
+ $('plan').textContent=t.plan(b.n,u);const s=(hire-b.c)*12;$('save').innerHTML=s>600?t.save(fmt(s)):t.nosave}
+function apply(){const t=T[lang];document.documentElement.lang=lang;document.title=t.title;
+ document.querySelectorAll('[data-i]').forEach(el=>{const v=t[el.dataset.i];if(typeof v==='string')el.innerHTML=v});
+ $('h1').innerHTML=t.h1(lab);$('fine').textContent=t.fine(times());
+ if(ref){$('ref').style.display='block';$('ref').textContent=t.ref(ref)}
+ $('src').innerHTML=S?t.src(S[3],S[4]):t.src0;
+ const p=new URLSearchParams({lang});if(lab)p.set('lab',lab);if(ref)p.set('ref',ref);
+ $('cta1').href=$('cta2').href='../send/?'+p;$('cta3').href='../plans/?lang='+lang;$('rv').href='../review/?'+p;
+ document.querySelectorAll('.lg').forEach(b=>b.classList.toggle('on',b.dataset.l===lang));calc()}
+document.querySelectorAll('.lg').forEach(b=>b.onclick=()=>{lang=b.dataset.l;const u=new URL(location);u.searchParams.set('lang',lang);history.replaceState(null,'',u);apply()});
+$('u').oninput=calc;$('sal').oninput=calc;
+apply();
+</script>
+</body>
+</html>

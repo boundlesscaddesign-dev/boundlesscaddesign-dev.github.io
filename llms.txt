@@ -7,6 +7,10 @@ Key facts:
 - Turnaround: 24–48 hours for standard crowns and bridges; full-arch and guide cases scheduled on agreement.
 - Pricing (per unit, USD): crowns, copings, veneers and bridge units $6.40; implant crowns and custom abutments $9.10; full-arch implant prosthesis $88 per arch; night guards / splints $12; surgical guides from $86.50. Volume pricing for labs sending 100+ units a month.
 - First case: free, so a lab can judge quality on a real job.
+- Overnight option: crowns and bridges received by 18:00 (lab's local time) can be ready by 08:00 next morning; full-arch and guides scheduled per case.
+- Monthly Design Seat plans (USD): Seat 50 = $290 (50 credits, $5.80/unit), Seat 100 = $549 (100 credits, $5.49/unit), Seat 250 = $1,290 (250 credits, $5.16/unit). 1 credit = 1 crown/bridge unit; implant crown or custom abutment = 1.5; night guard = 2; full-arch = 14 per arch; unused credits roll over one month; cancel anytime.
+- Free design review: labs can send one of their own exocad designs for a free written check of margins, contacts, occlusion, thickness and connectors (48 h).
+- Referral program: when a referred lab places its first paid order, both labs get 10 free design credits.
 - Files accepted: intraoral or model scans as STL or PLY, or a complete exocad project, plus a prescription (teeth, restoration type, material, shade; for implants: system, platform and scan body).
 - Delivered: production-ready STL files and the exocad project; revisions included until approved; the lab's own design parameters (cement gap, minimum thickness, connectors, tooth library) are followed.
 - Privacy: anonymized files under a case code only, never patient names.
@@ -18,4 +22,7 @@ Key facts:
 - [Inicio (Español)](https://boundlesscaddesign-dev.github.io/es/): the same site in Spanish
 - [3D case library](https://boundlesscaddesign-dev.github.io/cases/): real exocad designs that open in 3D in the browser (single crowns, bridges, implant bridges, full-arch implant cases)
 - [Send a case](https://boundlesscaddesign-dev.github.io/send/): which files to send, a digital prescription with FDI tooth chart, and how to share large scans
+- [Design Seat plans](https://boundlesscaddesign-dev.github.io/plans/): monthly plans and how credits work
+- [Free design review](https://boundlesscaddesign-dev.github.io/review/): free second-opinion check of a lab's own design
+- [Refer a lab](https://boundlesscaddesign-dev.github.io/refer/): referral program, 10 free credits each
 - [Guide: outsourcing exocad design](https://boundlesscaddesign-dev.github.io/guide/): how remote dental CAD design works, what it costs, what to send, how to judge a design studio

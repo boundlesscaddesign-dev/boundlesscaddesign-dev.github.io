@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Refer a lab — BoundlessCAD</title>
+<meta name="description" content="Refer another dental lab to BoundlessCAD: when they place their first paid order, you both get 10 free design credits.">
+<link rel="canonical" href="https://boundlesscaddesign-dev.github.io/refer/">
+<meta property="og:title" content="Refer a lab — you both get 10 free design credits">
+<meta property="og:image" content="https://boundlesscaddesign-dev.github.io/og.png">
+<meta name="theme-color" content="#0b1826">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../cases/shared.css">
+<style>
+header{position:sticky;top:0;z-index:20;background:rgba(11,24,38,.85);backdrop-filter:blur(14px) saturate(1.3);border-bottom:1px solid var(--line)}
+.bar{max-width:1100px;margin:0 auto;padding:0 22px;height:66px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.bar nav{display:flex;gap:8px;align-items:center}
+.lg{font:inherit;font-size:13px;font-weight:800;color:var(--muted);background:transparent;border:1px solid var(--line);border-radius:999px;padding:8px 11px;cursor:pointer}
+.lg.on,.lg:hover{color:#fff;border-color:var(--teal)}
+.wrap{max-width:880px;margin:0 auto;padding:0 22px}
+.hero{padding:60px 0 10px;text-align:center}
+.gift{font-size:56px;display:inline-block;animation:b 3s ease-in-out infinite}@keyframes b{50%{transform:translateY(-8px) rotate(-4deg)}}
+h1{font-size:clamp(32px,4.8vw,52px);line-height:1.06;letter-spacing:-1.4px;margin:10px auto 14px;max-width:720px}
+.lead{color:var(--muted);font-size:17px;max-width:600px;margin:0 auto}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:36px 0}
+.h{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px;text-align:center}
+.h b{display:grid;place-items:center;width:40px;height:40px;margin:0 auto 10px;border-radius:12px;background:var(--teal);color:#06241f}
+.h h3{font-size:16px;margin-bottom:6px}.h p{font-size:14px;color:var(--muted)}
+.gen{background:var(--panel);border:1px solid rgba(127,209,199,.3);border-radius:22px;padding:26px;margin-bottom:26px}
+.gen h2{font-size:22px;margin-bottom:14px}
+label{display:grid;gap:6px;font-size:13px;font-weight:700;color:var(--muted);margin-bottom:14px}
+input{font:inherit;font-size:15px;color:var(--txt);background:#0d1c2c;border:1px solid rgba(255,255,255,.12);border-radius:11px;padding:12px 13px;outline:none}
+input:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(127,209,199,.15)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.out{display:none;margin-top:10px}
+.link{display:flex;gap:8px;align-items:center;background:#0d1c2c;border:1px dashed rgba(127,209,199,.45);border-radius:12px;padding:12px;word-break:break-all;font-size:14px;color:var(--mint)}
+.acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+textarea{width:100%;min-height:120px;font:inherit;font-size:14px;color:var(--txt);background:#0d1c2c;border:1px solid rgba(255,255,255,.12);border-radius:11px;padding:12px;margin-top:12px;resize:vertical}
+.terms{color:var(--muted);font-size:13px;margin:0 0 60px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,120px);opacity:0;background:var(--teal);color:#06241f;font-weight:800;padding:12px 18px;border-radius:12px;transition:.35s}
+.toast.on{transform:translate(-50%,0);opacity:1}
+footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:13px}
+@media (max-width:720px){.how,.two{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.gift{animation:none}}
+</style>
+</head>
+<body>
+<header><div class="bar">
+  <a class="logo" href="../" aria-label="BoundlessCAD home"><svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="#7FD1C7" stroke-width="4" stroke-linecap="round" stroke-dasharray="118 52"/><path d="M24 22c-3 0-5 3-5 6 0 5 2 7 3 11 1 4 2 7 3.5 7s2.5-3 3.2-6.5c.6-1.8 1.4-2.5 3.3-2.5s2.7.7 3.3 2.5c.7 3.5 1.7 6.5 3.2 6.5S43 43 44 39c1-4 3-6 3-11 0-3-2-6-5-6-2.5 0-4 1.6-9 1.6S26.5 22 24 22z" fill="#fff"/></svg><span>Boundless<b>CAD</b></span></a>
+  <nav><button class="lg" data-l="en">EN</button><button class="lg" data-l="es">ES</button><button class="lg" data-l="de">DE</button></nav>
+</div></header>
+<section class="hero"><div class="wrap">
+  <div class="gift">🎁</div>
+  <h1 data-i="h1"></h1>
+  <p class="lead" data-i="lead"></p>
+</div></section>
+<main class="wrap">
+  <div class="how" id="how"></div>
+  <div class="gen">
+    <h2 data-i="gh">Create your referral link</h2>
+    <div class="two">
+      <label><span data-i="f1">Your lab name</span><input id="me" maxlength="60" autocomplete="organization"></label>
+      <label><span data-i="f2">Lab you're inviting (optional)</span><input id="them" maxlength="60"></label>
+    </div>
+    <button class="btn" id="make" type="button" data-i="mk">Create my link →</button>
+    <div class="out" id="out">
+      <div class="link" id="link"></div>
+      <textarea id="msg" aria-label="Message"></textarea>
+      <div class="acts"><button class="btn" id="cp" type="button" data-i="cp">Copy message</button><button class="btn ghost" id="wa" type="button">WhatsApp</button><button class="btn ghost" id="em" type="button" data-i="em">Email</button><button class="btn ghost" id="cl" type="button" data-i="cl">Copy link only</button></div>
+    </div>
+  </div>
+  <p class="terms" data-i="terms"></p>
+</main>
+<footer><div class="wrap">© 2026 BoundlessCAD · boundlesscad.design@gmail.com</div></footer>
+<div class="toast" id="toast"></div>
+<script>
+const BASE='https://boundlesscaddesign-dev.github.io/for/';
+const T={
+en:{h1:'Know another lab? <span class="serif">You both get 10 free credits.</span>',lead:"Share your personal link. When the lab you referred places its first paid order, we add 10 design credits to both of your accounts.",
+how:[["1","Create your link","Enter your lab name below — the link carries it."],["2","Share it","By WhatsApp, email or in person."],["3","Both get 10 credits","After their first paid order — no limit on referrals."]],
+gh:"Create your referral link",f1:"Your lab name",f2:"Lab you're inviting (optional)",mk:"Create my link →",cp:"Copy message",em:"Email",cl:"Copy link only",copied:"Copied ✓",need:"Please enter your lab name",
+msg:(me,them,l)=>`Hi${them?' '+them:''}! We outsource part of our exocad design to BoundlessCAD — crowns ready overnight, revisions included, and the first case is free. If you try them with this link, we both get 10 free design credits:\n${l}\n— ${me}`,
+subj:"A design studio we use (first case free)",terms:"Credits are added after the referred lab's first paid order (per-unit or Design Seat) and never expire while your account is active. Referrals are matched by the lab name in the link and in the referred lab's first email.",title:"Refer a lab — BoundlessCAD"},
+es:{h1:'¿Conoce otro laboratorio? <span class="serif">Ambos reciben 10 créditos gratis.</span>',lead:"Comparta su enlace personal. Cuando el laboratorio recomendado haga su primer pedido pagado, sumamos 10 créditos de diseño a ambos.",
+how:[["1","Cree su enlace","Escriba el nombre de su laboratorio: el enlace lo incluye."],["2","Compártalo","Por WhatsApp, correo o en persona."],["3","Ambos reciben 10 créditos","Tras su primer pedido pagado, sin límite de recomendaciones."]],
+gh:"Cree su enlace de recomendación",f1:"Nombre de su laboratorio",f2:"Laboratorio que invita (opcional)",mk:"Crear mi enlace →",cp:"Copiar mensaje",em:"Correo",cl:"Copiar solo el enlace",copied:"Copiado ✓",need:"Escriba el nombre de su laboratorio",
+msg:(me,them,l)=>`¡Hola${them?' '+them:''}! Subcontratamos parte de nuestro diseño en exocad con BoundlessCAD: coronas listas de un día para otro, correcciones incluidas y el primer caso gratis. Si los prueban con este enlace, ambos recibimos 10 créditos de diseño gratis:\n${l}\n— ${me}`,
+subj:"Un estudio de diseño que usamos (primer caso gratis)",terms:"Los créditos se suman tras el primer pedido pagado del laboratorio recomendado (por unidad o Design Seat) y no vencen mientras su cuenta esté activa. Las recomendaciones se asocian por el nombre del laboratorio en el enlace y en el primer correo del recomendado.",title:"Recomiende un laboratorio — BoundlessCAD"},
+de:{h1:'Sie kennen ein anderes Labor? <span class="serif">Beide erhalten 10 Credits.</span>',lead:"Teilen Sie Ihren persönlichen Link. Sobald das empfohlene Labor seinen ersten bezahlten Auftrag erteilt, schreiben wir Ihnen beiden 10 Design-Credits gut.",
+how:[["1","Link erstellen","Laborname eingeben – der Link enthält ihn."],["2","Teilen","Per WhatsApp, E-Mail oder persönlich."],["3","Beide erhalten 10 Credits","Nach dem ersten bezahlten Auftrag – ohne Limit."]],
+gh:"Empfehlungslink erstellen",f1:"Name Ihres Labors",f2:"Eingeladenes Labor (optional)",mk:"Link erstellen →",cp:"Nachricht kopieren",em:"E-Mail",cl:"Nur Link kopieren",copied:"Kopiert ✓",need:"Bitte Laborname eingeben",
+msg:(me,them,l)=>`Hallo${them?' '+them:''}! Wir lagern einen Teil unserer exocad-Konstruktion an BoundlessCAD aus – Kronen über Nacht, Korrekturen inklusive, erster Fall kostenlos. Wenn ihr sie über diesen Link testet, bekommen wir beide 10 kostenlose Design-Credits:\n${l}\n— ${me}`,
+subj:"Ein Designstudio, mit dem wir arbeiten (erster Fall gratis)",terms:"Credits werden nach dem ersten bezahlten Auftrag des empfohlenen Labors (Einzelabrechnung oder Design Seat) gutgeschrieben und verfallen nicht, solange Ihr Konto aktiv ist. Die Zuordnung erfolgt über den Laborname im Link und in der ersten E-Mail des empfohlenen Labors.",title:"Labor empfehlen — BoundlessCAD"}};
+const q=new URLSearchParams(location.search);let lang=(q.get('lang')||navigator.language||'en').slice(0,2);if(!T[lang])lang='en';
+const $=id=>document.getElementById(id),clean=s=>s.replace(/[<>"'`]/g,'').replace(/\s+/g,' ').trim().slice(0,60);
+function toast(m){$('toast').textContent=m;$('toast').classList.add('on');setTimeout(()=>$('toast').classList.remove('on'),1800)}
+function build(){const t=T[lang],me=clean($('me').value),them=clean($('them').value);if(!me){toast(t.need);$('me').focus();return null}
+ const p=new URLSearchParams({ref:me,lang});if(them)p.set('lab',them);const l=BASE+'?'+p;$('link').textContent=l;$('msg').value=t.msg(me,them,l);$('out').style.display='block';return l}
+async function copy(s){try{await navigator.clipboard.writeText(s)}catch(e){const a=document.createElement('textarea');a.value=s;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}toast(T[lang].copied)}
+function apply(){const t=T[lang];document.documentElement.lang=lang;document.title=t.title;
+ document.querySelectorAll('[data-i]').forEach(el=>{const v=t[el.dataset.i];if(typeof v==='string')el.innerHTML=v});
+ $('how').innerHTML=t.how.map(h=>`<div class="h"><b>${h[0]}</b><h3>${h[1]}</h3><p>${h[2]}</p></div>`).join('');
+ if($('out').style.display==='block')build();
+ document.querySelectorAll('.lg').forEach(b=>b.classList.toggle('on',b.dataset.l===lang))}
+$('make').onclick=build;
+$('cp').onclick=()=>copy($('msg').value);$('cl').onclick=()=>copy($('link').textContent);
+$('wa').onclick=()=>window.open('https://wa.me/?text='+encodeURIComponent($('msg').value),'_blank','noopener');
+$('em').onclick=()=>{location.href=`mailto:?subject=${encodeURIComponent(T[lang].subj)}&body=${encodeURIComponent($('msg').value)}`};
+document.querySelectorAll('.lg').forEach(b=>b.onclick=()=>{lang=b.dataset.l;const u=new URL(location);u.searchParams.set('lang',lang);history.replaceState(null,'',u);apply()});
+apply();
+</script>
+</body>
+</html>

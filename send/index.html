@@ -151,7 +151,7 @@ ctah:"¿No sabe qué enviar?",ctap:"Escríbanos con una captura del caso y le di
 types:["Corona","Puente","Corona sobre implante","Pilar personalizado","Puente sobre implantes","Arcada completa sobre implantes (All-on-X)","Carilla","Incrustación","Guarda / férula oclusal","Guía quirúrgica","Otro"],
 mats:["Zirconia","Disilicato de litio (e.max)","PMMA / provisional","Composite / híbrido","Metal / CoCr","Titanio","Resina impresa","Otro"],
 subj:"Caso de prueba gratis",rx:"RECETA — BoundlessCAD",L:{lab:"Laboratorio",code:"Código de caso",type:"Restauración",mat:"Material",teeth:"Dientes",shade:"Color",imp:"Implante / scan body",due:"Fecha requerida",notes:"Notas"},copied:"Copiado",files:"Archivos: adjuntos / enlace abajo",lg:"EN",title:"Enviar un caso — BoundlessCAD"}};
-const qs=new URLSearchParams(location.search);
+const qs=new URLSearchParams(location.search);const cl=v=>(v||'').replace(/[<>"'`]/g,'').replace(/\s+/g,' ').trim().slice(0,60);const REF=cl(qs.get('ref'));
 let lang=qs.get('lang')||(document.referrer.includes('/es/')||navigator.language.startsWith('es')?'es':'en');
 const $=id=>document.getElementById(id),form=$('rx');
 function apply(){const t=T[lang];document.documentElement.lang=lang;document.title=t.title;
@@ -169,13 +169,14 @@ $('chart').addEventListener('click',e=>{const b=e.target.closest('.t');if(!b)ret
  const order=[...up,...lo].filter(Boolean);$('teeth').value=order.filter(x=>sel.has(x)).join(', ')});
 function text(){const t=T[lang],f=new FormData(form),L=t.L;const v=k=>(f.get(k)||'').toString().trim();
  const rows=[['lab',v('lab')],['code',v('code')],['type',t.types[+v('type')]],['mat',t.mats[+v('mat')]],['teeth',v('teeth')],['shade',v('shade')],['imp',v('imp')],['due',v('due')],['notes',v('notes')]].filter(r=>r[1]);
- return t.rx+'\n'+rows.map(r=>`${L[r[0]]}: ${r[1]}`).join('\n')+'\n\n'+t.files+'\n'}
+ return t.rx+'\n'+rows.map(r=>`${L[r[0]]}: ${r[1]}`).join('\n')+(REF?'\nReferral: '+REF:'')+'\n\n'+t.files+'\n'}
 function toast(m){const el=$('toast');el.textContent=m;el.classList.add('on');setTimeout(()=>el.classList.remove('on'),1800)}
-$('mail').onclick=()=>{const t=T[lang],code=form.code.value.trim();location.href=`mailto:boundlesscad.design@gmail.com?subject=${encodeURIComponent(t.subj+(code?' — '+code:''))}&body=${encodeURIComponent(text())}`};
+$('mail').onclick=()=>{const t=T[lang],code=form.code.value.trim(),lb=form.lab.value.trim();location.href=`mailto:boundlesscad.design@gmail.com?subject=${encodeURIComponent(t.subj+(lb?' — '+lb:'')+(code?' — '+code:'')+(REF?' (ref: '+REF+')':''))}&body=${encodeURIComponent(text())}`};
 $('wa').onclick=()=>window.open(`https://wa.me/989124390969?text=${encodeURIComponent(text())}`,'_blank','noopener');
 $('copy').onclick=async()=>{try{await navigator.clipboard.writeText(text());toast(T[lang].copied+' ✓')}catch(e){prompt('',text())}};
 $('pdf').onclick=()=>print();
 apply();
+if(qs.get('lab'))form.lab.value=cl(qs.get('lab'));
 </script>
 </body>
 </html>
