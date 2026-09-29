@@ -19,7 +19,6 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "Which files do you need?", "acceptedAnswer": {"@type": "Answer", "text": "Intraoral or model scans as STL or PLY, or a complete exocad project, plus the prescription: tooth numbers, restoration type, material and shade. For implant cases, tell us the implant system and scan body."}}, {"@type": "Question", "name": "What do we receive back?", "acceptedAnswer": {"@type": "Answer", "text": "Production-ready STL files and the exocad project, so your team can still adjust anything in-house."}}, {"@type": "Question", "name": "How fast is the turnaround?", "acceptedAnswer": {"@type": "Answer", "text": "24–48 hours for standard crowns and bridges. Full-arch and guide cases are scheduled on agreement."}}, {"@type": "Question", "name": "Do you follow our lab's design rules?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Send your parameters once — cement gap, minimum thickness, connector sizes, preferred libraries — and we apply them to every case."}}, {"@type": "Question", "name": "How does payment work?", "acceptedAnswer": {"@type": "Answer", "text": "Your first case is free. After that we invoice per unit with prepayment, in USDT, USDC or BTC."}}, {"@type": "Question", "name": "Is patient data safe?", "acceptedAnswer": {"@type": "Answer", "text": "We only need anonymized files under a case code, never patient names, and all work is white-label."}}]}</script>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#0b1826">
-<circle cx='32' cy='32' r='30' fill='%230b1826'/><path d='M24 22c-3 0-5 3-5 6 0 5 2 7 3 11 1 4 2 7 3.5 7s2.5-3 3.2-6.5c.6-1.8 1.4-2.5 3.3-2.5s2.7.7 3.3 2.5c.7 3.5 1.7 6.5 3.2 6.5S43 43 44 39c1-4 3-6 3-11 0-3-2-6-5-6-2.5 0-4 1.6-9 1.6S26.5 22 24 22z' fill='%237FD1C7'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
@@ -72,8 +71,8 @@ header.scrolled{background:rgba(11,24,38,.78);backdrop-filter:blur(14px) saturat
 .blob.a{width:520px;height:520px;background:#1c5f63;top:-140px;right:-120px}
 .blob.b{width:420px;height:420px;background:#1b3a66;bottom:-160px;left:-120px;animation-delay:-6s}
 .blob.c{width:260px;height:260px;background:#7FD1C7;top:40%;left:45%;opacity:.16;animation-delay:-11s}
-.hero .grid{position:relative;z-index:2;display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center}
-.hero h1{font-size:clamp(36px,5.2vw,68px);line-height:1.02;letter-spacing:-2.4px;font-weight:800;margin:18px 0 22px}
+.hero .grid{position:relative;z-index:2;display:grid;grid-template-columns:1.18fr .82fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(36px,4.6vw,64px);line-height:1.02;letter-spacing:-2.4px;font-weight:800;margin:18px 0 22px}
 .hero h1 .line{display:block;overflow:hidden}
 .hero h1 .line span{display:inline-block;transform:translateY(110%);animation:rise 1s var(--ease) forwards}
 .hero h1 .line:nth-child(2) span{animation-delay:.12s}.hero h1 .line:nth-child(3) span{animation-delay:.24s}
@@ -247,6 +246,50 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .ovn .fine{margin-top:16px;color:var(--muted);font-size:13px}
 .plink{display:inline-flex;margin-top:18px;color:var(--teal);font-weight:800;border-bottom:1px solid rgba(127,209,199,.4)}
 @media (max-width:760px){.ovn .tlh{grid-template-columns:1fr}.ovn .ar{transform:rotate(90deg);justify-self:center}}
+
+/* ---------- v2: trust strip ---------- */
+.trust{background:var(--bg);border-bottom:1px solid var(--line);padding:22px 0;position:relative;z-index:2}
+.trust ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 34px}
+.trust li{display:flex;align-items:center;gap:10px;color:#cfe0ea;font-size:14px;font-weight:700}
+.trust li svg{flex:none;color:var(--teal)}
+/* ---------- v2: quality control ---------- */
+.qc{display:grid;grid-template-columns:.95fr 1.05fr;gap:56px;align-items:center;margin-top:50px}
+.qc-fig{position:relative;background:radial-gradient(circle at 50% 40%,#16324a,#0d1c2c 70%);border:1px solid var(--line);border-radius:28px;padding:26px 26px 52px;box-shadow:0 40px 80px -40px rgba(0,0,0,.8)}
+.qc-fig svg{width:100%;height:auto;display:block}
+.qc-fig .pin{cursor:default}
+.qc-fig .pin circle{transition:r .3s var(--ease)}
+.qc-fig .cap{position:absolute;left:22px;bottom:18px;font-size:12px;color:var(--muted);letter-spacing:.5px}
+.qc-list{list-style:none;display:grid;gap:12px;counter-reset:q}
+.qc-list li{counter-increment:q;display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start;padding:16px 18px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid var(--line);transition:border-color .3s,background .3s,transform .3s var(--ease)}
+.qc-list li::before{content:counter(q);width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:14px;color:#06231f;background:var(--teal)}
+.qc-list li:hover,.qc-list li.on{border-color:rgba(127,209,199,.5);background:rgba(127,209,199,.06);transform:translateX(4px)}
+.qc-list b{display:block;color:#fff;font-size:16px;margin-bottom:2px}
+.qc-list span{color:#b6c7d3;font-size:14.5px}
+.qc-note{margin-top:18px;color:var(--muted);font-size:14px}
+/* ---------- v2: comparison ---------- */
+.cmp{margin-top:50px;border-radius:24px;overflow:hidden;border:1px solid #e6e2da;background:#fff;box-shadow:0 30px 60px -40px rgba(18,38,58,.35)}
+.cmp table{width:100%;border-collapse:collapse;font-size:15.5px}
+.cmp th,.cmp td{padding:18px 22px;text-align:left;border-bottom:1px solid #eeeae3;vertical-align:top}
+.cmp tr:last-child td{border-bottom:0}
+.cmp thead th{font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase;color:#5B6B78;background:#faf8f4}
+.cmp thead th.us{color:#06231f;background:linear-gradient(135deg,var(--teal),var(--mint))}
+.cmp td:first-child{font-weight:800;color:var(--ink);width:24%}
+.cmp td.them{color:#6b7a86}
+.cmp td.us{color:var(--ink);font-weight:700;background:rgba(127,209,199,.10)}
+.cmp td.us::before{content:"✓";color:var(--teal2);font-weight:800;margin-right:8px}
+.cmp-cta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;margin-top:22px}
+.cmp-cta p{color:#5B6B78;font-size:14.5px;max-width:620px}
+/* ---------- v2: mobile sticky CTA ---------- */
+.mbar{display:none}
+@media (max-width:760px){
+ .mbar{display:flex;gap:10px;position:fixed;left:12px;right:12px;bottom:12px;z-index:70;padding:10px;border-radius:18px;background:rgba(11,24,38,.9);backdrop-filter:blur(14px);border:1px solid rgba(127,209,199,.25);box-shadow:0 20px 40px -10px rgba(0,0,0,.6);transform:translateY(140%);transition:transform .45s var(--ease)}
+ .mbar.on{transform:none}
+ .mbar a{flex:1;justify-content:center;padding:12px 10px;font-size:14px}
+ .fab{bottom:92px!important}
+ footer{padding-bottom:100px}
+}
+@media (max-width:980px){.qc{grid-template-columns:1fr}.qc-fig{max-width:520px;margin:0 auto}}
+@media (max-width:640px){.cmp th,.cmp td{padding:13px 12px;font-size:13.5px}.cmp td:first-child{width:30%}.trust ul{justify-content:flex-start}}
 </style>
 </head>
 <body>
@@ -270,9 +313,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <p class="lead">Crowns, bridges, custom abutments, full-arch implant prostheses, night guards and surgical guides — designed in exocad for your material, your mill and your printer.</p>
       <div class="ctas"><a class="btn" href="send/">Send your first case free <span class="arr">→</span></a><a class="btn ghost" href="#work">See our work</a></div>
       <div class="stats">
-        <div class="stat"><b data-count="5" data-suffix="+">0</b><span>years of production design</span></div>
-        <div class="stat"><b data-count="50" data-prefix="20–">0</b><span>units designed per day</span></div>
-        <div class="stat"><b data-count="48" data-prefix="24–" data-suffix="h">0</b><span>standard turnaround</span></div>
+        <div class="stat"><b data-count="5" data-suffix="+">5+</b><span>years of production design</span></div>
+        <div class="stat"><b data-count="50" data-prefix="20–">20–50</b><span>units designed per day</span></div>
+        <div class="stat"><b data-count="48" data-prefix="24–" data-suffix="h">24–48h</b><span>standard turnaround</span></div>
       </div>
     </div>
     <div class="stage">
@@ -286,6 +329,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 </section>
 
 <div class="marquee" id="services" aria-label="Services"><div class="track" id="track"></div></div>
+
+<div class="trust" aria-label="Standards"><div class="wrap"><ul><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 3 7v10l9 5 9-5V7z"/><path d="m3 7 9 5 9-5M12 12v10"/></svg>Designed in exocad DentalCAD</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>STL · PLY · OBJ · exocad projects</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg>Your parameters &amp; libraries</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Case codes only, no patient names</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>Overnight option for crowns</li></ul></div></div>
 
 <section id="how" class="light"><div class="wrap">
   <div class="eyebrow rv">How we work</div>
@@ -312,11 +357,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   <h2 class="rv d1">Simple, per-unit pricing. <span class="serif">No surprises.</span></h2>
   <p class="sub rv d2">You pay only for what you send. Volume pricing for labs sending 100+ units a month.</p>
   <div class="prices">
-    <div class="price rv d1"><div class="ic">◆</div><h3>Crowns & bridges</h3><p>Crowns, copings, inlays, onlays, veneers and bridge units.</p><div class="amt">$<span data-count="6.40" data-dec="2">0</span> <small>/ unit</small></div></div>
-    <div class="price rv d2"><div class="ic">⬡</div><h3>Implant work</h3><p>Implant crowns, screw-retained units and custom abutments.</p><div class="amt">$<span data-count="9.10" data-dec="2">0</span> <small>/ unit</small></div></div>
-    <div class="price rv d3"><div class="ic">◠</div><h3>Full-arch implant</h3><p>All-on-4 / All-on-6 prostheses and full-arch bridges.</p><div class="amt">$<span data-count="88">0</span> <small>/ arch</small></div></div>
-    <div class="price rv d1"><div class="ic">☾</div><h3>Night guards & splints</h3><p>Bite splints and night guards, ready to print or mill.</p><div class="amt">$<span data-count="12">0</span> <small>/ unit</small></div></div>
-    <div class="price rv d2"><div class="ic">⌖</div><h3>Surgical guides</h3><p>Tooth-supported and full-arch guides, quoted per case.</p><div class="amt"><small>from</small> $<span data-count="86.50" data-dec="2">0</span></div></div>
+    <div class="price rv d1"><div class="ic">◆</div><h3>Crowns & bridges</h3><p>Crowns, copings, inlays, onlays, veneers and bridge units.</p><div class="amt">$<span data-count="6.40" data-dec="2">6.40</span> <small>/ unit</small></div></div>
+    <div class="price rv d2"><div class="ic">⬡</div><h3>Implant work</h3><p>Implant crowns, screw-retained units and custom abutments.</p><div class="amt">$<span data-count="9.10" data-dec="2">9.10</span> <small>/ unit</small></div></div>
+    <div class="price rv d3"><div class="ic">◠</div><h3>Full-arch implant</h3><p>All-on-4 / All-on-6 prostheses and full-arch bridges.</p><div class="amt">$<span data-count="88">88</span> <small>/ arch</small></div></div>
+    <div class="price rv d1"><div class="ic">☾</div><h3>Night guards & splints</h3><p>Bite splints and night guards, ready to print or mill.</p><div class="amt">$<span data-count="12">12</span> <small>/ unit</small></div></div>
+    <div class="price rv d2"><div class="ic">⌖</div><h3>Surgical guides</h3><p>Tooth-supported and full-arch guides, quoted per case.</p><div class="amt"><small>from</small> $<span data-count="86.50" data-dec="2">86.50</span></div></div>
     <div class="price hot rv d3"><div class="ribbon">OFFER</div><div class="ic">★</div><h3>Your first case</h3><p>Judge our margins and morphology on a real job before you commit.</p><div class="amt">Free</div></div>
   </div>
   <p class="note rv">Every case is handled under a case code — never a patient name.</p>
@@ -343,6 +388,47 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   </div>
 </div></section>
 
+<section id="quality"><div class="wrap">
+  <div class="eyebrow rv">Quality control</div>
+  <h2 class="rv d1">Every design is checked <span class="serif">before it reaches your mill.</span></h2>
+  <p class="sub rv d2">Our studio is led by a dentist. Every case goes through the same clinical checklist, so what looks right on screen also fits in the mouth.</p>
+  <div class="qc">
+    <div class="qc-fig rv d2"><svg viewBox="0 0 460 400" role="img" aria-label="Crown on a prepared tooth with six quality checkpoints">
+<defs>
+<linearGradient id="gCr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9fbf7"/><stop offset="1" stop-color="#8fd6cb"/></linearGradient>
+<linearGradient id="gDie" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9b98a"/><stop offset="1" stop-color="#9c7a4c"/></linearGradient>
+<linearGradient id="gN" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3c5a70"/><stop offset="1" stop-color="#23394b"/></linearGradient>
+</defs>
+<g opacity=".9">
+<path d="M20 330 C 60 300, 90 300, 105 250 L 118 150 C 122 120 140 108 160 112 L 170 330 Z" fill="url(#gN)"/>
+<path d="M440 330 C 400 300, 370 300, 355 250 L 342 150 C 338 120 320 108 300 112 L 290 330 Z" fill="url(#gN)"/>
+</g>
+<path d="M150 360 L 162 250 C 164 232 175 222 190 220 L 270 220 C 285 222 296 232 298 250 L 310 360 Z" fill="url(#gDie)"/>
+<path d="M150 360 L 310 360" stroke="#7a5d37" stroke-width="2"/>
+<path d="M146 262 C 140 205 142 150 158 118 C 170 96 186 92 200 104 C 210 114 220 114 230 104 C 240 94 250 94 260 104 C 270 114 280 112 290 102 C 304 90 318 100 318 124 C 324 160 322 210 314 262 C 300 270 285 272 262 270 L 198 270 C 175 272 158 270 146 262 Z" fill="url(#gCr)" stroke="#bff1ea" stroke-width="1.5"/>
+<path d="M176 250 C 190 210 200 170 200 140 M 284 250 C 270 210 260 170 260 140" stroke="#6fbfb3" stroke-width="1.2" stroke-dasharray="4 5" fill="none" opacity=".8"/>
+<path d="M150 262 C 170 274 290 274 310 262" stroke="#f2c98a" stroke-width="3" fill="none"/>
+<path d="M198 60 C 215 78 245 78 262 60" stroke="#93a8b8" stroke-width="2" stroke-dasharray="3 5" fill="none"/>
+<g class="pin" data-q="1"><line x1="310" y1="263" x2="385" y2="300" stroke="#f2c98a" stroke-width="1.5"/><circle cx="392" cy="304" r="14" fill="#f2c98a"/><text x="392" y="309" text-anchor="middle" font-size="14" font-weight="800" fill="#0b1826">1</text></g>
+<g class="pin" data-q="2"><line x1="145" y1="175" x2="70" y2="150" stroke="#7FD1C7" stroke-width="1.5"/><circle cx="62" cy="147" r="14" fill="#7FD1C7"/><text x="62" y="152" text-anchor="middle" font-size="14" font-weight="800" fill="#0b1826">2</text></g>
+<g class="pin" data-q="3"><line x1="230" y1="100" x2="230" y2="40" stroke="#7FD1C7" stroke-width="1.5"/><circle cx="230" cy="30" r="14" fill="#7FD1C7"/><text x="230" y="35" text-anchor="middle" font-size="14" font-weight="800" fill="#0b1826">3</text></g>
+<g class="pin" data-q="4"><line x1="300" y1="180" x2="385" y2="150" stroke="#7FD1C7" stroke-width="1.5"/><circle cx="392" cy="147" r="14" fill="#7FD1C7"/><text x="392" y="152" text-anchor="middle" font-size="14" font-weight="800" fill="#0b1826">4</text></g>
+<g class="pin" data-q="5"><line x1="160" y1="255" x2="72" y2="300" stroke="#7FD1C7" stroke-width="1.5"/><circle cx="64" cy="304" r="14" fill="#7FD1C7"/><text x="64" y="309" text-anchor="middle" font-size="14" font-weight="800" fill="#0b1826">5</text></g>
+<g class="pin" data-q="6"><line x1="230" y1="300" x2="230" y2="385" stroke="#7FD1C7" stroke-width="1.5" stroke-dasharray="3 4"/><circle cx="230" cy="385" r="12" fill="#12263a" stroke="#7FD1C7" stroke-width="2"/><text x="230" y="390" text-anchor="middle" font-size="13" font-weight="800" fill="#7FD1C7">6</text></g>
+</svg><div class="cap">Checkpoints on every crown and bridge</div></div>
+    <div class="rv d3"><ol class="qc-list" id="qcl"><li data-q="1"><div><b>Margin line</b><span>Continuous, following the preparation, with no over- or under-extension.</span></div></li><li data-q="2"><div><b>Proximal contacts</b><span>Tight enough to hold floss, loose enough to seat without adjustment.</span></div></li><li data-q="3"><div><b>Occlusion</b><span>Static and dynamic contacts checked against the antagonist.</span></div></li><li data-q="4"><div><b>Minimum thickness</b><span>Set to the minimum values for the material you mill.</span></div></li><li data-q="5"><div><b>Emergence profile</b><span>Natural, cleansable contours, especially on implant crowns.</span></div></li><li data-q="6"><div><b>Insertion path &amp; connectors</b><span>One path without undercuts; connector sizes to the material.</span></div></li></ol><p class="qc-note">Something is not right? Revisions are included until you approve the design.</p></div>
+  </div>
+</div></section>
+
+<section id="compare" class="light"><div class="wrap">
+  <div class="eyebrow rv">The numbers behind it</div>
+  <h2 class="rv d1">Hiring a designer <span class="serif">vs. BoundlessCAD</span></h2>
+  <div class="cmp rv d2"><table><thead><tr><th></th><th>Hiring a designer</th><th class="us">BoundlessCAD</th></tr></thead><tbody>
+  <tr><td>Getting started</td><td class="them">Weeks of recruiting and training</td><td class="us">First case back in 24–48 h</td></tr><tr><td>Fixed costs</td><td class="them">Salary, exocad licence, workstation</td><td class="us">Pay per unit, or a monthly Design Seat</td></tr><tr><td>Busy weeks</td><td class="them">Overtime or late cases</td><td class="us">Capacity grows with your volume</td></tr><tr><td>Night hours</td><td class="them">Nobody designing</td><td class="us">Crowns sent by 18:00 are ready by 08:00</td></tr><tr><td>Holidays &amp; sick days</td><td class="them">Work stops</td><td class="us">A team of designers keeps working</td></tr><tr><td>Risk to try</td><td class="them">An employment contract</td><td class="us">First case free</td></tr>
+  </tbody></table></div>
+  <div class="cmp-cta rv d3"><p>Want the numbers for your own lab? The calculator uses public salary data for your country, and you can change every value.</p><a class="btn" href="for/">Calculate your savings <span class="arr">→</span></a></div>
+</div></section>
+
 <section id="faq"><div class="wrap">
   <div class="eyebrow rv">FAQ</div>
   <h2 class="rv d1">Questions labs ask us</h2>
@@ -358,7 +444,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     </div>
   </div>
 </div>
-<footer><div class="wrap"><span><a href="review/" style="color:var(--teal)">Free design review</a> · <a href="refer/" style="color:var(--teal)">Refer a lab</a> · © 2026 BoundlessCAD · Remote exocad design for dental labs and digital clinics</span><span><a href="guide/" style="color:var(--teal)">Guide: outsourcing exocad design</a> · exocad and DentalCAD are trademarks of exocad GmbH.</span></div></footer>
+<footer><div class="wrap"><span><a href="plans/" style="color:var(--teal)">Plans</a> · <a href="partner/" style="color:var(--teal)">For milling centres</a> · <a href="review/" style="color:var(--teal)">Free design review</a> · <a href="refer/" style="color:var(--teal)">Refer a lab</a> · © 2026 BoundlessCAD · Remote exocad design for dental labs and digital clinics</span><span><a href="guide/" style="color:var(--teal)">Guide: outsourcing exocad design</a> · exocad and DentalCAD are trademarks of exocad GmbH.</span></div></footer>
 </section>
 
 <a class="fab" href="https://wa.me/989124390969" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2.1.7 2.8.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg></a>
@@ -445,5 +531,12 @@ x.beginPath();x.arc(p.x,p.y,p.r,0,6.283);x.fillStyle='rgba(127,209,199,.7)';x.fi
 for(let i=0;i<P.length;i++)for(let j=i+1;j<P.length;j++){const a=P[i],b=P[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<130){x.strokeStyle=`rgba(127,209,199,${.16*(1-d/130)})`;x.lineWidth=1;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}}})()})();
 </script>
 <script>fetch('cases/cases.json',{cache:'no-cache'}).then(r=>r.json()).then(l=>{if(Array.isArray(l)&&l.length){document.getElementById('b3d').hidden=false;document.getElementById('nav3d').hidden=false}}).catch(()=>{})</script>
+<div class="mbar" id="mbar"><a class="btn" href="send/">Free first case <span class="arr">→</span></a><a class="btn ghost" href="https://wa.me/989124390969" target="_blank" rel="noopener">WhatsApp</a></div>
+<script>
+(function(){var m=document.getElementById('mbar'),h=document.querySelector('.hero');if(!m||!h)return;function u(){m.classList.toggle('on',scrollY>h.offsetHeight*.7&&(innerHeight+scrollY)<document.body.scrollHeight-160)}addEventListener('scroll',u,{passive:true});u();
+var L=document.querySelectorAll('#qcl li'),P=document.querySelectorAll('.qc-fig .pin');function hi(q){L.forEach(function(l){l.classList.toggle('on',l.dataset.q==q)});P.forEach(function(p){var c=p.querySelector('circle');c.setAttribute('r',p.dataset.q==q?(q==6?15:18):(p.dataset.q==6?12:14))})}
+L.forEach(function(l){l.addEventListener('mouseenter',function(){hi(l.dataset.q)})});P.forEach(function(p){p.addEventListener('mouseenter',function(){hi(p.dataset.q)})});
+var i=0,run=setInterval(function(){i=i%6+1;hi(i)},2200);document.getElementById('qcl').addEventListener('mouseenter',function(){clearInterval(run)});})();
+</script>
 </body>
 </html>

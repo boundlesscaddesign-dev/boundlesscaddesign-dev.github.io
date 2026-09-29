@@ -19,7 +19,6 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "es", "mainEntity": [{"@type": "Question", "name": "¿Qué archivos necesitan?", "acceptedAnswer": {"@type": "Answer", "text": "Escaneos intraorales o de modelo en STL o PLY, o un proyecto exocad completo, más la receta: números de dientes, tipo de restauración, material y color. En casos de implantes, indíquenos el sistema de implante y el scan body."}}, {"@type": "Question", "name": "¿Qué recibimos de vuelta?", "acceptedAnswer": {"@type": "Answer", "text": "Archivos STL listos para producir y el proyecto exocad, para que su equipo pueda ajustar lo que quiera en el laboratorio."}}, {"@type": "Question", "name": "¿Cuánto tardan?", "acceptedAnswer": {"@type": "Answer", "text": "24–48 horas para coronas y puentes estándar. Las arcadas completas y las guías se programan según acuerdo."}}, {"@type": "Question", "name": "¿Siguen las reglas de diseño de nuestro laboratorio?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Envíe sus parámetros una vez (espacio de cemento, espesor mínimo, tamaño de conectores, bibliotecas preferidas) y los aplicamos en cada caso."}}, {"@type": "Question", "name": "¿Cómo se paga?", "acceptedAnswer": {"@type": "Answer", "text": "El primer caso es gratis. Después facturamos por unidad con pago anticipado, en USDT, USDC o BTC."}}, {"@type": "Question", "name": "¿Los datos de pacientes están seguros?", "acceptedAnswer": {"@type": "Answer", "text": "Solo necesitamos archivos anónimos con un código de caso, nunca nombres de pacientes, y todo el trabajo es de marca blanca."}}]}</script>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#0b1826">
-<circle cx='32' cy='32' r='30' fill='%230b1826'/><path d='M24 22c-3 0-5 3-5 6 0 5 2 7 3 11 1 4 2 7 3.5 7s2.5-3 3.2-6.5c.6-1.8 1.4-2.5 3.3-2.5s2.7.7 3.3 2.5c.7 3.5 1.7 6.5 3.2 6.5S43 43 44 39c1-4 3-6 3-11 0-3-2-6-5-6-2.5 0-4 1.6-9 1.6S26.5 22 24 22z' fill='%237FD1C7'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
@@ -72,8 +71,8 @@ header.scrolled{background:rgba(11,24,38,.78);backdrop-filter:blur(14px) saturat
 .blob.a{width:520px;height:520px;background:#1c5f63;top:-140px;right:-120px}
 .blob.b{width:420px;height:420px;background:#1b3a66;bottom:-160px;left:-120px;animation-delay:-6s}
 .blob.c{width:260px;height:260px;background:#7FD1C7;top:40%;left:45%;opacity:.16;animation-delay:-11s}
-.hero .grid{position:relative;z-index:2;display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center}
-.hero h1{font-size:clamp(36px,5.2vw,68px);line-height:1.02;letter-spacing:-2.4px;font-weight:800;margin:18px 0 22px}
+.hero .grid{position:relative;z-index:2;display:grid;grid-template-columns:1.18fr .82fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(36px,4.6vw,64px);line-height:1.02;letter-spacing:-2.4px;font-weight:800;margin:18px 0 22px}
 .hero h1 .line{display:block;overflow:hidden}
 .hero h1 .line span{display:inline-block;transform:translateY(110%);animation:rise 1s var(--ease) forwards}
 .hero h1 .line:nth-child(2) span{animation-delay:.12s}.hero h1 .line:nth-child(3) span{animation-delay:.24s}
@@ -248,6 +247,50 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .ovn .fine{margin-top:16px;color:var(--muted);font-size:13px}
 .plink{display:inline-flex;margin-top:18px;color:var(--teal);font-weight:800;border-bottom:1px solid rgba(127,209,199,.4)}
 @media (max-width:760px){.ovn .tlh{grid-template-columns:1fr}.ovn .ar{transform:rotate(90deg);justify-self:center}}
+
+/* ---------- v2: trust strip ---------- */
+.trust{background:var(--bg);border-bottom:1px solid var(--line);padding:22px 0;position:relative;z-index:2}
+.trust ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 34px}
+.trust li{display:flex;align-items:center;gap:10px;color:#cfe0ea;font-size:14px;font-weight:700}
+.trust li svg{flex:none;color:var(--teal)}
+/* ---------- v2: quality control ---------- */
+.qc{display:grid;grid-template-columns:.95fr 1.05fr;gap:56px;align-items:center;margin-top:50px}
+.qc-fig{position:relative;background:radial-gradient(circle at 50% 40%,#16324a,#0d1c2c 70%);border:1px solid var(--line);border-radius:28px;padding:26px 26px 52px;box-shadow:0 40px 80px -40px rgba(0,0,0,.8)}
+.qc-fig svg{width:100%;height:auto;display:block}
+.qc-fig .pin{cursor:default}
+.qc-fig .pin circle{transition:r .3s var(--ease)}
+.qc-fig .cap{position:absolute;left:22px;bottom:18px;font-size:12px;color:var(--muted);letter-spacing:.5px}
+.qc-list{list-style:none;display:grid;gap:12px;counter-reset:q}
+.qc-list li{counter-increment:q;display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start;padding:16px 18px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid var(--line);transition:border-color .3s,background .3s,transform .3s var(--ease)}
+.qc-list li::before{content:counter(q);width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:14px;color:#06231f;background:var(--teal)}
+.qc-list li:hover,.qc-list li.on{border-color:rgba(127,209,199,.5);background:rgba(127,209,199,.06);transform:translateX(4px)}
+.qc-list b{display:block;color:#fff;font-size:16px;margin-bottom:2px}
+.qc-list span{color:#b6c7d3;font-size:14.5px}
+.qc-note{margin-top:18px;color:var(--muted);font-size:14px}
+/* ---------- v2: comparison ---------- */
+.cmp{margin-top:50px;border-radius:24px;overflow:hidden;border:1px solid #e6e2da;background:#fff;box-shadow:0 30px 60px -40px rgba(18,38,58,.35)}
+.cmp table{width:100%;border-collapse:collapse;font-size:15.5px}
+.cmp th,.cmp td{padding:18px 22px;text-align:left;border-bottom:1px solid #eeeae3;vertical-align:top}
+.cmp tr:last-child td{border-bottom:0}
+.cmp thead th{font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase;color:#5B6B78;background:#faf8f4}
+.cmp thead th.us{color:#06231f;background:linear-gradient(135deg,var(--teal),var(--mint))}
+.cmp td:first-child{font-weight:800;color:var(--ink);width:24%}
+.cmp td.them{color:#6b7a86}
+.cmp td.us{color:var(--ink);font-weight:700;background:rgba(127,209,199,.10)}
+.cmp td.us::before{content:"✓";color:var(--teal2);font-weight:800;margin-right:8px}
+.cmp-cta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;margin-top:22px}
+.cmp-cta p{color:#5B6B78;font-size:14.5px;max-width:620px}
+/* ---------- v2: mobile sticky CTA ---------- */
+.mbar{display:none}
+@media (max-width:760px){
+ .mbar{display:flex;gap:10px;position:fixed;left:12px;right:12px;bottom:12px;z-index:70;padding:10px;border-radius:18px;background:rgba(11,24,38,.9);backdrop-filter:blur(14px);border:1px solid rgba(127,209,199,.25);box-shadow:0 20px 40px -10px rgba(0,0,0,.6);transform:translateY(140%);transition:transform .45s var(--ease)}
+ .mbar.on{transform:none}
+ .mbar a{flex:1;justify-content:center;padding:12px 10px;font-size:14px}
+ .fab{bottom:92px!important}
+ footer{padding-bottom:100px}
+}
+@media (max-width:980px){.qc{grid-template-columns:1fr}.qc-fig{max-width:520px;margin:0 auto}}
+@media (max-width:640px){.cmp th,.cmp td{padding:13px 12px;font-size:13.5px}.cmp td:first-child{width:30%}.trust ul{justify-content:flex-start}}
 </style>
 </head>
 <body>
@@ -271,9 +314,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <p class="lead">Coronas, puentes, pilares personalizados, prótesis completas sobre implantes, guardas oclusales y guías quirúrgicas, diseñados en exocad para su material, su fresadora y su impresora.</p>
       <div class="ctas"><a class="btn" href="../send/?lang=es">Envíe su primer caso gratis <span class="arr">→</span></a><a class="btn ghost" href="#work">Ver nuestro trabajo</a></div>
       <div class="stats">
-        <div class="stat"><b data-count="5" data-suffix="+">0</b><span>años diseñando para producción</span></div>
-        <div class="stat"><b data-count="50" data-prefix="20–">0</b><span>unidades diseñadas por día</span></div>
-        <div class="stat"><b data-count="48" data-prefix="24–" data-suffix="h">0</b><span>tiempo de entrega estándar</span></div>
+        <div class="stat"><b data-count="5" data-suffix="+">5+</b><span>años diseñando para producción</span></div>
+        <div class="stat"><b data-count="50" data-prefix="20–">20–50</b><span>unidades diseñadas por día</span></div>
+        <div class="stat"><b data-count="48" data-prefix="24–" data-suffix="h">24–48h</b><span>tiempo de entrega estándar</span></div>
       </div>
     </div>
     <div class="stage">
@@ -287,6 +330,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 </section>
 
 <div class="marquee" id="services" aria-label="Servicios"><div class="track" id="track"></div></div>
+
+<div class="trust" aria-label="Standards"><div class="wrap"><ul><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 3 7v10l9 5 9-5V7z"/><path d="m3 7 9 5 9-5M12 12v10"/></svg>Diseñado en exocad DentalCAD</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>STL · PLY · OBJ · proyectos exocad</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg>Sus parámetros y bibliotecas</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Solo códigos de caso, sin nombres</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>Opción nocturna para coronas</li></ul></div></div>
 
 <section id="how" class="light"><div class="wrap">
   <div class="eyebrow rv">Cómo trabajamos</div>
@@ -313,11 +358,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   <h2 class="rv d1">Precio simple por unidad. <span class="serif">Sin sorpresas.</span></h2>
   <p class="sub rv d2">Solo paga lo que envía. Precios por volumen para laboratorios que envían más de 100 unidades al mes.</p>
   <div class="prices">
-    <div class="price rv d1"><div class="ic">◆</div><h3>Coronas y puentes</h3><p>Coronas, cofias, incrustaciones, carillas y unidades de puente.</p><div class="amt">$<span data-count="6.40" data-dec="2">0</span> <small>/ unidad</small></div></div>
-    <div class="price rv d2"><div class="ic">⬡</div><h3>Trabajo sobre implantes</h3><p>Coronas sobre implante, unidades atornilladas y pilares personalizados.</p><div class="amt">$<span data-count="9.10" data-dec="2">0</span> <small>/ unidad</small></div></div>
-    <div class="price rv d3"><div class="ic">◠</div><h3>Arcada completa sobre implantes</h3><p>Prótesis All-on-4 / All-on-6 y puentes de arcada completa.</p><div class="amt">$<span data-count="88">0</span> <small>/ arcada</small></div></div>
-    <div class="price rv d1"><div class="ic">☾</div><h3>Guardas y férulas</h3><p>Férulas oclusales y guardas nocturnas, listas para imprimir o fresar.</p><div class="amt">$<span data-count="12">0</span> <small>/ unidad</small></div></div>
-    <div class="price rv d2"><div class="ic">⌖</div><h3>Guías quirúrgicas</h3><p>Guías dentosoportadas y de arcada completa, cotizadas por caso.</p><div class="amt"><small>desde</small> $<span data-count="86.50" data-dec="2">0</span></div></div>
+    <div class="price rv d1"><div class="ic">◆</div><h3>Coronas y puentes</h3><p>Coronas, cofias, incrustaciones, carillas y unidades de puente.</p><div class="amt">$<span data-count="6.40" data-dec="2">6.40</span> <small>/ unidad</small></div></div>
+    <div class="price rv d2"><div class="ic">⬡</div><h3>Trabajo sobre implantes</h3><p>Coronas sobre implante, unidades atornilladas y pilares personalizados.</p><div class="amt">$<span data-count="9.10" data-dec="2">9.10</span> <small>/ unidad</small></div></div>
+    <div class="price rv d3"><div class="ic">◠</div><h3>Arcada completa sobre implantes</h3><p>Prótesis All-on-4 / All-on-6 y puentes de arcada completa.</p><div class="amt">$<span data-count="88">88</span> <small>/ arcada</small></div></div>
+    <div class="price rv d1"><div class="ic">☾</div><h3>Guardas y férulas</h3><p>Férulas oclusales y guardas nocturnas, listas para imprimir o fresar.</p><div class="amt">$<span data-count="12">12</span> <small>/ unidad</small></div></div>
+    <div class="price rv d2"><div class="ic">⌖</div><h3>Guías quirúrgicas</h3><p>Guías dentosoportadas y de arcada completa, cotizadas por caso.</p><div class="amt"><small>desde</small> $<span data-count="86.50" data-dec="2">86.50</span></div></div>
     <div class="price hot rv d3"><div class="ribbon">OFERTA</div><div class="ic">★</div><h3>Su primer caso</h3><p>Evalúe nuestros márgenes y morfología en un trabajo real antes de comprometerse.</p><div class="amt">Gratis</div></div>
   </div>
   <p class="note rv">Cada caso se maneja con un código, nunca con el nombre del paciente.</p>
@@ -344,6 +389,47 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   </div>
 </div></section>
 
+<section id="quality"><div class="wrap">
+  <div class="eyebrow rv">Control de calidad</div>
+  <h2 class="rv d1">Cada diseño se revisa <span class="serif">antes de llegar a su fresadora.</span></h2>
+  <p class="sub rv d2">Nuestro estudio está dirigido por un odontólogo. Cada caso pasa por la misma lista de control clínica, para que lo que se ve bien en pantalla también ajuste en boca.</p>
+  <div class="qc">
+    <div class="qc-fig rv d2"><svg viewBox="0 0 460 400" role="img" aria-label="Corona sobre un diente preparado con seis puntos de control">
+<defs>
+<linearGradient id="gCr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9fbf7"/><stop offset="1" stop-color="#8fd6cb"/></linearGradient>
+<linearGradient id="gDie" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9b98a"/><stop offset="1" stop-color="#9c7a4c"/></linearGradient>
+<linearGradient id="gN" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3c5a70"/><stop offset="1" stop-color="#23394b"/></linearGradient>
+</defs>
+<g opacity=".9">
+<path d="M20 330 C 60 300, 90 300, 105 250 L 118 150 C 122 120 140 108 160 112 L 170 330 Z" fill="url(#gN)"/>
+<path d="M440 330 C 400 300, 370 300, 355 250 L 342 150 C 338 120 320 108 300 112 L 290 330 Z" fill="url(#gN)"/>
+</g>
+<path d="M150 360 L 162 250 C 164 232 175 222 190 220 L 270 220 C 285 222 296 232 298 250 L 310 360 Z" fill="url(#gDie)"/>
+<path d="M150 360 L 310 360" stroke="#7a5d37" stroke-width="2"/>
+<path d="M146 262 C 140 205 142 150 158 118 C 170 96 186 92 200 104 C 210 114 220 114 230 104 C 240 94 250 94 260 104 C 270 114 280 112 290 102 C 304 90 318 100 318 124 C 324 160 322 210 314 262 C 300 270 285 272 262 270 L 198 270 C 175 272 158 270 146 262 Z" fill="url(#gCr)" stroke="#bff1ea" stroke-width="1.5"/>
+<path d="M176 250 C 190 210 200 170 200 140 M 284 250 C 270 210 260 170 260 140" stroke="#6fbfb3" stroke-width="1.2" stroke-dasharray="4 5" fill="none" opacity=".8"/>
+<path d="M150 262 C 170 274 290 274 310 262" stroke="#f2c98a" stroke-width="3" fill="none"/>
+<path d="M198 60 C 215 78 245 78 262 60" stroke="#93a8b8" stroke-width="2" stroke-dasharray="3 5" fill="none"/>
+<g class="pin" data-q="1"><line x1="310" y1="263" x2="385" y2="300" stroke="#f2c98a" stroke-width="1.5"/><circle cx="392" cy="304" r="14" fill="#f2c98a"/><text x="392" y="309" text-anchor="middle" font-size="14" font-weight="800" fill="#0b1826">1</text></g>
+<g class="pin" data-q="2"><line x1="145" y1="175" x2="70" y2="150" stroke="#7FD1C7" stroke-width="1.5"/><circle cx="62" cy="147" r="14" fill="#7FD1C7"/><text x="62" y="152" text-anchor="middle" font-size="14" font-weight="800" fill="#0b1826">2</text></g>
+<g class="pin" data-q="3"><line x1="230" y1="100" x2="230" y2="40" stroke="#7FD1C7" stroke-width="1.5"/><circle cx="230" cy="30" r="14" fill="#7FD1C7"/><text x="230" y="35" text-anchor="middle" font-size="14" font-weight="800" fill="#0b1826">3</text></g>
+<g class="pin" data-q="4"><line x1="300" y1="180" x2="385" y2="150" stroke="#7FD1C7" stroke-width="1.5"/><circle cx="392" cy="147" r="14" fill="#7FD1C7"/><text x="392" y="152" text-anchor="middle" font-size="14" font-weight="800" fill="#0b1826">4</text></g>
+<g class="pin" data-q="5"><line x1="160" y1="255" x2="72" y2="300" stroke="#7FD1C7" stroke-width="1.5"/><circle cx="64" cy="304" r="14" fill="#7FD1C7"/><text x="64" y="309" text-anchor="middle" font-size="14" font-weight="800" fill="#0b1826">5</text></g>
+<g class="pin" data-q="6"><line x1="230" y1="300" x2="230" y2="385" stroke="#7FD1C7" stroke-width="1.5" stroke-dasharray="3 4"/><circle cx="230" cy="385" r="12" fill="#12263a" stroke="#7FD1C7" stroke-width="2"/><text x="230" y="390" text-anchor="middle" font-size="13" font-weight="800" fill="#7FD1C7">6</text></g>
+</svg><div class="cap">Puntos de control en cada corona y puente</div></div>
+    <div class="rv d3"><ol class="qc-list" id="qcl"><li data-q="1"><div><b>Línea de margen</b><span>Continua, siguiendo la preparación, sin sobre- ni infraextensión.</span></div></li><li data-q="2"><div><b>Contactos proximales</b><span>Lo bastante firmes para retener el hilo, sin impedir el asentamiento.</span></div></li><li data-q="3"><div><b>Oclusión</b><span>Contactos estáticos y dinámicos revisados con el antagonista.</span></div></li><li data-q="4"><div><b>Espesor mínimo</b><span>Según los valores mínimos del material que usted fresa.</span></div></li><li data-q="5"><div><b>Perfil de emergencia</b><span>Contornos naturales y fáciles de higienizar, sobre todo en implantes.</span></div></li><li data-q="6"><div><b>Eje de inserción y conectores</b><span>Un solo eje sin retenciones; conectores según el material.</span></div></li></ol><p class="qc-note">¿Algo no está bien? Las correcciones están incluidas hasta que usted apruebe el diseño.</p></div>
+  </div>
+</div></section>
+
+<section id="compare" class="light"><div class="wrap">
+  <div class="eyebrow rv">Los números</div>
+  <h2 class="rv d1">Contratar un diseñador <span class="serif">vs. BoundlessCAD</span></h2>
+  <div class="cmp rv d2"><table><thead><tr><th></th><th>Contratar un diseñador</th><th class="us">BoundlessCAD</th></tr></thead><tbody>
+  <tr><td>Para empezar</td><td class="them">Semanas de selección y formación</td><td class="us">Primer caso de vuelta en 24–48 h</td></tr><tr><td>Costes fijos</td><td class="them">Sueldo, licencia exocad, equipo</td><td class="us">Pago por unidad o un Design Seat mensual</td></tr><tr><td>Semanas pico</td><td class="them">Horas extra o retrasos</td><td class="us">La capacidad crece con su volumen</td></tr><tr><td>Horario nocturno</td><td class="them">Nadie diseñando</td><td class="us">Coronas enviadas antes de las 18:00, listas a las 08:00</td></tr><tr><td>Vacaciones y bajas</td><td class="them">El trabajo se para</td><td class="us">Un equipo de diseñadores sigue trabajando</td></tr><tr><td>Riesgo de probar</td><td class="them">Un contrato laboral</td><td class="us">Primer caso gratis</td></tr>
+  </tbody></table></div>
+  <div class="cmp-cta rv d3"><p>¿Quiere ver los números de su laboratorio? La calculadora usa datos salariales públicos de su país y puede cambiar cada valor.</p><a class="btn" href="../for/?lang=es">Calcular su ahorro <span class="arr">→</span></a></div>
+</div></section>
+
 <section id="faq"><div class="wrap">
   <div class="eyebrow rv">Preguntas frecuentes</div>
   <h2 class="rv d1">Lo que nos preguntan los laboratorios</h2>
@@ -359,7 +445,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     </div>
   </div>
 </div>
-<footer><div class="wrap"><span><a href="../review/?lang=es" style="color:var(--teal)">Revisión de diseño gratis</a> · <a href="../refer/?lang=es" style="color:var(--teal)">Recomiende un laboratorio</a> · © 2026 BoundlessCAD · Diseño remoto en exocad para laboratorios dentales y clínicas digitales</span><span><a href="../guide/" style="color:var(--teal)">Guía (EN): subcontratar diseño exocad</a> · exocad y DentalCAD son marcas registradas de exocad GmbH.</span></div></footer>
+<footer><div class="wrap"><span><a href="../plans/?lang=es" style="color:var(--teal)">Planes</a> · <a href="../partner/?lang=es" style="color:var(--teal)">Para centros de fresado</a> · <a href="../review/?lang=es" style="color:var(--teal)">Revisión de diseño gratis</a> · <a href="../refer/?lang=es" style="color:var(--teal)">Recomiende un laboratorio</a> · © 2026 BoundlessCAD · Diseño remoto en exocad para laboratorios dentales y clínicas digitales</span><span><a href="../guide/" style="color:var(--teal)">Guía (EN): subcontratar diseño exocad</a> · exocad y DentalCAD son marcas registradas de exocad GmbH.</span></div></footer>
 </section>
 
 <a class="fab" href="https://wa.me/989124390969" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2.1.7 2.8.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg></a>
@@ -446,5 +532,12 @@ x.beginPath();x.arc(p.x,p.y,p.r,0,6.283);x.fillStyle='rgba(127,209,199,.7)';x.fi
 for(let i=0;i<P.length;i++)for(let j=i+1;j<P.length;j++){const a=P[i],b=P[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<130){x.strokeStyle=`rgba(127,209,199,${.16*(1-d/130)})`;x.lineWidth=1;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}}})()})();
 </script>
 <script>fetch('../cases/cases.json',{cache:'no-cache'}).then(r=>r.json()).then(l=>{if(Array.isArray(l)&&l.length){document.getElementById('b3d').hidden=false;document.getElementById('nav3d').hidden=false}}).catch(()=>{})</script>
+<div class="mbar" id="mbar"><a class="btn" href="../send/?lang=es">Primer caso gratis <span class="arr">→</span></a><a class="btn ghost" href="https://wa.me/989124390969" target="_blank" rel="noopener">WhatsApp</a></div>
+<script>
+(function(){var m=document.getElementById('mbar'),h=document.querySelector('.hero');if(!m||!h)return;function u(){m.classList.toggle('on',scrollY>h.offsetHeight*.7&&(innerHeight+scrollY)<document.body.scrollHeight-160)}addEventListener('scroll',u,{passive:true});u();
+var L=document.querySelectorAll('#qcl li'),P=document.querySelectorAll('.qc-fig .pin');function hi(q){L.forEach(function(l){l.classList.toggle('on',l.dataset.q==q)});P.forEach(function(p){var c=p.querySelector('circle');c.setAttribute('r',p.dataset.q==q?(q==6?15:18):(p.dataset.q==6?12:14))})}
+L.forEach(function(l){l.addEventListener('mouseenter',function(){hi(l.dataset.q)})});P.forEach(function(p){p.addEventListener('mouseenter',function(){hi(p.dataset.q)})});
+var i=0,run=setInterval(function(){i=i%6+1;hi(i)},2200);document.getElementById('qcl').addEventListener('mouseenter',function(){clearInterval(run)});})();
+</script>
 </body>
 </html>
