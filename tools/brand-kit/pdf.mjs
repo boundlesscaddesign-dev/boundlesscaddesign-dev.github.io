@@ -1,0 +1,12 @@
+import { chromium } from 'playwright';
+import path from 'path';
+const here = path.dirname(new URL(import.meta.url).pathname);
+const b = await chromium.launch();
+const p = await b.newPage();
+await p.goto('file://' + path.join(here, 'cheatsheet_print.html'));
+await p.evaluate(() => document.fonts.ready);
+await p.pdf({ path: path.join(here, 'boundlesscad-exocad-cheatsheet.pdf'), format: 'A4', landscape: true, printBackground: true, preferCSSPageSize: true });
+await p.setViewportSize({ width: 1123, height: 794 });
+await p.screenshot({ path: path.join(here, 'cheatsheet_preview.png') });
+await b.close();
+console.log('pdf ok');

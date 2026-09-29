@@ -1,0 +1,173 @@
+{
+  "_meta": {
+    "compiled": "2026-09-29",
+    "method": "Values read from manufacturer IFU / technical documents via a text-extraction fetch tool (direct PDF download was blocked). Several source files are manufacturer IFUs hosted on distributor sites; this is noted per row. Blank = not stated in the source consulted. Re-check every number against the IFU shipped with the current lot before publishing."
+  },
+  "materials": [
+    {
+      "material": "IPS e.max CAD (monolithic, labside)",
+      "manufacturer": "Ivoclar",
+      "type": "lithium disilicate",
+      "crown_min_occlusal_mm": "1.5 (anterior incisal) / 1.5 (posterior occlusal)",
+      "crown_min_axial_mm": "1.2 (anterior circular) / 1.5 (posterior circular)",
+      "connector_mm2": "16 (3-unit bridges; height >= width)",
+      "indications": "Crowns, veneers (min 0.6 labial / 0.7 incisal; thin veneers 0.4 / 0.5), inlays/onlays (min 1.0 fissure depth and isthmus), partial crowns; 3-unit bridges up to the second premolar as terminal abutment. Max pontic width 11 mm anterior, 9 mm premolar region.",
+      "cement_gap": "",
+      "source_title": "IPS e.max CAD Monolithic Solutions – Labside Instructions for Use (Ivoclar; revision date not shown in fetched text)",
+      "source_url": "https://ivodent.hu/__docs/874_25e427eebe65d0b2a7f79bdd4e0269ad.pdf",
+      "notes": "Ivoclar IFU hosted by distributor (ivodent.hu); ivoclar.com was not reachable from this environment. A newer multi-product LS2 IFU (2019-11-15 Rev.0, https://ivodent.hu/__docs/1150_cf1e3e20a301e89b36e968c805333d9c.pdf) gave inconsistent crown values in two extraction passes, so it was NOT used for numbers – verify against the current Ivoclar IFU."
+    },
+    {
+      "material": "IPS e.max ZirCAD MT Multi (monolithic)",
+      "manufacturer": "Ivoclar",
+      "type": "zirconia (multilayer)",
+      "crown_min_occlusal_mm": "0.8–1.0 (anterior incisal) / 1.0 (posterior occlusal)",
+      "crown_min_axial_mm": "0.8–1.0 (anterior) / 1.0 (posterior)",
+      "connector_mm2": "12 (anterior, 3-unit) / 16 (posterior, 3-unit)",
+      "indications": "Crowns and 3-unit bridges; bridges of more than 3 units contraindicated; no cantilevers.",
+      "cement_gap": "",
+      "source_title": "IPS e.max ZirCAD – Labside Instructions for Use (Ivoclar; revision date not shown in fetched text)",
+      "source_url": "https://www.doriotdent.ro/wp-content/uploads/2022/01/GI_IPS_e_max_ZirCAD_Labside.pdf",
+      "notes": "Ivoclar IFU hosted by distributor. Only MT Multi values included; the extracted LT/MO/MT table was not reliable enough to publish. ZirCAD Prime IFU could not be fetched (403)."
+    },
+    {
+      "material": "3M Lava Esthetic Fluorescent Full-Contour Zirconia",
+      "manufacturer": "3M (Solventum)",
+      "type": "zirconia",
+      "crown_min_occlusal_mm": "0.8 (anterior and posterior)",
+      "crown_min_axial_mm": "0.8 (anterior and posterior)",
+      "connector_mm2": "12 (anterior) / 14 (posterior)",
+      "indications": "Crowns (incl. on implant abutments), inlays, onlays, veneers; bridges with max. 1 pontic supported by a crown on each side, not exceeding 3 units. Not indicated: Maryland/adhesive bridges, cantilever bridges.",
+      "cement_gap": "",
+      "source_title": "3M Lava Esthetic – Technical Product Profile (© 3M 2018); cross-checked with 3M Lava Esthetic IFU/brochure (© 2017) and Lab Quick Start Guide (© 2017)",
+      "source_url": "https://multimedia.3m.com/mws/media/1587012O/3m-lava-esthetic-zirconia-technical-product-profile.pdf",
+      "notes": "Same values in three 3M documents: https://multimedia.3m.com/mws/media/1374888O/3m-lava-esthetic.pdf and https://multimedia.3m.com/mws/media/1324281O/3m-lava-esthetic-zirconia-lab-quick-start-guide.pdf. Wall thickness is given as one value, not split occlusal/axial."
+    },
+    {
+      "material": "KATANA Zirconia UTML / STML / HTML",
+      "manufacturer": "Kuraray Noritake",
+      "type": "zirconia (multilayer)",
+      "crown_min_occlusal_mm": "UTML/STML: 0.8 (anterior) / 1.0 (posterior); HTML: 0.4 (anterior) / 0.5 (posterior)",
+      "crown_min_axial_mm": "Same minimum wall thickness values as occlusal (source gives a single wall-thickness figure)",
+      "connector_mm2": "12 (anterior bridges) / 16 (posterior bridges)",
+      "indications": "UTML bridges: max. three anterior units (incl. a premolar). STML bridges: up to three posterior units.",
+      "cement_gap": "",
+      "source_title": "KATANA Zirconia FAQ (Kuraray Noritake Europe), Q14",
+      "source_url": "https://www.kuraraynoritake.com/katana/eu/faq/",
+      "notes": "Official manufacturer FAQ page, undated. The current STML product page (https://www.kuraraynoritake.eu/en/katana-zirconia-stml-content) mentions 0.4 mm possible with glaze/polish and long-span bridges, which conflicts with the FAQ; check the IFU in the box for the disc generation you use. Kuraray technical guide PDFs returned 403."
+    },
+    {
+      "material": "KATANA Zirconia YML",
+      "manufacturer": "Kuraray Noritake",
+      "type": "zirconia (multi-strength multilayer)",
+      "crown_min_occlusal_mm": "0.4 (anterior) / 0.5 (posterior) in the lower half of the disc; 0.8 in the upper half if combined with porcelain",
+      "crown_min_axial_mm": "",
+      "connector_mm2": "3 units or less: connector may sit in any layer; 4+ units: at least 50% of connector cross-section in the lower half of the disc; cantilever (1 pontic): at least 12",
+      "indications": "Up to 3 units: max 1 pontic, no cantilever. 4+ units: max 2 pontics between abutments. Cantilever: max 1 pontic. 54- or 90-min speed sintering only up to 3-unit bridges.",
+      "cement_gap": "",
+      "source_title": "Frequently Asked Questions “KATANA Zirconia” YML (Kuraray Noritake, 02/2022)",
+      "source_url": "https://www.kuraraynoritake.com/world/product/cad_materials/pdf/katana_yml_faq.pdf",
+      "notes": "Per-region connector table (mm²) for 4+ units exists in the PDF as an image and could not be read reliably, so it is left out."
+    },
+    {
+      "material": "Cercon xt ML",
+      "manufacturer": "Dentsply Sirona",
+      "type": "zirconia (multilayer)",
+      "crown_min_occlusal_mm": "0.7",
+      "crown_min_axial_mm": "0.7 (single wall-thickness value for crowns and bridges)",
+      "connector_mm2": "12 (anterior) / 16 (posterior); 1 pontic",
+      "indications": "Crowns; 3-unit bridges up to the 2nd premolar. 3-unit bridges in the molar region contraindicated.",
+      "cement_gap": "",
+      "source_title": "Cercon xt ML Instructions for use (Dentsply Sirona, REV 2020-11; also checked REV 2019-07)",
+      "source_url": "https://www.dentsplysirona.com/services/asset/download?path=%2Fcontent%2Fdam%2Fflagship%2Fde-de%2Fexplore%2Flab%2FLAB-IFU-Cercon-xt-ML-EN-DE-ES-FR-IT-50537620-2020-11.pdf",
+      "notes": "IFU mentions the cementing gap is set in the digital design but gives no value."
+    },
+    {
+      "material": "Celtra Duo",
+      "manufacturer": "Dentsply Sirona",
+      "type": "zirconia-reinforced lithium silicate (ZLS)",
+      "crown_min_occlusal_mm": "1.5 (anterior and posterior)",
+      "crown_min_axial_mm": "1.0 (anterior) / 1.5 (posterior)",
+      "connector_mm2": "",
+      "indications": "Single units only: crowns, inlays, onlays, veneers. Contraindicated: full veneering of molar crowns, very deep subgingival preps, greatly reduced dentition, bruxism.",
+      "cement_gap": "",
+      "source_title": "Celtra Duo Directions for Use (Dentsply Sirona, REV 2018-01)",
+      "source_url": "https://www.med-dent24.com/Anleitungen/CeltraDuo_20220209_INT.pdf",
+      "notes": "Manufacturer DFU hosted by a dealer; not cross-checked against a second copy."
+    },
+    {
+      "material": "VITA ENAMIC",
+      "manufacturer": "VITA Zahnfabrik",
+      "type": "hybrid ceramic (polymer-infiltrated ceramic network)",
+      "crown_min_occlusal_mm": "1.0 (anterior incisal and posterior occlusal)",
+      "crown_min_axial_mm": "0.8 (circumferential, anterior and posterior)",
+      "connector_mm2": "",
+      "indications": "Single-tooth restorations: anterior/posterior crowns, implant crowns, inlays, onlays (occlusal min 1.0), partial crowns, table tops, veneers (0.3 incisal/labial, 0.2 cervical). Contraindicated: bridges, free-end restorations, parafunction (e.g. bruxism).",
+      "cement_gap": "",
+      "source_title": "VITA ENAMIC Instructions for use 1982E (issue 2022-09); brief instructions 1978E_0424_V07",
+      "source_url": "https://us-store.vitanorthamerica.com/en-us/product/attachment/EN1EC4122885/vita_enamic_instruction_for_use_1982e_v10.pdf",
+      "notes": "Same wall thicknesses in VITA's own brief instructions: https://mam.vita-zahnfabrik.com/portal/ecms_mdb_download.php?id=41861&sprache=en&fallback=&cls_session_id=&neuste_version=1"
+    },
+    {
+      "material": "VITA SUPRINITY PC",
+      "manufacturer": "VITA Zahnfabrik",
+      "type": "zirconia-reinforced lithium silicate (ZLS)",
+      "crown_min_occlusal_mm": "1.5 (anterior and posterior)",
+      "crown_min_axial_mm": "1.2 (anterior) / 1.5 (posterior)",
+      "connector_mm2": "",
+      "indications": "Anterior/posterior crowns (incl. on implant abutments), inlays/onlays/partial crowns, veneers. Bridges contraindicated.",
+      "cement_gap": "",
+      "source_title": "VITA SUPRINITY PC Instructions for use 1951E_1025_V11 (issue 2025-10)",
+      "source_url": "https://mam.vita-zahnfabrik.com/portal/ecms_mdb_download.php?id=47498&sprache=en&fallback=de&cls_session_id=&neuste_version=1",
+      "notes": ""
+    },
+    {
+      "material": "Telio CAD (Monolithic Solutions)",
+      "manufacturer": "Ivoclar",
+      "type": "PMMA (temporary)",
+      "crown_min_occlusal_mm": "1.5",
+      "crown_min_axial_mm": "0.8",
+      "connector_mm2": "Anterior: 12 (1 or 2 pontics); Posterior: 12 (1 pontic) / 16 (2 pontics)",
+      "indications": "Temporary crowns and bridges; bridges with more than two connected pontics contraindicated.",
+      "cement_gap": "",
+      "source_title": "Telio CAD Monolithic Solutions Instructions for Use (Ivoclar, 2017-01-25 / Rev. 0)",
+      "source_url": "https://ivodent.hu/__docs/975_c9c103f498cce643cd9184179c56693a.pdf",
+      "notes": "Ivoclar IFU hosted by distributor. No anterior/posterior split for wall thickness. Maximum wearing period not found in this document."
+    },
+    {
+      "material": "Mediloy S-Co (SLM CoCr powder)",
+      "manufacturer": "BEGO",
+      "type": "metal (CoCr, laser melting)",
+      "crown_min_occlusal_mm": "0.3 (wall thickness after finishing, crowns/copings)",
+      "crown_min_axial_mm": "0.3",
+      "connector_mm2": "Not given in mm²; connector height min. 3.5 mm, width min. 2.5 mm",
+      "indications": "Crowns, bridges, metal-ceramic crowns and bridges, partial dentures (no numeric span limit stated). Screw-retained implant work: min 0.5 mm wall.",
+      "cement_gap": "",
+      "source_title": "BEGO Mediloy S-Co Instructions for use (REF 19259/07, 2023-01-20; also REF 19259/04, 2020-05-13)",
+      "source_url": "https://xactmetal.com/wp-content/uploads/2025/03/Bego-Mediloy-S-Co-Technical-Datasheet-250313-1.pdf",
+      "notes": "SLM alloy, not a millable soft-metal/sinter blank. BEGO IFU hosted by third parties; second copy: https://usdentaldepot.com/files/de_19259_0004_de_en-1635864065.pdf. Could not obtain IFUs for Ceramill Sintron or BEGO Mediloy M-Co."
+    }
+  ],
+  "general_notes": [
+    {
+      "text": "Minimum thicknesses differ widely between zirconia generations from the same maker: Kuraray lists 0.8 mm (anterior) / 1.0 mm (posterior) for UTML/STML but 0.4 / 0.5 mm for HTML. Never apply one zirconia's values to another; use the IFU for the exact disc.",
+      "source_url": "https://www.kuraraynoritake.com/katana/eu/faq/"
+    },
+    {
+      "text": "Design bridge connectors taller rather than wider (height ≥ width) and respect maximum pontic widths (e.max CAD: 11 mm anterior, 9 mm premolar region).",
+      "source_url": "https://ivodent.hu/__docs/874_25e427eebe65d0b2a7f79bdd4e0269ad.pdf"
+    },
+    {
+      "text": "With multi-strength multilayer discs, nesting matters: for bridges of 4+ units Kuraray requires at least 50% of the connector cross-section in the lower (stronger) half of the disc, and speed sintering is limited to bridges of up to 3 units.",
+      "source_url": "https://www.kuraraynoritake.com/world/product/cad_materials/pdf/katana_yml_faq.pdf"
+    },
+    {
+      "text": "Glass-ceramic and hybrid CAD blocks such as VITA ENAMIC and VITA SUPRINITY PC are single-tooth only; bridges are contraindicated.",
+      "source_url": "https://us-store.vitanorthamerica.com/en-us/product/attachment/EN1EC4122885/vita_enamic_instruction_for_use_1982e_v10.pdf"
+    },
+    {
+      "text": "None of the IFUs reviewed gives a numeric cement gap. Dentsply Sirona's Cercon xt ML IFU says restorations are made to your own design settings, including the cementing gap, so spacer values are a lab/software choice, not a material spec.",
+      "source_url": "https://www.dentsplysirona.com/services/asset/download?path=%2Fcontent%2Fdam%2Fflagship%2Fde-de%2Fexplore%2Flab%2FLAB-IFU-Cercon-xt-ML-EN-DE-ES-FR-IT-50537620-2020-11.pdf"
+    }
+  ]
+}
