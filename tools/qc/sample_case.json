@@ -1,0 +1,7 @@
+{"case_code":"BC-SAMPLE-001","lab":"Sample Dental Lab","date":"30 Sep 2026, 08:00 CEST","lang":"en",
+"items":[{"teeth":"36","type":"Full-contour crown","material":"Multilayer zirconia"}],
+"params":"Cement gap 0.03 mm, extra gap 0.06 mm from 1.0 mm above margin, minimum occlusal thickness per zirconia IFU, light proximal contacts, occlusal contacts light-medium.",
+"checks":{"margin":{"ok":true,"note":"Closed, follows prep line 360°"},"contacts":{"ok":true,"note":"Mesial + distal, light"},
+"occlusion":{"ok":true,"note":"3 centric stops, no excursive interference"},"thickness":{"ok":true,"note":"No area below material minimum"},
+"contour":{"ok":true,"note":"Anatomical, cleanable embrasures"},"insertion":{"ok":true,"note":"No undercuts, watertight STL"}},
+"images":["s1.png","s2.png","s3.png"],"qc_by":"Dr. Alireza","notes":"SAMPLE REPORT — illustration only, not a real case."}
