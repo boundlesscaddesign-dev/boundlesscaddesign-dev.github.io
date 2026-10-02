@@ -12,7 +12,7 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Sitemap pages exist, no non-page URLs, noindex pages not listed
         run: |
           python3 - <<'PY'
