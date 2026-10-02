@@ -1,0 +1,55 @@
+name: Site check
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "17 5 * * 1"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Sitemap pages exist, no non-page URLs, noindex pages not listed
+        run: |
+          python3 - <<'PY'
+          import re, os, sys
+          xml = open('sitemap.xml', encoding='utf-8').read()
+          urls = re.findall(r'<loc>https://boundlesscaddesign-dev\.github\.io/([^<]*)</loc>', xml)
+          bad = []
+          for u in urls:
+              if u.endswith(('.txt', '.xml', '.json')):
+                  bad.append(f'{u}: not a page, remove from sitemap'); continue
+              p = os.path.join(u, 'index.html') if (u == '' or u.endswith('/')) else u
+              if u == '': p = 'index.html'
+              if not os.path.exists(p):
+                  bad.append(f'{u}: file {p} missing'); continue
+              if 'noindex' in open(p, encoding='utf-8', errors='ignore').read(4000).lower():
+                  bad.append(f'{u}: page is noindex but listed in sitemap')
+          print('\n'.join(bad) or f'sitemap OK ({len(urls)} urls)')
+          sys.exit(1 if bad else 0)
+          PY
+      - name: Internal links and assets resolve
+        run: |
+          python3 - <<'PY'
+          import re, os, sys, glob
+          miss = set()
+          for f in glob.glob('*.html') + glob.glob('*/index.html'):
+              base = os.path.dirname(f)
+              html = open(f, encoding='utf-8', errors='ignore').read()
+              for m in re.findall(r'(?:href|src)="([^"#?:]+)(?:[?#][^"]*)?"', html):
+                  if m.startswith(('http', '//', 'mailto', 'tel', 'data', '{', '$')) or '${' in m: continue
+                  p = m.lstrip('/') if m.startswith('/') else os.path.normpath(os.path.join(base, m))
+                  if p in ('', '.'): p = 'index.html'
+                  if os.path.isdir(p): p = os.path.join(p, 'index.html')
+                  if not os.path.exists(p): miss.add(f'{f} -> {m}')
+          print('\n'.join(sorted(miss)) or 'links OK')
+          sys.exit(1 if miss else 0)
+          PY
+      - name: Notify IndexNow (Bing, Yandex and others) after a push to main
+        if: github.event_name == 'push'
+        run: |
+          curl -fsS -X POST https://api.indexnow.org/indexnow -H 'Content-Type: application/json' -d '{"host":"boundlesscaddesign-dev.github.io","key":"d62ed9955de42dde5a7070cca1a91755","keyLocation":"https://boundlesscaddesign-dev.github.io/d62ed9955de42dde5a7070cca1a91755.txt","urlList":["https://boundlesscaddesign-dev.github.io/","https://boundlesscaddesign-dev.github.io/send/","https://boundlesscaddesign-dev.github.io/plans/","https://boundlesscaddesign-dev.github.io/cases/","https://boundlesscaddesign-dev.github.io/guide/","https://boundlesscaddesign-dev.github.io/review/","https://boundlesscaddesign-dev.github.io/refer/","https://boundlesscaddesign-dev.github.io/partner/","https://boundlesscaddesign-dev.github.io/es/"]}' || echo "IndexNow ping skipped"

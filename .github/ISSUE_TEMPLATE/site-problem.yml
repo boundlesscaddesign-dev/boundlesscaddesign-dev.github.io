@@ -1,0 +1,24 @@
+name: Website problem
+description: Broken link, typo, page that does not load, wrong information
+labels: [website]
+body:
+  - type: markdown
+    attributes:
+      value: "Please do not post patient data, scans or personal information in this form."
+  - type: input
+    id: page
+    attributes:
+      label: Page address
+      placeholder: https://boundlesscaddesign-dev.github.io/plans/
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What is wrong?
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Browser / device (optional)

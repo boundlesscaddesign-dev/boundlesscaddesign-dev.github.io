@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Send a case or ask for a quote
+    url: https://boundlesscaddesign-dev.github.io/send/
+    about: Real cases and quotes are handled by email, not GitHub. Never post patient data here.

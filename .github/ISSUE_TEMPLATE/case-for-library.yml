@@ -1,0 +1,18 @@
+name: Idea for the 3D case library
+description: Suggest a case type we should show (single crown, bridge, full-arch, guide ...)
+labels: [cases]
+body:
+  - type: markdown
+    attributes:
+      value: "Suggestions only. Do not attach scans or patient files."
+  - type: dropdown
+    id: type
+    attributes:
+      label: Case type
+      options: [Single crown, Bridge, Implant crown / abutment, Full-arch implant, Night guard / splint, Surgical guide, Other]
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: What would you like to see?

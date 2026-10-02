@@ -1,0 +1,7 @@
+/* TEAM */
+Studio: BoundlessCAD — remote exocad design
+Contact: boundlesscad.design@gmail.com
+
+/* SITE */
+Hosting: GitHub Pages
+Standards: HTML5, CSS3, three.js (3D case viewer)
