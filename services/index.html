@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>More design services — BoundlessCAD</title>
+<meta name="description" content="Beyond crowns and implants: removable dentures, implant bars, smile design, models for 3D printing and STL repair, designed in exocad and quoted per case. First case free.">
+<link rel="canonical" href="https://boundlesscaddesign-dev.github.io/services/">
+<meta property="og:title" content="More design services — dentures, bars, smile design, print models">
+<meta property="og:image" content="https://boundlesscaddesign-dev.github.io/og.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#0b1826">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../cases/shared.css">
+<style>
+header{position:sticky;top:0;z-index:20;background:rgba(11,24,38,.85);backdrop-filter:blur(14px) saturate(1.3);border-bottom:1px solid var(--line)}
+.bar{max-width:1100px;margin:0 auto;padding:0 22px;height:66px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.bar nav{display:flex;gap:8px;align-items:center}
+.lg{font:inherit;font-size:13px;font-weight:800;color:var(--muted);background:transparent;border:1px solid var(--line);border-radius:999px;padding:8px 11px;cursor:pointer}
+.lg.on,.lg:hover{color:#fff;border-color:var(--teal)}
+.wrap{max-width:880px;margin:0 auto;padding:0 22px}
+.hero{padding:60px 0 10px;text-align:center}
+.gift{font-size:56px;display:inline-block;animation:b 3s ease-in-out infinite}@keyframes b{50%{transform:translateY(-8px) rotate(-4deg)}}
+h1{font-size:clamp(32px,4.8vw,52px);line-height:1.06;letter-spacing:-1.4px;margin:10px auto 14px;max-width:720px}
+.lead{color:var(--muted);font-size:17px;max-width:600px;margin:0 auto}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:36px 0}
+.h{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px;text-align:center}
+.h b{display:grid;place-items:center;width:40px;height:40px;margin:0 auto 10px;border-radius:12px;background:var(--teal);color:#06241f}
+.h h3{font-size:16px;margin-bottom:6px}.h p{font-size:14px;color:var(--muted)}
+.gen{background:var(--panel);border:1px solid rgba(127,209,199,.3);border-radius:22px;padding:26px;margin-bottom:26px}
+.gen h2{font-size:22px;margin-bottom:14px}
+label{display:grid;gap:6px;font-size:13px;font-weight:700;color:var(--muted);margin-bottom:14px}
+input{font:inherit;font-size:15px;color:var(--txt);background:#0d1c2c;border:1px solid rgba(255,255,255,.12);border-radius:11px;padding:12px 13px;outline:none}
+input:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(127,209,199,.15)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.out{display:none;margin-top:10px}
+.link{display:flex;gap:8px;align-items:center;background:#0d1c2c;border:1px dashed rgba(127,209,199,.45);border-radius:12px;padding:12px;word-break:break-all;font-size:14px;color:var(--mint)}
+.acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+textarea{width:100%;min-height:120px;font:inherit;font-size:14px;color:var(--txt);background:#0d1c2c;border:1px solid rgba(255,255,255,.12);border-radius:11px;padding:12px;margin-top:12px;resize:vertical}
+.terms{color:var(--muted);font-size:13px;margin:0 0 60px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,120px);opacity:0;background:var(--teal);color:#06241f;font-weight:800;padding:12px 18px;border-radius:12px;transition:.35s}
+.toast.on{transform:translate(-50%,0);opacity:1}
+footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:13px}
+@media (max-width:720px){.how,.two{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.gift{animation:none}}
+</style>
+<style>
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:34px 0}
+.c{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px}
+.c h3{font-size:18px;margin-bottom:8px}.c p{font-size:14px;color:var(--muted)}
+.c ul{margin:10px 0 0 18px;font-size:14px;color:var(--muted)}
+.cta{text-align:center;margin:10px 0 60px}
+@media (max-width:720px){.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="bar">
+  <a class="logo" href="../" aria-label="BoundlessCAD home"><svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="#7FD1C7" stroke-width="4" stroke-linecap="round" stroke-dasharray="118 52"/><path d="M24 22c-3 0-5 3-5 6 0 5 2 7 3 11 1 4 2 7 3.5 7s2.5-3 3.2-6.5c.6-1.8 1.4-2.5 3.3-2.5s2.7.7 3.3 2.5c.7 3.5 1.7 6.5 3.2 6.5S43 43 44 39c1-4 3-6 3-11 0-3-2-6-5-6-2.5 0-4 1.6-9 1.6S26.5 22 24 22z" fill="#fff"/></svg><span>Boundless<b>CAD</b></span></a>
+  
+</div></header>
+<section class="hero"><div class="wrap">
+  <h1>More than crowns. <span class="serif">Designed in exocad.</span></h1>
+  <p class="lead">The same overnight team, the same quality check, now for dentures, bars, smile design, print models and scan clean-up. Each job is quoted per case before we start.</p>
+</div></section>
+<main class="wrap">
+<div class="cards">
+<div class="c"><h3>Removable dentures</h3><p>Complete and partial denture design: tooth set-up, base and teeth separated for milling or printing.</p><ul><li>Complete and partial dentures</li><li>Base and teeth as separate files</li></ul></div>
+<div class="c"><h3>Implant bars and frameworks</h3><p>Bar and framework design on implants, quoted per case.</p><ul><li>Bars on implants</li><li>Frameworks for hybrid cases</li></ul></div>
+<div class="c"><h3>Smile design</h3><p>Anterior case planning with a design preview, then the final restorations.</p><ul><li>Preview before the final design</li><li>Veneers and anterior crowns</li><li>Shape and proportions agreed with you</li></ul></div>
+<div class="c"><h3>Models for 3D printing</h3><p>Printable models and dies from your scan, hollowed, labelled and ready for your printer.</p><ul><li>Working and diagnostic models</li><li>Dies with removable segments</li><li>Splint and guide models</li></ul></div>
+<div class="c"><h3>STL repair and clean-up</h3><p>We repair holes, noise and bad margins in scans, or merge scans before design.</p><ul><li>Hole and noise repair</li><li>Merging and alignment</li><li>One-off jobs welcome</li></ul></div>
+<div class="c"><h3>Anything else in exocad</h3><p>Not listed here? Send it anyway. If our team can design it, we quote it. If not, we tell you quickly.</p><ul><li>Quoted before we start</li><li>No obligation</li><li>White-label available</li></ul></div>
+</div>
+<div class="cta"><p class="lead" style="margin-bottom:18px">Your first case is free. Send the scan and tell us what you need.</p><a class="btn" href="../send/">Send a case</a> <a class="btn ghost" href="mailto:boundlesscad.design@gmail.com?subject=Quote%20request">Ask for a quote</a></div>
+<p class="terms">Standard crowns, implant work, full-arch and night guards: see <a href="../plans/">plans and per-unit prices</a>. Turnaround for special jobs is agreed in the quote.</p>
+</main>
+<footer><div class="wrap">© 2026 BoundlessCAD · boundlesscad.design@gmail.com</div></footer>
+</body>
+</html>
