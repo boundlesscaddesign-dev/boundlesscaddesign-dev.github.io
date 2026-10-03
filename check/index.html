@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Free STL Check for dental scans — BoundlessCAD</title>
+<meta name="description" content="Free STL check for dental scans and models: finds holes, non-manifold edges, flipped normals, floating debris and wrong units in seconds. Runs in your browser; your file is never uploaded.">
+<link rel="canonical" href="https://boundlesscaddesign-dev.github.io/check/">
+<meta property="og:title" content="Free STL Check — is your scan ready for design?">
+<meta property="og:description" content="Drop an STL or PLY. Get holes, broken edges, debris and unit problems in seconds. Nothing is uploaded.">
+<meta property="og:image" content="https://boundlesscaddesign-dev.github.io/og.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#0b1826">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../cases/shared.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"BoundlessCAD STL Check","url":"https://boundlesscaddesign-dev.github.io/check/","applicationCategory":"DesignApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free in-browser check of dental STL/PLY scans and models: holes, non-manifold edges, flipped normals, debris shells, units.","publisher":{"@type":"Organization","name":"BoundlessCAD","url":"https://boundlesscaddesign-dev.github.io/"}}</script>
+<style>
+header{position:sticky;top:0;z-index:20;background:rgba(11,24,38,.85);backdrop-filter:blur(14px) saturate(1.3);border-bottom:1px solid var(--line)}
+.bar{max-width:1180px;margin:0 auto;padding:0 22px;height:66px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.hero{padding:46px 0 18px;text-align:center}
+.pill{display:inline-flex;gap:8px;align-items:center;font-size:12.5px;font-weight:800;letter-spacing:.5px;color:var(--mint);border:1px solid rgba(127,209,199,.35);border-radius:999px;padding:6px 12px}
+h1{font-size:clamp(32px,5vw,56px);line-height:1.04;letter-spacing:-1.5px;margin:14px auto 12px;max-width:820px}
+.lead{color:var(--muted);font-size:17px;max-width:640px;margin:0 auto}
+.drop{display:block;position:relative;margin:30px auto 0;max-width:760px;border:2px dashed rgba(127,209,199,.45);border-radius:24px;padding:42px 20px;text-align:center;background:linear-gradient(180deg,rgba(18,50,74,.55),rgba(15,32,51,.35));cursor:pointer;transition:.25s}
+.drop:hover,.drop.over{border-color:var(--teal);transform:translateY(-2px);box-shadow:0 18px 50px -20px rgba(32,201,187,.45)}
+.drop b{display:block;font-size:20px;margin:10px 0 6px}
+.drop small{color:var(--muted);font-size:13.5px}
+.drop svg{width:52px;height:52px}
+.priv{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin:16px 0 0;color:var(--muted);font-size:13px;font-weight:600}
+.priv span::before{content:"✓ ";color:var(--teal)}
+#app{display:none;grid-template-columns:1fr 400px;gap:18px;margin:28px 0 30px}
+.stage{position:relative;height:640px;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:radial-gradient(ellipse at 50% 38%,#1b3a55 0%,#0f2033 55%,#0a1522 100%)}
+#cv{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none;cursor:grab}
+.legend{position:absolute;left:14px;top:14px;display:flex;flex-direction:column;gap:6px;font-size:12.5px;font-weight:700;color:#d7e3ec;background:rgba(11,24,38,.7);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:7px;vertical-align:-1px}
+.busy{position:absolute;inset:0;display:grid;place-items:center;background:rgba(10,21,34,.75);color:var(--muted);font-weight:700;font-size:14px}
+.busy.hide{display:none}
+.ring{width:50px;height:50px;border-radius:50%;border:3px solid rgba(127,209,199,.15);border-top-color:var(--teal);margin:0 auto 12px;animation:rot 1s linear infinite}
+@keyframes rot{to{transform:rotate(360deg)}}
+.panel{display:flex;flex-direction:column;gap:14px}
+.score{display:flex;align-items:center;gap:18px;padding:20px;border-radius:20px;background:var(--panel);border:1px solid var(--line)}
+.gauge{position:relative;width:96px;height:96px;flex:none}
+.gauge svg{transform:rotate(-90deg)}
+.gauge b{position:absolute;inset:0;display:grid;place-items:center;font-size:28px;letter-spacing:-1px}
+.verdict h2{font-size:21px;line-height:1.2;letter-spacing:-.4px}
+.verdict p{color:var(--muted);font-size:13.5px;margin-top:4px}
+.fname{font-size:12.5px;color:var(--muted);word-break:break-all;margin-top:6px}
+.checks{display:flex;flex-direction:column;gap:8px}
+.ck{display:grid;grid-template-columns:22px 1fr auto;gap:10px;align-items:start;padding:12px 14px;border-radius:14px;background:var(--panel);border:1px solid var(--line)}
+.ck .ic{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:900;color:#06241f}
+.ck.ok .ic{background:var(--teal)}.ck.warn .ic{background:#f5c451}.ck.bad .ic{background:#ff6b6b}.ck.info .ic{background:#8fa7bb}
+.ck h4{font-size:14.5px}.ck p{font-size:12.8px;color:var(--muted);margin-top:2px}
+.ck .v{font-size:13px;font-weight:800;color:#d7e3ec;white-space:nowrap}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.st{padding:10px 12px;border-radius:12px;background:#0d1c2c;border:1px solid var(--line)}
+.st small{display:block;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.st b{font-size:15px}
+.cta{padding:18px;border-radius:18px;background:linear-gradient(135deg,#12324a,#0f2033);border:1px solid rgba(127,209,199,.25)}
+.cta h3{font-size:18px;line-height:1.25}
+.cta p{color:#b6c7d3;font-size:13.5px;margin:6px 0 12px}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+button.btn{font:inherit;cursor:pointer;border:0}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:40px 0}
+.h{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px}
+.h h3{font-size:16px;margin-bottom:6px}.h p{font-size:14px;color:var(--muted)}
+.faq{max-width:820px;margin:0 auto 60px}
+.faq h2{font-size:26px;margin-bottom:14px;text-align:center}
+details{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:8px}
+summary{cursor:pointer;font-weight:800}
+details p{color:var(--muted);font-size:14.5px;margin-top:8px}
+footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:13px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,120px);opacity:0;background:var(--teal);color:#06241f;font-weight:800;padding:12px 18px;border-radius:12px;transition:.35s;z-index:50}
+.toast.on{transform:translate(-50%,0);opacity:1}
+@media (max-width:980px){#app{grid-template-columns:1fr}.stage{height:58vh;min-height:360px}.how{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="bar">
+  <a class="logo" href="../" aria-label="BoundlessCAD home"><svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="#7FD1C7" stroke-width="4" stroke-linecap="round" stroke-dasharray="118 52"/><path d="M24 22c-3 0-5 3-5 6 0 5 2 7 3 11 1 4 2 7 3.5 7s2.5-3 3.2-6.5c.6-1.8 1.4-2.5 3.3-2.5s2.7.7 3.3 2.5c.7 3.5 1.7 6.5 3.2 6.5S43 43 44 39c1-4 3-6 3-11 0-3-2-6-5-6-2.5 0-4 1.6-9 1.6S26.5 22 24 22z" fill="#fff"/></svg><span>Boundless<b>CAD</b></span></a>
+  <a class="btn ghost" href="../send/">Send a case</a>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <span class="pill">FREE TOOL · NO SIGN-UP</span>
+  <h1>Is your scan <span class="serif">ready for design?</span></h1>
+  <p class="lead">Drop an STL or PLY. In a few seconds you see holes, broken edges, flipped normals, floating debris and unit problems, marked in 3D.</p>
+  <label class="drop" id="drop">
+    <svg viewBox="0 0 48 48" fill="none" stroke="#7FD1C7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M24 31V9m0 0-8 8m8-8 8 8"/><path d="M8 29v7a4 4 0 0 0 4 4h24a4 4 0 0 0 4-4v-7"/></svg>
+    <b>Drop your scan here, or click to choose</b>
+    <small>STL (binary or ASCII) or PLY · intraoral scans, models, dies, designs</small>
+    <input id="file" type="file" accept=".stl,.ply" hidden>
+  </label>
+  <div class="priv"><span>Runs in your browser</span><span>Your file is never uploaded</span><span>No account, no email</span></div>
+</div></section>
+
+<main class="wrap">
+<div id="app">
+  <div class="stage">
+    <canvas id="cv"></canvas>
+    <div class="legend" id="legend"></div>
+    <div class="busy" id="busy"><div><div class="ring"></div><span id="busyT">Reading file…</span></div></div>
+  </div>
+  <div class="panel">
+    <div class="score">
+      <div class="gauge"><svg width="96" height="96" viewBox="0 0 96 96"><circle cx="48" cy="48" r="40" stroke="rgba(255,255,255,.08)" stroke-width="9" fill="none"/><circle id="arc" cx="48" cy="48" r="40" stroke="#20C9BB" stroke-width="9" fill="none" stroke-linecap="round" stroke-dasharray="251.3" stroke-dashoffset="251.3" style="transition:stroke-dashoffset 1s cubic-bezier(.2,.8,.2,1)"/></svg><b id="scoreN">–</b></div>
+      <div class="verdict"><h2 id="vt">Checking…</h2><p id="vp"></p><div class="fname" id="fn"></div></div>
+    </div>
+    <div class="checks" id="checks"></div>
+    <div class="stats" id="stats"></div>
+    <div class="cta">
+      <h3 id="ctaH">Want us to fix it, or design on it?</h3>
+      <p id="ctaP">We repair holes and debris and design crowns, abutments, bars and dentures in exocad. Your first case is free.</p>
+      <div class="row">
+        <a class="btn" id="mail" href="#">Email us this report</a>
+        <button class="btn ghost" id="copy">Copy report</button>
+        <button class="btn ghost" id="again">Check another file</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="how">
+  <div class="h"><h3>1 · Drop the file</h3><p>Scans from any intraoral or lab scanner, exported as STL or PLY. Large full-arch scans work too.</p></div>
+  <div class="h"><h3>2 · We read the mesh</h3><p>Every edge and triangle is checked in your browser: open edges, edges shared by three or more triangles, flipped triangles, separate pieces, size.</p></div>
+  <div class="h"><h3>3 · See it in 3D</h3><p>Problems are marked on the model, with a plain-English report you can copy or send to your designer.</p></div>
+</div>
+
+<section class="faq">
+  <h2>Questions</h2>
+  <details><summary>Is my file uploaded anywhere?</summary><p>No. The file is read by your own browser and never sent to a server. You can disconnect from the internet after the page has loaded and it still works.</p></details>
+  <details><summary>My intraoral scan shows an open border. Is that a problem?</summary><p>No. A scan of a jaw is an open surface, so one outer border per piece is normal. The tool counts that border separately and only flags extra holes inside the surface.</p></details>
+  <details><summary>What does "non-manifold" mean?</summary><p>An edge shared by three or more triangles. Many CAD and slicing programs cannot handle it, and it often comes from merged or badly repaired scans.</p></details>
+  <details><summary>Does a high score mean the scan is clinically good?</summary><p>No. The tool checks the mesh, not the clinical content. A clean mesh can still have an unclear margin or a missing contact. For that, a designer has to look at it.</p></details>
+  <details><summary>Can you fix my file?</summary><p>Yes. Hole repair, debris removal, merging and model preparation are part of our <a href="../services/" style="color:var(--teal)">design services</a>, and the first case is free.</p></details>
+</section>
+</main>
+<footer><div class="wrap">© 2026 BoundlessCAD · remote exocad design for dental labs · boundlesscad.design@gmail.com</div></footer>
+<div class="toast" id="toast"></div>
+
+<script type="importmap">{"imports":{"three":"../cases/lib/three.module.min.js"}}</script>
+<script type="module">
+import * as THREE from 'three';
+import {OrbitControls} from '../cases/lib/OrbitControls.js';
+import {STLLoader} from '../cases/lib/STLLoader.js';
+import {PLYLoader} from '../cases/lib/PLYLoader.js';
+import {RoomEnvironment} from '../cases/lib/RoomEnvironment.js';
+
+const $=id=>document.getElementById(id);
+const drop=$('drop'),inp=$('file');
+let report='',renderer,scene,camera,controls,group;
+
+['dragenter','dragover'].forEach(e=>drop.addEventListener(e,ev=>{ev.preventDefault();drop.classList.add('over')}));
+['dragleave','drop'].forEach(e=>drop.addEventListener(e,ev=>{ev.preventDefault();drop.classList.remove('over')}));
+drop.addEventListener('drop',ev=>{const f=ev.dataTransfer.files[0];if(f)run(f)});
+inp.addEventListener('change',()=>{if(inp.files[0])run(inp.files[0])});
+$('again').onclick=()=>{inp.value='';inp.click()};
+$('copy').onclick=async()=>{try{await navigator.clipboard.writeText(report);toast('Report copied')}catch(e){toast('Copy not allowed in this browser')}};
+
+function toast(t){const el=$('toast');el.textContent=t;el.classList.add('on');setTimeout(()=>el.classList.remove('on'),1800)}
+const tick=()=>new Promise(r=>setTimeout(r,20));
+
+function initGL(){
+  if(renderer)return;
+  const cv=$('cv');
+  renderer=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  renderer.outputColorSpace=THREE.SRGBColorSpace;
+  renderer.toneMapping=THREE.ACESFilmicToneMapping;
+  scene=new THREE.Scene();
+  const pm=new THREE.PMREMGenerator(renderer);
+  scene.environment=pm.fromScene(new RoomEnvironment(),0.04).texture;
+  camera=new THREE.PerspectiveCamera(35,1,0.1,5000);
+  controls=new OrbitControls(camera,cv);controls.enableDamping=true;
+  const d=new THREE.DirectionalLight(0xffffff,1.2);d.position.set(1,2,3);camera.add(d);scene.add(camera);
+  const rs=()=>{const r=cv.getBoundingClientRect();renderer.setSize(r.width,r.height,false);camera.aspect=r.width/Math.max(1,r.height);camera.updateProjectionMatrix()};
+  new ResizeObserver(rs).observe(cv);rs();
+  (function loop(){requestAnimationFrame(loop);controls.update();renderer.render(scene,camera)})();
+}
+
+async function run(file){
+  $('app').style.display='grid';$('busy').classList.remove('hide');$('busyT').textContent='Reading file…';
+  $('checks').innerHTML='';$('stats').innerHTML='';$('vt').textContent='Checking…';$('vp').textContent='';$('fn').textContent=file.name+' · '+(file.size/1048576).toFixed(1)+' MB';
+  $('scoreN').textContent='–';$('arc').style.strokeDashoffset=251.3;
+  $('app').scrollIntoView({behavior:'smooth',block:'start'});
+  initGL();await tick();
+  const ext=file.name.split('.').pop().toLowerCase();
+  let geo;
+  try{
+    const buf=await file.arrayBuffer();
+    geo=(ext==='ply'?new PLYLoader():new STLLoader()).parse(buf);
+  }catch(e){fail('This file could not be read as STL or PLY.');return}
+  if(geo.index)geo=geo.toNonIndexed();
+  const pos=geo.attributes.position;
+  if(!pos||pos.count<3){fail('No triangles found in this file.');return}
+  $('busyT').textContent='Checking '+(pos.count/3).toLocaleString()+' triangles…';await tick();
+  const R=analyse(pos.array);
+  $('busyT').textContent='Drawing…';await tick();
+  draw(geo,R);
+  show(R,file);
+  $('busy').classList.add('hide');
+}
+function fail(m){$('busy').classList.add('hide');$('vt').textContent='Could not read the file';$('vp').textContent=m}
+
+function analyse(P){
+  const nT=P.length/9;
+  // bbox
+  let mn=[1e30,1e30,1e30],mx=[-1e30,-1e30,-1e30];
+  for(let i=0;i<P.length;i+=3)for(let k=0;k<3;k++){const v=P[i+k];if(v<mn[k])mn[k]=v;if(v>mx[k])mx[k]=v}
+  const size=[mx[0]-mn[0],mx[1]-mn[1],mx[2]-mn[2]],diag=Math.hypot(...size)||1;
+  const q=diag*1e-7;
+  // weld: exact float bit match via open-addressing hash
+  const U=new Uint32Array(P.buffer,P.byteOffset,P.length);
+  let cap=1;while(cap<nT*3*2)cap<<=1;const tab=new Int32Array(cap).fill(-1);const rep=new Int32Array(nT*3);
+  const vid=new Uint32Array(nT*3);let nV=0;
+  for(let i=0;i<nT*3;i++){
+    const x=U[i*3],y=U[i*3+1],z=U[i*3+2];
+    let h=(Math.imul(x,73856093)^Math.imul(y,19349663)^Math.imul(z,83492791))&(cap-1);
+    for(;;){const e=tab[h];if(e<0){tab[h]=i;rep[nV]=i;vid[i]=nV++;break}
+      if(U[e*3]===x&&U[e*3+1]===y&&U[e*3+2]===z){vid[i]=vid[e];break}h=(h+1)&(cap-1)}
+  }
+  // union-find
+  const par=new Int32Array(nV);for(let i=0;i<nV;i++)par[i]=i;
+  const find=a=>{while(par[a]!==a){par[a]=par[par[a]];a=par[a]}return a};
+  const uni=(a,b)=>{a=find(a);b=find(b);if(a!==b)par[a]=b};
+  // edges
+  const E=new Map();let degen=0,area=0,vol=0,elen=0;
+  for(let t=0;t<nT;t++){
+    const a=vid[t*3],b=vid[t*3+1],c=vid[t*3+2];
+    const o=t*9,ax=P[o],ay=P[o+1],az=P[o+2],bx=P[o+3],by=P[o+4],bz=P[o+5],cx=P[o+6],cy=P[o+7],cz=P[o+8];
+    const ux=bx-ax,uy=by-ay,uz=bz-az,wx=cx-ax,wy=cy-ay,wz=cz-az;
+    const nx=uy*wz-uz*wy,ny=uz*wx-ux*wz,nz=ux*wy-uy*wx,ar=Math.hypot(nx,ny,nz)/2;
+    area+=ar;vol+=(ax*(by*cz-bz*cy)-ay*(bx*cz-bz*cx)+az*(bx*cy-by*cx))/6;
+    elen+=Math.hypot(ux,uy,uz);
+    if(a===b||b===c||a===c||ar<q*q){degen++;continue}
+    uni(a,b);uni(b,c);
+    for(const [s,e] of [[a,b],[b,c],[c,a]]){
+      const lo=s<e?s:e,hi=s<e?e:s,key=lo*4294967296+hi;
+      let r=E.get(key);if(!r){r=[0,0,lo,hi];E.set(key,r)}
+      r[0]++;r[1]+=(s<e?1:-1);
+    }
+  }
+  let bnd=0,nm=0,flip=0;const bEdges=[],nmEdges=[];
+  for(const r of E.values()){
+    if(r[0]===1){bnd++;bEdges.push(r[2],r[3])}
+    else if(r[0]>2){nm++;nmEdges.push(r[2],r[3])}
+    else if(r[1]!==0)flip++;
+  }
+  // shells
+  const shellOf=new Map();const shellTris=new Map();
+  for(let t=0;t<nT;t++){const a=vid[t*3],b=vid[t*3+1],c=vid[t*3+2];if(a===b||b===c||a===c)continue;const s=find(a);shellTris.set(s,(shellTris.get(s)||0)+1)}
+  const shells=[...shellTris.entries()].sort((x,y)=>y[1]-x[1]);
+  const main=shells.length?shells[0][1]:0;
+  const debrisSet=new Set(shells.filter(s=>s[1]<Math.max(50,main*0.01)).map(s=>s[0]));
+  // vertex positions
+  const VP=new Float32Array(nV*3);for(let i=0;i<nT*3;i++){const v=vid[i];VP[v*3]=P[i*3];VP[v*3+1]=P[i*3+1];VP[v*3+2]=P[i*3+2]}
+  // boundary loops
+  const bp=new Map();
+  const bf=a=>{let r=a;while(bp.get(r)!==r)r=bp.get(r);let x=a;while(bp.get(x)!==r){const n=bp.get(x);bp.set(x,r);x=n}return r};
+  for(let i=0;i<bEdges.length;i+=2){const a=bEdges[i],b=bEdges[i+1];if(!bp.has(a))bp.set(a,a);if(!bp.has(b))bp.set(b,b);const ra=bf(a),rb=bf(b);if(ra!==rb)bp.set(ra,rb)}
+  const loops=new Map();
+  for(let i=0;i<bEdges.length;i+=2){const a=bEdges[i],b=bEdges[i+1],r=bf(a);const L=loops.get(r)||{n:0,len:0,c:[0,0,0],shell:find(a)};L.n++;L.len+=Math.hypot(VP[a*3]-VP[b*3],VP[a*3+1]-VP[b*3+1],VP[a*3+2]-VP[b*3+2]);L.c[0]+=VP[a*3];L.c[1]+=VP[a*3+1];L.c[2]+=VP[a*3+2];loops.set(r,L)}
+  // per shell (non-debris): largest loop = outer border, others = holes
+    const outerRoots=new Set();
+  {const best=new Map();for(const [r,L] of loops){if(debrisSet.has(L.shell))continue;const b=best.get(L.shell);if(!b||L.len>loops.get(b).len)best.set(L.shell,r)}for(const r of best.values())if(loops.get(r).len>diag*0.3)outerRoots.add(r)}
+  let borders=outerRoots.size,holes=0,smallHoles=0;const holeSizes=[],holeMarks=[];
+  for(const [r,L] of loops){if(debrisSet.has(L.shell)||outerRoots.has(r))continue;holes++;holeSizes.push(L.n);if(L.n<=12)smallHoles++;holeMarks.push([L.c[0]/L.n,L.c[1]/L.n,L.c[2]/L.n])}
+  // loop membership for drawing holes vs border
+  const holeEdges=[],borderEdges=[];
+  for(let i=0;i<bEdges.length;i+=2){const r=bf(bEdges[i]);const L=loops.get(r);if(debrisSet.has(L.shell))continue;(outerRoots.has(r)?borderEdges:holeEdges).push(bEdges[i],bEdges[i+1])}
+  const closed=bnd===0&&nm===0;
+  return {nT,nV,size,area,vol,closed,bnd,nm,flip,degen,shells:shells.length,debris:debrisSet.size,debrisSet,borders,holes,smallHoles,holeSizes,holeMarks,diag,holeEdges,borderEdges,nmEdges,VP,vid,find,avgEdge:elen/nT};
+}
+
+function unitGuess(size){
+  const m=Math.max(...size);
+  if(m<0.3)return {u:'m',ok:false,t:'Very small ('+m.toFixed(3)+'). The file is probably in metres; most dental software expects millimetres.'};
+  if(m<8)return {u:'in?',ok:false,t:'Only '+m.toFixed(2)+' across. This may be centimetres or inches. Dental software expects millimetres.'};
+  if(m>400)return {u:'µm?',ok:false,t:m.toFixed(0)+' across is too large for a dental object in millimetres. Check the export units.'};
+  return {u:'mm',ok:true,t:'Size fits a dental object in millimetres.'};
+}
+
+function draw(geo,R){
+  if(group){scene.remove(group);group.traverse(o=>{o.geometry&&o.geometry.dispose()})}
+  group=new THREE.Group();
+  geo.computeVertexNormals();
+  const n=R.nT*3,col=new Float32Array(n*3);
+  for(let t=0;t<R.nT;t++){
+    const s=R.find(R.vid[t*3]),deb=R.debrisSet.has(s);
+    for(let k=0;k<3;k++){const i=(t*3+k)*3;if(deb){col[i]=1;col[i+1]=.55;col[i+2]=.15}else{col[i]=.86;col[i+1]=.9;col[i+2]=.92}}
+  }
+  geo.setAttribute('color',new THREE.BufferAttribute(col,3));
+  const mesh=new THREE.Mesh(geo,new THREE.MeshStandardMaterial({vertexColors:true,roughness:.45,metalness:.05,side:THREE.DoubleSide}));
+  group.add(mesh);
+  const lines=(arr,c,w)=>{if(!arr.length)return;const p=new Float32Array(arr.length*3);for(let i=0;i<arr.length;i++){p[i*3]=R.VP[arr[i]*3];p[i*3+1]=R.VP[arr[i]*3+1];p[i*3+2]=R.VP[arr[i]*3+2]}const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.BufferAttribute(p,3));const m=new THREE.LineSegments(g,new THREE.LineBasicMaterial({color:c,depthTest:false,transparent:true,opacity:w}));m.renderOrder=5;group.add(m)};
+  lines(R.borderEdges,0x20C9BB,.9);lines(R.holeEdges,0xff4d4d,1);lines(R.nmEdges,0xffd23f,1);
+  const sg=new THREE.SphereGeometry(R.diag*0.012,16,12),sm=new THREE.MeshBasicMaterial({color:0xff4d4d,transparent:true,opacity:.85,depthTest:false});
+  for(const h of R.holeMarks){const m=new THREE.Mesh(sg,sm);m.position.set(...h);m.renderOrder=6;group.add(m)}
+  scene.add(group);
+  const box=new THREE.Box3().setFromObject(mesh),c=box.getCenter(new THREE.Vector3()),r=box.getSize(new THREE.Vector3()).length()/2||1;
+  controls.target.copy(c);camera.near=r/100;camera.far=r*100;const dist=r/Math.tan(THREE.MathUtils.degToRad(camera.fov/2))/Math.min(1,camera.aspect)*1.1;camera.position.copy(c).add(new THREE.Vector3(0,-0.45,0.89).multiplyScalar(dist));camera.updateProjectionMatrix();
+  const lg=[];
+  lg.push('<span><i style="background:#dbe5eb"></i>Surface</span>');
+  if(R.borderEdges.length)lg.push('<span><i style="background:#20C9BB"></i>Outer border</span>');
+  if(R.holeEdges.length)lg.push('<span><i style="background:#ff4d4d"></i>Holes</span>');
+  if(R.nmEdges.length)lg.push('<span><i style="background:#ffd23f"></i>Non-manifold edges</span>');
+  if(R.debris)lg.push('<span><i style="background:#ff8c26"></i>Loose debris</span>');
+  $('legend').innerHTML=lg.join('');
+}
+
+function show(R,file){
+  const U=unitGuess(R.size);
+  const C=[];let score=100;
+  const add=(st,h,p,v)=>C.push({st,h,p,v});
+  if(R.closed){add('ok','Closed, watertight solid','Good for 3D printing and for most CAD imports.','✓')}
+  else if(R.borders===0)add('warn','Not watertight','A closed shape with openings. It must be closed before printing.','✕');
+  else add('info','Open surface',R.borders+' outer border'+(R.borders===1?'':'s')+'. Normal for an intraoral scan; a print model must be closed.',R.borders);
+  if(R.holes===0)add('ok','No holes inside the surface','','0');
+  else{const big=R.holes-R.smallHoles;add(big?'bad':'warn','Holes inside the surface',(R.smallHoles?R.smallHoles+' small (≤12 edges)':'')+(R.smallHoles&&big?' · ':'')+(big?big+' larger':'')+'. Marked in red. Holes near a margin or contact need a rescan or repair.',R.holes);score-=Math.min(35,R.smallHoles*2+big*8)}
+  if(R.nm===0)add('ok','No non-manifold edges','','0');else{add('bad','Non-manifold edges','Edges shared by 3+ triangles (yellow). Many programs reject these.',R.nm.toLocaleString());score-=20}
+  if(R.flip===0)add('ok','Triangle orientation consistent','','✓');else{add('warn','Flipped triangles','Neighbouring triangles face opposite ways. Can cause shading errors and failed booleans.',R.flip.toLocaleString());score-=Math.min(15,5+R.flip/100)}
+  if(R.closed&&R.vol<0){add('warn','Normals point inwards','The whole solid is inside-out. Flip normals before printing.','✓');score-=10}
+  if(R.debris===0)add('ok','No loose debris','One clean piece'+(R.shells>1?' per part ('+R.shells+' parts)':'')+'.',R.shells);else{add('warn','Loose debris pieces','Small separate fragments (orange), often scan noise. Remove before design.',R.debris);score-=Math.min(15,R.debris*2)}
+  if(R.degen===0)add('ok','No zero-area triangles','','0');else{add('warn','Zero-area triangles','Collapsed triangles. Usually harmless, sometimes break booleans.',R.degen.toLocaleString());score-=5}
+  add(U.ok?'ok':'bad','Units',U.t,U.u);if(!U.ok)score-=15;
+  score=Math.max(0,Math.round(score));
+  if(C.some(c=>c.st==='bad'))score=Math.min(score,59);else if(C.some(c=>c.st==='warn'))score=Math.min(score,84);
+  const order={bad:0,warn:1,info:2,ok:3};C.sort((a,b)=>order[a.st]-order[b.st]);
+  $('checks').innerHTML=C.map(c=>`<div class="ck ${c.st}"><span class="ic">${c.st==='ok'?'✓':c.st==='info'?'i':'!'}</span><div><h4>${c.h}</h4>${c.p?`<p>${c.p}</p>`:''}</div><span class="v">${c.v}</span></div>`).join('');
+  const f=x=>x.toFixed(1);
+  const st=[['Triangles',R.nT.toLocaleString()],['Size (mm)',R.size.map(f).join(' × ')],['Surface area',f(R.area)+' mm²'],['Volume',R.closed?f(Math.abs(R.vol)/1000)+' cm³':'n/a (open)'],['Avg. edge',R.avgEdge.toFixed(3)+' mm'],['Pieces',R.shells]];
+  $('stats').innerHTML=st.map(s=>`<div class="st"><small>${s[0]}</small><b>${s[1]}</b></div>`).join('');
+  $('scoreN').textContent=score;
+  const arc=$('arc');arc.style.stroke=score>=85?'#20C9BB':score>=60?'#f5c451':'#ff6b6b';
+  requestAnimationFrame(()=>arc.style.strokeDashoffset=251.3*(1-score/100));
+  const good=score>=85;
+  $('vt').textContent=good?'Ready for design':score>=60?'Usable, with a few fixes':'Needs repair first';
+  $('vp').textContent=good?'The mesh is clean. Any designer can work on this file.':'See the list below. Problems are marked on the model.';
+  $('ctaH').textContent=good?'Clean scan. Want it designed?':'We can fix this file for you.';
+  report=['BoundlessCAD STL Check — '+file.name,'Score: '+score+'/100 — '+$('vt').textContent,...C.map(c=>'- '+c.h+': '+c.v+(c.p?' ('+c.p+')':'')),...st.map(s=>'- '+s[0]+': '+s[1]),'','Checked free at https://boundlesscaddesign-dev.github.io/check/'].join('\n');
+  const body=report+'\n\n(Please attach the file to this email.)';
+  $('mail').href='mailto:boundlesscad.design@gmail.com?subject='+encodeURIComponent('STL Check: '+file.name+' ('+score+'/100)')+'&body='+encodeURIComponent(body);
+}
+</script>
+</body>
+</html>
