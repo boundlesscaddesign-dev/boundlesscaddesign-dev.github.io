@@ -1,24 +1,24 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Free STL Check for dental scans — BoundlessCAD</title>
-<meta name="description" content="Free STL check for dental scans and models: finds holes, non-manifold edges, flipped normals, floating debris and wrong units in seconds. Runs in your browser; your file is never uploaded.">
-<link rel="canonical" href="https://boundlesscaddesign-dev.github.io/check/">
+<title>STL Check gratis para escaneos dentales — BoundlessCAD</title>
+<meta name="description" content="Comprobación STL gratuita para escaneos y modelos dentales: detecta agujeros, aristas no-manifold, normales invertidas, restos sueltos y unidades incorrectas en segundos. Funciona en su navegador; el archivo nunca se sube.">
+<link rel="canonical" href="https://boundlesscaddesign-dev.github.io/check/es/">
 <link rel="alternate" hreflang="en" href="https://boundlesscaddesign-dev.github.io/check/">
 <link rel="alternate" hreflang="es" href="https://boundlesscaddesign-dev.github.io/check/es/">
 <link rel="alternate" hreflang="de" href="https://boundlesscaddesign-dev.github.io/check/de/">
 <link rel="alternate" hreflang="x-default" href="https://boundlesscaddesign-dev.github.io/check/">
 
-<meta property="og:title" content="Free STL Check — is your scan ready for design?">
-<meta property="og:description" content="Drop an STL or PLY. Get holes, broken edges, debris and unit problems in seconds. Nothing is uploaded.">
+<meta property="og:title" content="STL Check gratis — ¿su escaneo está listo para diseñar?">
+<meta property="og:description" content="Suelte un STL o PLY. Agujeros, aristas rotas, restos y problemas de unidades en segundos. No se sube nada.">
 <meta property="og:image" content="https://boundlesscaddesign-dev.github.io/og.png">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#0b1826">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../cases/shared.css">
+<link rel="stylesheet" href="../../cases/shared.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"BoundlessCAD STL Check","url":"https://boundlesscaddesign-dev.github.io/check/","applicationCategory":"DesignApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free in-browser check of dental STL/PLY scans and models: holes, non-manifold edges, flipped normals, debris shells, units.","publisher":{"@type":"Organization","name":"BoundlessCAD","url":"https://boundlesscaddesign-dev.github.io/"}}</script>
 <style>
 header{position:sticky;top:0;z-index:20;background:rgba(11,24,38,.85);backdrop-filter:blur(14px) saturate(1.3);border-bottom:1px solid var(--line)}
@@ -96,22 +96,22 @@ footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-s
 </head>
 <body>
 <header><div class="bar">
-  <a class="logo" href="../" aria-label="BoundlessCAD home"><svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="#7FD1C7" stroke-width="4" stroke-linecap="round" stroke-dasharray="118 52"/><path d="M24 22c-3 0-5 3-5 6 0 5 2 7 3 11 1 4 2 7 3.5 7s2.5-3 3.2-6.5c.6-1.8 1.4-2.5 3.3-2.5s2.7.7 3.3 2.5c.7 3.5 1.7 6.5 3.2 6.5S43 43 44 39c1-4 3-6 3-11 0-3-2-6-5-6-2.5 0-4 1.6-9 1.6S26.5 22 24 22z" fill="#fff"/></svg><span>Boundless<b>CAD</b></span></a>
-  <div class="hr"><nav class="lng" aria-label="Language"><a href="/check/" hreflang="en" data-l="en">EN</a><a href="/check/es/" hreflang="es" data-l="es">ES</a><a href="/check/de/" hreflang="de" data-l="de">DE</a></nav><a class="btn ghost" href="../send/">Send a case</a></div>
+  <a class="logo" href="../../" aria-label="BoundlessCAD home"><svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="#7FD1C7" stroke-width="4" stroke-linecap="round" stroke-dasharray="118 52"/><path d="M24 22c-3 0-5 3-5 6 0 5 2 7 3 11 1 4 2 7 3.5 7s2.5-3 3.2-6.5c.6-1.8 1.4-2.5 3.3-2.5s2.7.7 3.3 2.5c.7 3.5 1.7 6.5 3.2 6.5S43 43 44 39c1-4 3-6 3-11 0-3-2-6-5-6-2.5 0-4 1.6-9 1.6S26.5 22 24 22z" fill="#fff"/></svg><span>Boundless<b>CAD</b></span></a>
+  <div class="hr"><nav class="lng" aria-label="Language"><a href="/check/" hreflang="en" data-l="en">EN</a><a href="/check/es/" hreflang="es" data-l="es">ES</a><a href="/check/de/" hreflang="de" data-l="de">DE</a></nav><a class="btn ghost" href="../../send/">Enviar un caso</a></div>
 </div></header>
 
 <section class="hero"><div class="wrap">
-  <span class="pill">STL CHECK BY BOUNDLESSCAD · FREE · NO SIGN-UP</span>
-  <h1>Is your scan <span class="serif">ready for design?</span></h1>
-  <p class="lead">Drop an STL or PLY. In a few seconds you see holes, broken edges, flipped normals, floating debris and unit problems, marked in 3D.</p>
+  <span class="pill">STL CHECK DE BOUNDLESSCAD · GRATIS · SIN REGISTRO</span>
+  <h1>¿Su escaneo está <span class="serif">listo para diseñar?</span></h1>
+  <p class="lead">Suelte un STL o PLY. En pocos segundos verá agujeros, aristas rotas, normales invertidas, restos sueltos y problemas de unidades, marcados en 3D.</p>
   <label class="drop" id="drop">
     <svg viewBox="0 0 48 48" fill="none" stroke="#7FD1C7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M24 31V9m0 0-8 8m8-8 8 8"/><path d="M8 29v7a4 4 0 0 0 4 4h24a4 4 0 0 0 4-4v-7"/></svg>
-    <b>Drop your scan here, or click to choose</b>
-    <small>STL (binary or ASCII) or PLY · intraoral scans, models, dies, designs</small>
+    <b>Suelte aquí su escaneo o haga clic para elegirlo</b>
+    <small>STL (binario o ASCII) o PLY · escaneos intraorales, modelos, muñones, diseños</small>
     <input id="file" type="file" accept=".stl,.ply" hidden>
   </label>
-  <p class="alt">No scan at hand? <button id="sample" type="button">Try it with a sample arch</button></p>
-  <div class="priv"><span>Runs in your browser</span><span>Your file is never uploaded</span><span>No account, no email</span></div>
+  <p class="alt">¿No tiene un escaneo a mano? <button id="sample" type="button">Pruebe con una arcada de ejemplo</button></p>
+  <div class="priv"><span>Funciona en su navegador</span><span>El archivo nunca se sube</span><span>Sin cuenta, sin email</span></div>
 </div></section>
 
 <main class="wrap">
@@ -119,56 +119,56 @@ footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-s
   <div class="stage">
     <canvas id="cv"></canvas>
     <div class="legend" id="legend"></div>
-    <div class="busy" id="busy"><div><div class="ring"></div><span id="busyT">Reading file…</span></div></div>
+    <div class="busy" id="busy"><div><div class="ring"></div><span id="busyT">Leyendo el archivo…</span></div></div>
   </div>
   <div class="panel">
     <div class="score">
       <div class="gauge"><svg width="96" height="96" viewBox="0 0 96 96"><circle cx="48" cy="48" r="40" stroke="rgba(255,255,255,.08)" stroke-width="9" fill="none"/><circle id="arc" cx="48" cy="48" r="40" stroke="#20C9BB" stroke-width="9" fill="none" stroke-linecap="round" stroke-dasharray="251.3" stroke-dashoffset="251.3" style="transition:stroke-dashoffset 1s cubic-bezier(.2,.8,.2,1)"/></svg><b id="scoreN">–</b></div>
-      <div class="verdict"><h2 id="vt">Checking…</h2><p id="vp"></p><div class="fname" id="fn"></div></div>
+      <div class="verdict"><h2 id="vt">Comprobando…</h2><p id="vp"></p><div class="fname" id="fn"></div></div>
     </div>
     <div class="checks" id="checks"></div>
     <div class="holes" id="holes"></div>
     <div class="stats" id="stats"></div>
     <div class="cta">
-      <h3 id="ctaH">Want us to fix it, or design on it?</h3>
-      <p id="ctaP">We repair holes and debris and design crowns, abutments, bars and dentures in exocad. Your first case is free.</p>
+      <h3 id="ctaH">¿Lo reparamos o diseñamos sobre él?</h3>
+      <p id="ctaP">Reparamos agujeros y restos, y diseñamos coronas, pilares, barras y prótesis removibles en exocad. Su primer caso es gratis.</p>
       <div class="row">
-        <a class="btn" id="mail" href="#">Email us this report</a>
-        <button class="btn ghost" id="dl">Download report card</button>
-        <button class="btn ghost" id="copy">Copy report</button>
-        <button class="btn ghost" id="share">Share this tool</button>
-        <button class="btn ghost" id="again">Check another file</button>
+        <a class="btn" id="mail" href="#">Envíenos este informe</a>
+        <button class="btn ghost" id="dl">Descargar la ficha</button>
+        <button class="btn ghost" id="copy">Copiar informe</button>
+        <button class="btn ghost" id="share">Compartir la herramienta</button>
+        <button class="btn ghost" id="again">Comprobar otro archivo</button>
       </div>
     </div>
   </div>
 </div>
 
 <div class="how">
-  <div class="h"><h3>1 · Drop the file</h3><p>Scans from any intraoral or lab scanner, exported as STL or PLY. Large full-arch scans work too.</p></div>
-  <div class="h"><h3>2 · We read the mesh</h3><p>Every edge and triangle is checked in your browser: open edges, edges shared by three or more triangles, flipped triangles, separate pieces, size.</p></div>
-  <div class="h"><h3>3 · See it in 3D</h3><p>Problems are marked on the model, with a plain-English report you can copy or send to your designer.</p></div>
+  <div class="h"><h3>1 · Suelte el archivo</h3><p>Escaneos de cualquier escáner intraoral o de laboratorio, exportados como STL o PLY. También arcadas completas grandes.</p></div>
+  <div class="h"><h3>2 · Leemos la malla</h3><p>Cada arista y triángulo se comprueba en su navegador: aristas abiertas, aristas compartidas por tres o más triángulos, triángulos invertidos, piezas separadas, tamaño.</p></div>
+  <div class="h"><h3>3 · Véalo en 3D</h3><p>Los problemas se marcan en el modelo, con un informe claro que puede copiar o enviar a su diseñador.</p></div>
 </div>
 
 <section class="faq">
-  <h2>Questions</h2>
-  <details><summary>Is my file uploaded anywhere?</summary><p>No. The file is read by your own browser and never sent to a server. You can disconnect from the internet after the page has loaded and it still works.</p></details>
-  <details><summary>My intraoral scan shows an open border. Is that a problem?</summary><p>No. A scan of a jaw is an open surface, so one outer border per piece is normal. The tool counts that border separately and only flags extra holes inside the surface.</p></details>
-  <details><summary>What does "non-manifold" mean?</summary><p>An edge shared by three or more triangles. Many CAD and slicing programs cannot handle it, and it often comes from merged or badly repaired scans.</p></details>
-  <details><summary>Does a high score mean the scan is clinically good?</summary><p>No. The tool checks the mesh, not the clinical content. A clean mesh can still have an unclear margin or a missing contact. For that, a designer has to look at it.</p></details>
-  <details><summary>Can you fix my file?</summary><p>Yes. Hole repair, debris removal, merging and model preparation are part of our <a href="../services/" style="color:var(--teal)">design services</a>, and the first case is free.</p></details>
+  <h2>Preguntas</h2>
+  <details><summary>¿Se sube mi archivo a algún sitio?</summary><p>No. Su propio navegador lee el archivo y nunca se envía a un servidor. Puede desconectarse de internet después de cargar la página y sigue funcionando.</p></details>
+  <details><summary>Mi escaneo intraoral muestra un borde abierto. ¿Es un problema?</summary><p>No. El escaneo de una arcada es una superficie abierta, así que un borde exterior por pieza es normal. La herramienta lo cuenta aparte y solo marca los agujeros adicionales dentro de la superficie.</p></details>
+  <details><summary>¿Qué significa «no-manifold»?</summary><p>Una arista compartida por tres o más triángulos. Muchos programas CAD y de laminado no pueden procesarla; suele venir de escaneos fusionados o mal reparados.</p></details>
+  <details><summary>¿Una puntuación alta significa que el escaneo es clínicamente bueno?</summary><p>No. La herramienta comprueba la malla, no el contenido clínico. Una malla limpia puede tener un margen poco claro o un contacto ausente. Para eso tiene que verlo un diseñador.</p></details>
+  <details><summary>¿Pueden reparar mi archivo?</summary><p>Sí. Reparación de agujeros, eliminación de restos, fusión y preparación de modelos forman parte de nuestros <a href="../../services/" style="color:var(--teal)">servicios de diseño</a>, y el primer caso es gratis.</p></details>
 </section>
 </main>
-<footer><div class="wrap">© 2026 BoundlessCAD · remote exocad design for dental labs · boundlesscad.design@gmail.com</div></footer>
+<footer><div class="wrap">© 2026 BoundlessCAD · diseño remoto en exocad para laboratorios dentales · boundlesscad.design@gmail.com</div></footer>
 <div class="toast" id="toast"></div>
 
-<script src="i18n.js"></script>
-<script type="importmap">{"imports":{"three":"../cases/lib/three.module.min.js"}}</script>
+<script src="../i18n.js"></script>
+<script type="importmap">{"imports":{"three":"../../cases/lib/three.module.min.js"}}</script>
 <script type="module">
 import * as THREE from 'three';
-import {OrbitControls} from '../cases/lib/OrbitControls.js';
-import {STLLoader} from '../cases/lib/STLLoader.js';
-import {PLYLoader} from '../cases/lib/PLYLoader.js';
-import {RoomEnvironment} from '../cases/lib/RoomEnvironment.js';
+import {OrbitControls} from '../../cases/lib/OrbitControls.js';
+import {STLLoader} from '../../cases/lib/STLLoader.js';
+import {PLYLoader} from '../../cases/lib/PLYLoader.js';
+import {RoomEnvironment} from '../../cases/lib/RoomEnvironment.js';
 
 const $=id=>document.getElementById(id);
 const LANG=document.documentElement.lang||'en',TOOL='https://boundlesscaddesign-dev.github.io/check/'+(LANG==='en'?'':LANG+'/');
@@ -185,7 +185,7 @@ $('again').onclick=()=>{inp.value='';inp.click()};
 $('sample').onclick=()=>loadSample();
 $('share').onclick=async()=>{const u=TOOL;try{if(navigator.share){await navigator.share({title:T('shareTitle'),text:T('shareText'),url:u});return}}catch(e){return}try{await navigator.clipboard.writeText(u);toast(T('linkCopied'))}catch(e){toast(u)}};
 $('dl').onclick=()=>card();
-const SAMPLE='sample-arch.stl';
+const SAMPLE='../sample-arch.stl';
 async function loadSample(){
   try{const r=await fetch(SAMPLE);const b=await r.blob();run(new File([b],T('sampleName')))}catch(e){toast(T('sampleFail'))}
 }
