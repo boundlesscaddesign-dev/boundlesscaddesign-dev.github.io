@@ -16,7 +16,7 @@
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "BoundlessCAD", "url": "https://boundlesscaddesign-dev.github.io/", "description": "Remote exocad design studio for dental labs: crowns, bridges, custom abutments, full-arch implant prostheses, night guards and surgical guides.", "email": "boundlesscad.design@gmail.com", "areaServed": "Worldwide", "inLanguage": "en", "image": "https://boundlesscaddesign-dev.github.io/og.png", "makesOffer": [{"@type": "Offer", "name": "Crown / bridge unit design", "price": "6.40", "priceCurrency": "USD"}, {"@type": "Offer", "name": "Implant crown or custom abutment design", "price": "9.10", "priceCurrency": "USD"}, {"@type": "Offer", "name": "Full-arch implant prosthesis design (per arch)", "price": "88", "priceCurrency": "USD"}, {"@type": "Offer", "name": "Night guard / splint design", "price": "12", "priceCurrency": "USD"}, {"@type": "Offer", "name": "Surgical guide design (from)", "price": "86.50", "priceCurrency": "USD"}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "Which files do you need?", "acceptedAnswer": {"@type": "Answer", "text": "Intraoral or model scans as STL or PLY, or a complete exocad project, plus the prescription: tooth numbers, restoration type, material and shade. For implant cases, tell us the implant system and scan body."}}, {"@type": "Question", "name": "What do we receive back?", "acceptedAnswer": {"@type": "Answer", "text": "Production-ready STL files and the exocad project, so your team can still adjust anything in-house."}}, {"@type": "Question", "name": "How fast is the turnaround?", "acceptedAnswer": {"@type": "Answer", "text": "24–48 hours for standard crowns and bridges. Full-arch and guide cases are scheduled on agreement."}}, {"@type": "Question", "name": "Do you follow our lab's design rules?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Send your parameters once — cement gap, minimum thickness, connector sizes, preferred libraries — and we apply them to every case."}}, {"@type": "Question", "name": "How does payment work?", "acceptedAnswer": {"@type": "Answer", "text": "Your first case is free. After that we invoice per unit with prepayment, in USDT, USDC or BTC."}}, {"@type": "Question", "name": "Is patient data safe?", "acceptedAnswer": {"@type": "Answer", "text": "We only need anonymized files under a case code, never patient names, and all work is white-label."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "en", "mainEntity": [{"@type": "Question", "name": "Which files do you need?", "acceptedAnswer": {"@type": "Answer", "text": "Intraoral or model scans as STL or PLY, or a complete exocad project, plus the prescription: tooth numbers, restoration type, material and shade. For implant cases, tell us the implant system and scan body."}}, {"@type": "Question", "name": "What do we receive back?", "acceptedAnswer": {"@type": "Answer", "text": "Production-ready STL files and the exocad project, so your team can still adjust anything in-house."}}, {"@type": "Question", "name": "How fast is the turnaround?", "acceptedAnswer": {"@type": "Answer", "text": "24–48 hours for standard crowns and bridges. Full-arch and guide cases are scheduled on agreement."}}, {"@type": "Question", "name": "Do you follow our lab's design rules?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Send your parameters once — cement gap, minimum thickness, connector sizes, preferred libraries — and we apply them to every case."}}, {"@type": "Question", "name": "How does payment work?", "acceptedAnswer": {"@type": "Answer", "text": "Your first case is free. After that we invoice per unit with prepayment, in USDT, USDC or BTC."}}, {"@type": "Question", "name": "Can we check a scan before sending it?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Our free STL Check finds holes, broken edges, flipped triangles, loose debris and wrong units in any STL or PLY file. It runs in your browser, so the file is never uploaded: boundlesscaddesign-dev.github.io/check/"}}, {"@type": "Question", "name": "Is patient data safe?", "acceptedAnswer": {"@type": "Answer", "text": "We only need anonymized files under a case code, never patient names, and all work is white-label."}}]}</script>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#0b1826">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -290,6 +290,30 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 }
 @media (max-width:980px){.qc{grid-template-columns:1fr}.qc-fig{max-width:520px;margin:0 auto}}
 @media (max-width:640px){.cmp th,.cmp td{padding:13px 12px;font-size:13.5px}.cmp td:first-child{width:30%}.trust ul{justify-content:flex-start}}
+
+/* STL Check feature */
+.newpill{display:inline-flex;align-items:center;gap:10px;margin-bottom:16px;padding:6px 14px 6px 6px;border-radius:999px;background:rgba(127,209,199,.1);border:1px solid rgba(127,209,199,.35);color:var(--mint);font-size:13.5px;font-weight:700;opacity:0;animation:fade .9s .05s var(--ease) forwards;transition:background .25s,border-color .25s}
+.newpill b{background:var(--teal);color:#06241f;border-radius:999px;padding:3px 9px;font-size:11px;letter-spacing:1px}
+.newpill:hover{background:rgba(127,209,199,.18);border-color:var(--teal)}
+#stlcheck{position:relative;padding:90px 0;overflow:hidden;background:radial-gradient(ellipse at 80% 30%,rgba(32,201,187,.16),transparent 55%),linear-gradient(180deg,#0b1826,#0f2033)}
+#stlcheck .g{display:grid;grid-template-columns:1fr 1.15fr;gap:54px;align-items:center}
+#stlcheck h2{font-size:clamp(32px,4.4vw,54px);line-height:1.04;letter-spacing:-1.4px;margin:14px 0 16px}
+#stlcheck .lead2{color:#b6c7d3;font-size:17.5px;max-width:520px}
+.sc-list{list-style:none;margin:22px 0 26px;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px 18px}
+.sc-list li{display:flex;gap:10px;align-items:flex-start;font-size:15px;font-weight:600;color:#dce7ee}
+.sc-list li::before{content:"";flex:none;width:18px;height:18px;margin-top:2px;border-radius:50%;background:var(--teal) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2306241f' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/12px no-repeat}
+.sc-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.sc-badges span{font-size:12.5px;font-weight:700;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:6px 11px}
+.sc-drop{position:relative;display:block;border-radius:26px;overflow:hidden;border:1px solid rgba(127,209,199,.35);box-shadow:0 40px 90px -40px rgba(32,201,187,.55);cursor:pointer;transition:transform .35s var(--ease),box-shadow .35s}
+.sc-drop img{display:block;width:100%;height:auto;transition:filter .35s}
+.sc-drop .ov{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;padding:18px;background:linear-gradient(180deg,rgba(11,24,38,0) 45%,rgba(11,24,38,.7));transition:background .3s}
+.sc-drop .zone{display:flex;flex-direction:row;align-items:center;gap:14px;padding:14px 22px;text-align:left;border-radius:20px;border:2px dashed rgba(185,240,232,.75);background:rgba(11,24,38,.72);backdrop-filter:blur(6px);text-align:center;color:#fff;transition:.3s}
+.sc-drop .zone b{font-size:19px}.sc-drop .zone small{color:#b6c7d3;font-size:13px}
+.sc-drop:hover,.sc-drop.over{transform:translateY(-4px);box-shadow:0 50px 100px -40px rgba(32,201,187,.75)}
+.sc-drop:hover .zone,.sc-drop.over .zone{border-color:var(--teal);background:rgba(11,24,38,.86)}
+.sc-drop.over img{filter:blur(2px)}
+@media (max-width:980px){#stlcheck .g{grid-template-columns:1fr;gap:34px}#stlcheck{padding:70px 0}}
+@media (max-width:560px){.sc-list{grid-template-columns:1fr}.newpill{font-size:12.5px}}
 </style>
 </head>
 <body>
@@ -308,6 +332,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   <div class="blob a"></div><div class="blob b"></div><div class="blob c"></div>
   <div class="wrap grid">
     <div>
+      <a class="newpill" href="#stlcheck"><b>NEW</b>Free STL Check: test any scan in seconds →</a><br>
       <div class="eyebrow" style="opacity:0;animation:fade .9s .1s var(--ease) forwards">Remote exocad design studio</div>
       <h1><span class="line"><span>Production-ready</span></span><span class="line"><span>dental designs in</span></span><span class="line"><span class="grad">24–48 hours.</span></span></h1>
       <p class="lead">Crowns, bridges, custom abutments, full-arch implant prostheses, night guards and surgical guides — designed in exocad for your material, your mill and your printer.</p>
@@ -329,6 +354,22 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 </section>
 
 <div class="marquee" id="services" aria-label="Services"><div class="track" id="track"></div></div>
+
+<section id="stlcheck" aria-labelledby="sc-h"><div class="wrap g">
+  <div>
+    <div class="eyebrow rv">Free tool · only at BoundlessCAD</div>
+    <h2 id="sc-h" class="rv d1">Check your scan <span class="serif grad">before you send it.</span></h2>
+    <p class="lead2 rv d2">Drop any STL or PLY into STL Check. In seconds you see what will slow a design down, marked on a 3D model, with a score and a report you can send to the clinic.</p>
+    <ul class="sc-list rv d2"><li>Holes inside the scan</li><li>Broken (non-manifold) edges</li><li>Flipped triangles and normals</li><li>Loose scan debris</li><li>Wrong units (m, cm, inch)</li><li>Downloadable report card</li></ul>
+    <div class="ctas rv d3" style="opacity:1"><a class="btn" href="check/">Open STL Check <span class="arr">→</span></a><a class="btn ghost" href="check/?sample=1">Try a sample arch</a></div>
+    <div class="sc-badges rv d3"><span>Runs in your browser</span><span>Your file is never uploaded</span><span>No sign-up</span><span>Free</span></div>
+  </div>
+  <label class="sc-drop rv d2" id="scDrop">
+    <img src="img/stl-check.jpg" width="1136" height="640" loading="lazy" alt="STL Check showing a dental arch with two holes and a loose debris piece marked in 3D, and a score of 84 out of 100">
+    <span class="ov"><span class="zone"><svg width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="#7FD1C7" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 31V9m0 0-8 8m8-8 8 8"/><path d="M8 29v7a4 4 0 0 0 4 4h24a4 4 0 0 0 4-4v-7"/></svg><span style="display:flex;flex-direction:column;gap:2px"><b>Drop your scan here</b><small>or click to choose · STL or PLY</small></span></span></span>
+    <input type="file" id="scFile" accept=".stl,.ply" hidden>
+  </label>
+</div></section>
 
 <div class="trust" aria-label="Standards"><div class="wrap"><ul><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 3 7v10l9 5 9-5V7z"/><path d="m3 7 9 5 9-5M12 12v10"/></svg>Designed in exocad DentalCAD</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>STL · PLY · OBJ · exocad projects</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg>Your parameters &amp; libraries</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Case codes only, no patient names</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>Overnight option for crowns</li></ul></div></div>
 
@@ -424,7 +465,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   <div class="eyebrow rv">The numbers behind it</div>
   <h2 class="rv d1">Hiring a designer <span class="serif">vs. BoundlessCAD</span></h2>
   <div class="cmp rv d2"><table><thead><tr><th></th><th>Hiring a designer</th><th class="us">BoundlessCAD</th></tr></thead><tbody>
-  <tr><td>Getting started</td><td class="them">Weeks of recruiting and training</td><td class="us">First case back in 24–48 h</td></tr><tr><td>Fixed costs</td><td class="them">Salary, exocad licence, workstation</td><td class="us">Pay per unit, or a monthly Design Seat</td></tr><tr><td>Busy weeks</td><td class="them">Overtime or late cases</td><td class="us">Capacity grows with your volume</td></tr><tr><td>Night hours</td><td class="them">Nobody designing</td><td class="us">Crowns sent by 18:00 are ready by 08:00</td></tr><tr><td>Holidays &amp; sick days</td><td class="them">Work stops</td><td class="us">A team of designers keeps working</td></tr><tr><td>Risk to try</td><td class="them">An employment contract</td><td class="us">First case free</td></tr>
+  <tr><td>Getting started</td><td class="them">Weeks of recruiting and training</td><td class="us">First case back in 24–48 h</td></tr><tr><td>Fixed costs</td><td class="them">Salary, exocad licence, workstation</td><td class="us">Pay per unit, or a monthly Design Seat</td></tr><tr><td>Busy weeks</td><td class="them">Overtime or late cases</td><td class="us">Capacity grows with your volume</td></tr><tr><td>Night hours</td><td class="them">Nobody designing</td><td class="us">Crowns sent by 18:00 are ready by 08:00</td></tr><tr><td>Holidays &amp; sick days</td><td class="them">Work stops</td><td class="us">A team of designers keeps working</td></tr><tr><td>Bad scan files</td><td class="them">Found halfway through the design</td><td class="us">Free STL Check before you send</td></tr><tr><td>Risk to try</td><td class="them">An employment contract</td><td class="us">First case free</td></tr>
   </tbody></table></div>
   <div class="cmp-cta rv d3"><p>Want the numbers for your own lab? The calculator uses public salary data for your country, and you can change every value.</p><a class="btn" href="for/">Calculate your savings <span class="arr">→</span></a></div>
 </div></section>
@@ -500,6 +541,7 @@ const faqs=[
 ["How fast is the turnaround?","24–48 hours for standard crowns and bridges. Full-arch and guide cases are scheduled on agreement."],
 ["Do you follow our lab's design rules?","Yes. Send your parameters once — cement gap, minimum thickness, connector sizes, preferred libraries — and we apply them to every case."],
 ["How does payment work?","Your first case is free. After that we invoice per unit with prepayment, in USDT, USDC or BTC."],
+["Can we check a scan before sending it?","Yes. Our free STL Check finds holes, broken edges, flipped triangles, loose debris and wrong units in any STL or PLY file. It runs in your browser, so the file is never uploaded: boundlesscaddesign-dev.github.io/check/"],
 ["Is patient data safe?","We only need anonymized files under a case code, never patient names, and all work is white-label."]];
 document.getElementById('faqs').innerHTML=faqs.map((f,i)=>`<div class="qa rv d${(i%4)+1}"><button aria-expanded="false">${f[0]}</button><div class="a"><div><p>${f[1]}</p></div></div></div>`).join('');
 document.querySelectorAll('.qa button').forEach(b=>b.onclick=()=>{const q=b.parentElement;const o=q.classList.toggle('open');b.setAttribute('aria-expanded',o)});
@@ -537,6 +579,16 @@ for(let i=0;i<P.length;i++)for(let j=i+1;j<P.length;j++){const a=P[i],b=P[j],d=M
 var L=document.querySelectorAll('#qcl li'),P=document.querySelectorAll('.qc-fig .pin');function hi(q){L.forEach(function(l){l.classList.toggle('on',l.dataset.q==q)});P.forEach(function(p){var c=p.querySelector('circle');c.setAttribute('r',p.dataset.q==q?(q==6?15:18):(p.dataset.q==6?12:14))})}
 L.forEach(function(l){l.addEventListener('mouseenter',function(){hi(l.dataset.q)})});P.forEach(function(p){p.addEventListener('mouseenter',function(){hi(p.dataset.q)})});
 var i=0,run=setInterval(function(){i=i%6+1;hi(i)},2200);document.getElementById('qcl').addEventListener('mouseenter',function(){clearInterval(run)});})();
+</script>
+<script>
+(()=>{const d=document.getElementById('scDrop'),f=document.getElementById('scFile');if(!d)return;
+const go=async file=>{if(!file)return;const z=d.querySelector('.zone b');z.textContent='Opening STL Check…';
+ try{const buf=await file.arrayBuffer();const db=await new Promise((res,rej)=>{const r=indexedDB.open('bcad-check',1);r.onupgradeneeded=()=>r.result.createObjectStore('f');r.onsuccess=()=>res(r.result);r.onerror=rej});
+ await new Promise((res,rej)=>{const t=db.transaction('f','readwrite');t.objectStore('f').put({name:file.name,buf},'file');t.oncomplete=res;t.onerror=rej});location.href='check/?home=1'}
+ catch(e){location.href='check/'}};
+['dragenter','dragover'].forEach(e=>d.addEventListener(e,v=>{v.preventDefault();d.classList.add('over')}));
+['dragleave','drop'].forEach(e=>d.addEventListener(e,v=>{v.preventDefault();d.classList.remove('over')}));
+d.addEventListener('drop',v=>go(v.dataTransfer.files[0]));f.addEventListener('change',()=>go(f.files[0]));})();
 </script>
 </body>
 </html>

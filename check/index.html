@@ -62,6 +62,14 @@ h1{font-size:clamp(32px,5vw,56px);line-height:1.04;letter-spacing:-1.5px;margin:
 .cta p{color:#b6c7d3;font-size:13.5px;margin:6px 0 12px}
 .row{display:flex;gap:8px;flex-wrap:wrap}
 button.btn{font:inherit;cursor:pointer;border:0}
+.alt{margin-top:14px;color:var(--muted);font-size:14px}
+.alt button{font:inherit;font-weight:800;color:var(--teal);background:none;border:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.holes{display:flex;flex-direction:column;gap:6px}
+.holes h4{font-size:11.5px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin:4px 0 2px}
+.hl{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 12px;border-radius:12px;background:#0d1c2c;border:1px solid var(--line);font-size:13.5px}
+.hl i{display:inline-block;width:10px;height:10px;border-radius:50%;background:#ff4d4d;margin-right:8px}
+.hl button{font:inherit;font-size:12.5px;font-weight:800;color:var(--teal);background:transparent;border:1px solid rgba(127,209,199,.35);border-radius:999px;padding:5px 11px;cursor:pointer}
+.hl button:hover{background:rgba(127,209,199,.12)}
 .how{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:40px 0}
 .h{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px}
 .h h3{font-size:16px;margin-bottom:6px}.h p{font-size:14px;color:var(--muted)}
@@ -83,7 +91,7 @@ footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-s
 </div></header>
 
 <section class="hero"><div class="wrap">
-  <span class="pill">FREE TOOL · NO SIGN-UP</span>
+  <span class="pill">STL CHECK BY BOUNDLESSCAD · FREE · NO SIGN-UP</span>
   <h1>Is your scan <span class="serif">ready for design?</span></h1>
   <p class="lead">Drop an STL or PLY. In a few seconds you see holes, broken edges, flipped normals, floating debris and unit problems, marked in 3D.</p>
   <label class="drop" id="drop">
@@ -92,6 +100,7 @@ footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-s
     <small>STL (binary or ASCII) or PLY · intraoral scans, models, dies, designs</small>
     <input id="file" type="file" accept=".stl,.ply" hidden>
   </label>
+  <p class="alt">No scan at hand? <button id="sample" type="button">Try it with a sample arch</button></p>
   <div class="priv"><span>Runs in your browser</span><span>Your file is never uploaded</span><span>No account, no email</span></div>
 </div></section>
 
@@ -108,13 +117,16 @@ footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-s
       <div class="verdict"><h2 id="vt">Checking…</h2><p id="vp"></p><div class="fname" id="fn"></div></div>
     </div>
     <div class="checks" id="checks"></div>
+    <div class="holes" id="holes"></div>
     <div class="stats" id="stats"></div>
     <div class="cta">
       <h3 id="ctaH">Want us to fix it, or design on it?</h3>
       <p id="ctaP">We repair holes and debris and design crowns, abutments, bars and dentures in exocad. Your first case is free.</p>
       <div class="row">
         <a class="btn" id="mail" href="#">Email us this report</a>
+        <button class="btn ghost" id="dl">Download report card</button>
         <button class="btn ghost" id="copy">Copy report</button>
+        <button class="btn ghost" id="share">Share this tool</button>
         <button class="btn ghost" id="again">Check another file</button>
       </div>
     </div>
@@ -149,13 +161,29 @@ import {RoomEnvironment} from '../cases/lib/RoomEnvironment.js';
 
 const $=id=>document.getElementById(id);
 const drop=$('drop'),inp=$('file');
-let report='',renderer,scene,camera,controls,group;
+let report='',renderer,scene,camera,controls,group,LAST=null,FLY=null;
 
 ['dragenter','dragover'].forEach(e=>drop.addEventListener(e,ev=>{ev.preventDefault();drop.classList.add('over')}));
 ['dragleave','drop'].forEach(e=>drop.addEventListener(e,ev=>{ev.preventDefault();drop.classList.remove('over')}));
 drop.addEventListener('drop',ev=>{const f=ev.dataTransfer.files[0];if(f)run(f)});
 inp.addEventListener('change',()=>{if(inp.files[0])run(inp.files[0])});
 $('again').onclick=()=>{inp.value='';inp.click()};
+$('sample').onclick=()=>loadSample();
+$('share').onclick=async()=>{const u='https://boundlesscaddesign-dev.github.io/check/';try{if(navigator.share){await navigator.share({title:'Free STL Check',text:'Check any dental scan for holes, broken edges and debris in seconds. Nothing is uploaded.',url:u});return}}catch(e){return}try{await navigator.clipboard.writeText(u);toast('Link copied')}catch(e){toast(u)}};
+$('dl').onclick=()=>card();
+async function loadSample(){
+  try{const r=await fetch('sample-arch.stl');const b=await r.blob();run(new File([b],'sample-arch.stl (synthetic demo, not a patient scan)'))}catch(e){toast('Could not load the sample')}
+}
+// handoff from the home page or ?sample
+(async()=>{
+  const q=new URLSearchParams(location.search);
+  if(q.has('sample'))return loadSample();
+  if(q.has('home')){try{
+    const db=await new Promise((res,rej)=>{const r=indexedDB.open('bcad-check',1);r.onupgradeneeded=()=>r.result.createObjectStore('f');r.onsuccess=()=>res(r.result);r.onerror=rej});
+    const rec=await new Promise((res,rej)=>{const t=db.transaction('f','readwrite'),st=t.objectStore('f'),g=st.get('file');g.onsuccess=()=>{st.delete('file');res(g.result)};g.onerror=rej});
+    if(rec&&rec.buf)run(new File([rec.buf],rec.name||'scan.stl'));
+  }catch(e){}}
+})();
 $('copy').onclick=async()=>{try{await navigator.clipboard.writeText(report);toast('Report copied')}catch(e){toast('Copy not allowed in this browser')}};
 
 function toast(t){const el=$('toast');el.textContent=t;el.classList.add('on');setTimeout(()=>el.classList.remove('on'),1800)}
@@ -164,7 +192,7 @@ const tick=()=>new Promise(r=>setTimeout(r,20));
 function initGL(){
   if(renderer)return;
   const cv=$('cv');
-  renderer=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});
+  renderer=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true,preserveDrawingBuffer:true});
   renderer.setPixelRatio(Math.min(devicePixelRatio,2));
   renderer.outputColorSpace=THREE.SRGBColorSpace;
   renderer.toneMapping=THREE.ACESFilmicToneMapping;
@@ -176,7 +204,7 @@ function initGL(){
   const d=new THREE.DirectionalLight(0xffffff,1.2);d.position.set(1,2,3);camera.add(d);scene.add(camera);
   const rs=()=>{const r=cv.getBoundingClientRect();renderer.setSize(r.width,r.height,false);camera.aspect=r.width/Math.max(1,r.height);camera.updateProjectionMatrix()};
   new ResizeObserver(rs).observe(cv);rs();
-  (function loop(){requestAnimationFrame(loop);controls.update();renderer.render(scene,camera)})();
+  (function loop(){requestAnimationFrame(loop);if(FLY){const k=Math.min(1,(performance.now()-FLY.t0)/700),e=1-Math.pow(1-k,3);controls.target.lerpVectors(FLY.t1,FLY.t2,e);camera.position.lerpVectors(FLY.p1,FLY.p2,e);if(k>=1)FLY=null}controls.update();renderer.render(scene,camera)})();
 }
 
 async function run(file){
@@ -200,6 +228,25 @@ async function run(file){
   draw(geo,R);
   show(R,file);
   $('busy').classList.add('hide');
+}
+function card(){
+  if(!LAST)return;
+  const W=1200,H=630,c=document.createElement('canvas');c.width=W;c.height=H;const g=c.getContext('2d');
+  const bg=g.createLinearGradient(0,0,W,H);bg.addColorStop(0,'#0b1826');bg.addColorStop(1,'#12324a');g.fillStyle=bg;g.fillRect(0,0,W,H);
+  const shot=$('cv');const sw=shot.width,sh=shot.height,box=560,ar=sw/sh;let dw=box,dh=box/ar;if(dh>H-120){dh=H-120;dw=dh*ar}
+  g.save();g.beginPath();g.roundRect(40,60,580,H-120,24);g.fillStyle='rgba(255,255,255,.04)';g.fill();g.clip();
+  g.drawImage(shot,40+(580-dw)/2,60+(H-120-dh)/2,dw,dh);g.restore();
+  const sc=LAST.score,col=sc>=85?'#20C9BB':sc>=60?'#f5c451':'#ff6b6b';
+  g.lineWidth=16;g.strokeStyle='rgba(255,255,255,.1)';g.beginPath();g.arc(740,150,62,0,Math.PI*2);g.stroke();
+  g.strokeStyle=col;g.lineCap='round';g.beginPath();g.arc(740,150,62,-Math.PI/2,-Math.PI/2+Math.PI*2*sc/100);g.stroke();
+  g.fillStyle='#fff';g.font='800 46px Manrope,system-ui,sans-serif';g.textAlign='center';g.textBaseline='middle';g.fillText(sc,740,152);
+  g.textAlign='left';g.textBaseline='alphabetic';let fs=30;do{g.font='800 '+fs+'px Manrope,system-ui,sans-serif';fs--}while(g.measureText($('vt').textContent).width>330&&fs>16);g.fillText($('vt').textContent,830,140);
+  g.font='600 18px Manrope,system-ui,sans-serif';g.fillStyle='#93a8b8';let nm=LAST.name;if(nm.length>34)nm=nm.slice(0,31)+'…';g.fillText(nm,830,172);
+  let y=262;const icon={ok:'#20C9BB',warn:'#f5c451',bad:'#ff6b6b',info:'#8fa7bb'};
+  for(const k of LAST.C.slice(0,7)){g.fillStyle=icon[k.st];g.beginPath();g.arc(690,y-7,8,0,Math.PI*2);g.fill();g.fillStyle='#e9f1f5';g.font='700 20px Manrope,system-ui,sans-serif';g.fillText(k.h,710,y);g.fillStyle='#b6c7d3';g.textAlign='right';g.fillText(String(k.v),1150,y);g.textAlign='left';y+=40}
+  g.fillStyle='#7FD1C7';g.font='800 20px Manrope,system-ui,sans-serif';g.fillText('STL Check by BoundlessCAD',40,40);
+  g.fillStyle='#93a8b8';g.font='600 17px Manrope,system-ui,sans-serif';g.fillText('Free at boundlesscaddesign-dev.github.io/check · nothing is uploaded',40,H-22);
+  const a=document.createElement('a');a.download='stl-check-'+LAST.name.replace(/\s.*$/,'').replace(/\.[^.]+$/,'').replace(/[^\w-]+/g,'_')+'.png';a.href=c.toDataURL('image/png');a.click();
 }
 function fail(m){$('busy').classList.add('hide');$('vt').textContent='Could not read the file';$('vp').textContent=m}
 
@@ -264,13 +311,14 @@ function analyse(P){
   // per shell (non-debris): largest loop = outer border, others = holes
     const outerRoots=new Set();
   {const best=new Map();for(const [r,L] of loops){if(debrisSet.has(L.shell))continue;const b=best.get(L.shell);if(!b||L.len>loops.get(b).len)best.set(L.shell,r)}for(const r of best.values())if(loops.get(r).len>diag*0.3)outerRoots.add(r)}
-  let borders=outerRoots.size,holes=0,smallHoles=0;const holeSizes=[],holeMarks=[];
-  for(const [r,L] of loops){if(debrisSet.has(L.shell)||outerRoots.has(r))continue;holes++;holeSizes.push(L.n);if(L.n<=12)smallHoles++;holeMarks.push([L.c[0]/L.n,L.c[1]/L.n,L.c[2]/L.n])}
+  let borders=outerRoots.size,holes=0,smallHoles=0;const holeSizes=[],holeMarks=[],holeList=[];
+  for(const [r,L] of loops){if(debrisSet.has(L.shell)||outerRoots.has(r))continue;holes++;holeSizes.push(L.n);if(L.n<=12)smallHoles++;holeMarks.push([L.c[0]/L.n,L.c[1]/L.n,L.c[2]/L.n]);holeList.push({len:L.len,n:L.n,c:[L.c[0]/L.n,L.c[1]/L.n,L.c[2]/L.n]})}
+  holeList.sort((a,b)=>b.len-a.len);
   // loop membership for drawing holes vs border
   const holeEdges=[],borderEdges=[];
   for(let i=0;i<bEdges.length;i+=2){const r=bf(bEdges[i]);const L=loops.get(r);if(debrisSet.has(L.shell))continue;(outerRoots.has(r)?borderEdges:holeEdges).push(bEdges[i],bEdges[i+1])}
   const closed=bnd===0&&nm===0;
-  return {nT,nV,size,area,vol,closed,bnd,nm,flip,degen,shells:shells.length,debris:debrisSet.size,debrisSet,borders,holes,smallHoles,holeSizes,holeMarks,diag,holeEdges,borderEdges,nmEdges,VP,vid,find,avgEdge:elen/nT};
+  return {nT,nV,size,area,vol,closed,bnd,nm,flip,degen,shells:shells.length,debris:debrisSet.size,debrisSet,borders,holes,smallHoles,holeSizes,holeMarks,holeList,diag,holeEdges,borderEdges,nmEdges,VP,vid,find,avgEdge:elen/nT};
 }
 
 function unitGuess(size){
@@ -295,7 +343,7 @@ function draw(geo,R){
   group.add(mesh);
   const lines=(arr,c,w)=>{if(!arr.length)return;const p=new Float32Array(arr.length*3);for(let i=0;i<arr.length;i++){p[i*3]=R.VP[arr[i]*3];p[i*3+1]=R.VP[arr[i]*3+1];p[i*3+2]=R.VP[arr[i]*3+2]}const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.BufferAttribute(p,3));const m=new THREE.LineSegments(g,new THREE.LineBasicMaterial({color:c,depthTest:false,transparent:true,opacity:w}));m.renderOrder=5;group.add(m)};
   lines(R.borderEdges,0x20C9BB,.9);lines(R.holeEdges,0xff4d4d,1);lines(R.nmEdges,0xffd23f,1);
-  const sg=new THREE.SphereGeometry(R.diag*0.012,16,12),sm=new THREE.MeshBasicMaterial({color:0xff4d4d,transparent:true,opacity:.85,depthTest:false});
+  const sg=new THREE.SphereGeometry(R.diag*0.012,16,12),sm=new THREE.MeshBasicMaterial({color:0xff4d4d,transparent:true,opacity:.7,depthTest:false});
   for(const h of R.holeMarks){const m=new THREE.Mesh(sg,sm);m.position.set(...h);m.renderOrder=6;group.add(m)}
   scene.add(group);
   const box=new THREE.Box3().setFromObject(mesh),c=box.getCenter(new THREE.Vector3()),r=box.getSize(new THREE.Vector3()).length()/2||1;
@@ -331,6 +379,10 @@ function show(R,file){
   const f=x=>x.toFixed(1);
   const st=[['Triangles',R.nT.toLocaleString()],['Size (mm)',R.size.map(f).join(' × ')],['Surface area',f(R.area)+' mm²'],['Volume',R.closed?f(Math.abs(R.vol)/1000)+' cm³':'n/a (open)'],['Avg. edge',R.avgEdge.toFixed(3)+' mm'],['Pieces',R.shells]];
   $('stats').innerHTML=st.map(s=>`<div class="st"><small>${s[0]}</small><b>${s[1]}</b></div>`).join('');
+  const HL=R.holeList.slice(0,8);
+  $('holes').innerHTML=HL.length?'<h4>Holes, largest first</h4>'+HL.map((h,i)=>`<div class="hl"><span><i></i>Hole ${i+1} · about ${h.len<1?h.len.toFixed(2):h.len.toFixed(1)} mm around</span><button data-h="${i}">Show</button></div>`).join('')+(R.holeList.length>8?`<p style="font-size:12.5px;color:var(--muted)">+ ${R.holeList.length-8} more</p>`:''):'';
+  $('holes').querySelectorAll('button').forEach(b=>b.onclick=()=>{const h=HL[+b.dataset.h],t=new THREE.Vector3(...h.c),d=Math.max(R.diag*0.18,h.len*1.5),dir=camera.position.clone().sub(controls.target).normalize();FLY={t0:performance.now(),t1:controls.target.clone(),t2:t,p1:camera.position.clone(),p2:t.clone().add(dir.multiplyScalar(d))};$('cv').scrollIntoView({behavior:'smooth',block:'center'})});
+  LAST={R,C,score,name:file.name,st};
   $('scoreN').textContent=score;
   const arc=$('arc');arc.style.stroke=score>=85?'#20C9BB':score>=60?'#f5c451':'#ff6b6b';
   requestAnimationFrame(()=>arc.style.strokeDashoffset=251.3*(1-score/100));
