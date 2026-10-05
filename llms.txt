@@ -33,3 +33,5 @@ Key facts:
 - More services (quoted per case): https://boundlesscaddesign-dev.github.io/services/ — removable dentures, implant bars, smile design, print models, STL repair.
 - Free STL Check (in-browser, nothing uploaded): https://boundlesscaddesign-dev.github.io/check/ — finds holes, non-manifold edges, flipped normals, debris and unit errors in dental STL/PLY scans.
 - STL Check in Spanish: https://boundlesscaddesign-dev.github.io/check/es/ · in German: https://boundlesscaddesign-dev.github.io/check/de/
+
+- [Margin Master](https://boundlesscaddesign-dev.github.io/margin/): free 3D game for dental technicians — trace the margin line on three preparations, accuracy scored in microns.

@@ -323,7 +323,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   <a class="logo" href="#top" aria-label="BoundlessCAD home">
     <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true"><circle class="ring" cx="32" cy="32" r="27" fill="none" stroke="#7FD1C7" stroke-width="4" stroke-linecap="round" stroke-dasharray="118 52"/><path d="M24 22c-3 0-5 3-5 6 0 5 2 7 3 11 1 4 2 7 3.5 7s2.5-3 3.2-6.5c.6-1.8 1.4-2.5 3.3-2.5s2.7.7 3.3 2.5c.7 3.5 1.7 6.5 3.2 6.5S43 43 44 39c1-4 3-6 3-11 0-3-2-6-5-6-2.5 0-4 1.6-9 1.6S26.5 22 24 22z" fill="#fff"/></svg>
     <span>Boundless<b>CAD</b></span></a>
-  <ul><li><a href="#pricing">Pricing</a></li><li><a href="plans/">Plans</a></li><li><a href="check/">Free STL Check</a></li><li><a href="#work">Our work</a></li><li id="nav3d" hidden><a href="cases/">3D cases</a></li><li class="xf"><a href="#faq">FAQ</a></li><li class="xg"><a href="guide/">Guide</a></li></ul>
+  <ul><li><a href="#pricing">Pricing</a></li><li><a href="plans/">Plans</a></li><li><a href="check/">Free STL Check</a></li><li><a href="margin/">Margin game</a></li><li><a href="#work">Our work</a></li><li id="nav3d" hidden><a href="cases/">3D cases</a></li><li class="xf"><a href="#faq">FAQ</a></li><li class="xg"><a href="guide/">Guide</a></li></ul>
   <div class="navr"><a class="lang" href="es/" hreflang="es"><b>ES</b> Español</a><a class="btn" href="send/">Free first case <span class="arr">→</span></a></div>
 </div></header>
 
@@ -332,7 +332,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   <div class="blob a"></div><div class="blob b"></div><div class="blob c"></div>
   <div class="wrap grid">
     <div>
-      <a class="newpill" href="#stlcheck"><b>NEW</b>Free STL Check: test any scan in seconds →</a><br>
+      <a class="newpill" href="margin/"><b>NEW</b>Margin Master: how accurate is your margin line? →</a><br>
       <div class="eyebrow" style="opacity:0;animation:fade .9s .1s var(--ease) forwards">Remote exocad design studio</div>
       <h1><span class="line"><span>Production-ready</span></span><span class="line"><span>dental designs in</span></span><span class="line"><span class="grad">24–48 hours.</span></span></h1>
       <p class="lead">Crowns, bridges, custom abutments, full-arch implant prostheses, night guards and surgical guides — designed in exocad for your material, your mill and your printer.</p>
@@ -370,6 +370,17 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <input type="file" id="scFile" accept=".stl,.ply" hidden>
   </label>
 </div></section>
+
+<section id="margin" aria-labelledby="mm-h" style="padding:80px 0;background:radial-gradient(ellipse at 20% 40%,rgba(242,201,138,.10),transparent 55%),linear-gradient(180deg,#0f2033,#0b1826)"><div class="wrap" style="display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center" id="mmg">
+  <a href="margin/" style="display:block;border-radius:22px;overflow:hidden;border:1px solid rgba(127,209,199,.25);box-shadow:0 30px 70px -30px rgba(0,0,0,.6)"><img src="img/margin.jpg" width="734" height="616" loading="lazy" alt="Margin Master game: a premolar preparation with the traced margin line and the true margin shown in teal"></a>
+  <div>
+    <div class="eyebrow">New · free game</div>
+    <h2 id="mm-h" style="font-size:clamp(32px,4.4vw,54px);line-height:1.04;letter-spacing:-1.4px;margin:14px 0 16px">Margin <span class="serif grad">Master</span></h2>
+    <p style="color:#b6c7d3;font-size:17.5px;max-width:520px">Trace the margin line on three preparations, from an easy molar to a timed incisor on a ditched die. We measure your line against the true margin in microns. Share your score card and challenge your lab.</p>
+    <div class="ctas" style="margin-top:22px"><a class="btn" href="margin/">Play Margin Master <span class="arr">→</span></a></div>
+  </div>
+</div></section>
+<style>@media (max-width:980px){#mmg{grid-template-columns:1fr!important;gap:30px!important}#margin{padding:60px 0!important}}</style>
 
 <div class="trust" aria-label="Standards"><div class="wrap"><ul><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 3 7v10l9 5 9-5V7z"/><path d="m3 7 9 5 9-5M12 12v10"/></svg>Designed in exocad DentalCAD</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>STL · PLY · OBJ · exocad projects</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg>Your parameters &amp; libraries</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Case codes only, no patient names</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>Overnight option for crowns</li></ul></div></div>
 
