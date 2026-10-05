@@ -314,6 +314,60 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .sc-drop.over img{filter:blur(2px)}
 @media (max-width:980px){#stlcheck .g{grid-template-columns:1fr;gap:34px}#stlcheck{padding:70px 0}}
 @media (max-width:560px){.sc-list{grid-template-columns:1fr}.newpill{font-size:12.5px}}
+
+/* ===== 2026 motion layer ===== */
+.hero .stage{width:100%}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opacity:.055;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.aurora{position:absolute;inset:-20%;z-index:0;pointer-events:none;background:conic-gradient(from var(--ar,0deg) at 60% 45%,rgba(32,201,187,.0),rgba(32,201,187,.22),rgba(27,58,102,.0),rgba(242,201,138,.14),rgba(32,201,187,.0));filter:blur(70px);animation:aur 22s linear infinite;opacity:.9}
+@property --ar{syntax:'<angle>';inherits:false;initial-value:0deg}
+@keyframes aur{to{--ar:360deg}}
+.h3d{position:relative;aspect-ratio:1/1.02;border-radius:32px;overflow:hidden;background:radial-gradient(circle at 50% 38%,rgba(127,209,199,.18),rgba(15,32,51,.0) 60%),linear-gradient(160deg,rgba(18,50,74,.55),rgba(11,24,38,.25));border:1px solid rgba(127,209,199,.18);box-shadow:0 60px 120px -40px rgba(0,0,0,.75),inset 0 1px 0 rgba(255,255,255,.06)}
+.h3d canvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab}
+.h3d .fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .4s}
+.h3d.nogl .fallback{opacity:1}
+.h3d .hudl{position:absolute;left:16px;right:16px;bottom:14px;display:flex;justify-content:space-between;gap:8px;font:600 11.5px/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;color:#9fd9d0;letter-spacing:.5px;pointer-events:none}
+.h3d .hudl span{background:rgba(11,24,38,.62);border:1px solid rgba(127,209,199,.2);border-radius:8px;padding:6px 9px;backdrop-filter:blur(6px)}
+.h3d .tag{position:absolute;top:14px;left:16px;font:800 11px/1 Manrope,sans-serif;letter-spacing:2px;color:#b9f0e8;background:rgba(127,209,199,.12);border:1px solid rgba(127,209,199,.3);border-radius:999px;padding:7px 11px;pointer-events:none}
+.h3d .tag i{display:inline-block;width:7px;height:7px;border-radius:50%;background:#44e38f;margin-right:7px;box-shadow:0 0 10px #44e38f;animation:pulse 2s infinite}
+.hero h1 .grad{background:linear-gradient(100deg,#7FD1C7 0%,#b9f0e8 25%,#f2c98a 50%,#7FD1C7 75%,#b9f0e8 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:rise 1s var(--ease) forwards,shimmer 6s linear 1.2s infinite}
+@keyframes shimmer{to{background-position:-220% 0}}
+/* bento */
+#tools{position:relative;padding:110px 0;background:linear-gradient(180deg,#0b1826,#0f2033)}
+#tools .hd{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:34px}
+#tools h2{font-size:clamp(34px,4.6vw,60px);line-height:1.02;letter-spacing:-1.8px;margin-top:12px;max-width:760px}
+#tools .hd p{color:#b6c7d3;max-width:380px;font-size:16px}
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:16px}
+.bx{--x:50%;--y:50%;position:relative;border-radius:26px;padding:24px;background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.01)),#0f2236;border:1px solid rgba(255,255,255,.07);overflow:hidden;isolation:isolate;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .5s var(--ease),border-color .3s;color:inherit}
+.bx::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(420px circle at var(--x) var(--y),rgba(127,209,199,.16),transparent 45%);opacity:0;transition:opacity .3s}
+.bx::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:radial-gradient(300px circle at var(--x) var(--y),rgba(127,209,199,.75),transparent 55%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .3s;pointer-events:none}
+.bx:hover::before,.bx:hover::after{opacity:1}
+.bx:hover{transform:translateY(-4px)}
+.bx .k{font:800 11px/1 Manrope,sans-serif;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+.bx h3{font-size:22px;letter-spacing:-.5px;line-height:1.15}
+.bx p{color:#a9bccb;font-size:14px;margin-top:6px;max-width:420px}
+.bx .go{margin-top:12px;font-weight:800;font-size:14px;color:#e9f1f5;display:inline-flex;gap:8px;align-items:center}
+.bx .go::after{content:"→";transition:transform .3s var(--ease)}
+.bx:hover .go::after{transform:translateX(5px)}
+.bx.big{grid-column:span 2;grid-row:span 2}
+.bx.wide{grid-column:span 2}
+.bx .art{position:absolute;inset:0;z-index:-2}
+.bx .art img{width:100%;height:100%;object-fit:cover;opacity:.75;transform:scale(1.04);transition:transform 1.2s var(--ease),opacity .4s}
+.bx:hover .art img{transform:scale(1.1);opacity:.9}
+.bx.wide .art img{object-position:30% 50%;opacity:.4}.bx.wide:hover .art img{opacity:.55}
+.bx.big .art img{object-position:50% 40%}
+.bx .art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,24,38,0) 30%,rgba(11,24,38,.92) 85%)}
+.bx .new{position:absolute;top:18px;left:18px;font:800 11px/1 Manrope,sans-serif;letter-spacing:1.5px;color:#06241f;background:var(--gold);border-radius:999px;padding:6px 10px}
+.bx .ico{position:absolute;top:22px;right:22px;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:rgba(127,209,199,.1);border:1px solid rgba(127,209,199,.25);transition:transform .6s var(--ease)}
+.bx:hover .ico{transform:rotate(-8deg) scale(1.08)}
+.bx .meter{position:absolute;top:24px;left:24px;right:84px;height:8px;border-radius:9px;background:rgba(255,255,255,.07);overflow:hidden}
+.bx .meter i{display:block;height:100%;width:0;border-radius:9px;background:linear-gradient(90deg,#ff6b6b,#f5c451,#44e38f);transition:width 1.6s var(--ease)}
+.bx.in .meter i{width:86%}
+@media (max-width:980px){.bento{grid-template-columns:1fr 1fr;grid-auto-rows:200px}.bx.big{grid-column:span 2;grid-row:span 2}}
+@media (max-width:600px){.bento{grid-template-columns:1fr;grid-auto-rows:auto}.bx{min-height:190px}.bx.big,.bx.wide{grid-column:auto;grid-row:auto}.bx.big{min-height:360px}#tools{padding:80px 0}}
+/* magnetic + scramble */
+.btn{will-change:transform}
+.scr{font-variant-numeric:tabular-nums}
+.marquee .track{transition:transform .2s linear}
 </style>
 </head>
 <body>
@@ -328,7 +382,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 </div></header>
 
 <section class="hero" id="top">
-  <canvas id="net"></canvas>
+  <div class="aurora"></div><canvas id="net"></canvas>
   <div class="blob a"></div><div class="blob b"></div><div class="blob c"></div>
   <div class="wrap grid">
     <div>
@@ -345,7 +399,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     </div>
     <div class="stage">
       <div class="orbit"><i></i></div><div class="orbit o2"><i></i></div>
-      <div class="card3d" id="tilt"><img src="img/case01_full.jpg" alt="Full-arch rehabilitation on eight implants per arch, designed in exocad"><div class="shine"></div></div>
+      <div class="h3d" id="tilt"><img class="fallback" src="img/case01_full.jpg" alt="Full-arch rehabilitation on eight implants per arch, designed in exocad"><canvas id="h3d" aria-label="Interactive 3D crown on a prepared tooth"></canvas><div class="tag"><i></i>LIVE 3D · DRAG TO ROTATE</div><div class="hudl"><span id="hudA">MARGIN · LOCKED</span><span id="hudB">STL IN · STL OUT</span></div></div>
       <div class="badge b1"><b>First case</b>Designed free</div>
       <div class="badge b2"><span class="dot"></span>Taking new cases</div>
     </div>
@@ -371,16 +425,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   </label>
 </div></section>
 
-<section id="margin" aria-labelledby="mm-h" style="padding:80px 0;background:radial-gradient(ellipse at 20% 40%,rgba(242,201,138,.10),transparent 55%),linear-gradient(180deg,#0f2033,#0b1826)"><div class="wrap" style="display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center" id="mmg">
-  <a href="margin/" style="display:block;border-radius:22px;overflow:hidden;border:1px solid rgba(127,209,199,.25);box-shadow:0 30px 70px -30px rgba(0,0,0,.6)"><img src="img/margin.jpg" width="734" height="616" loading="lazy" alt="Margin Master game: a premolar preparation with the traced margin line and the true margin shown in teal"></a>
-  <div>
-    <div class="eyebrow">New · free game</div>
-    <h2 id="mm-h" style="font-size:clamp(32px,4.4vw,54px);line-height:1.04;letter-spacing:-1.4px;margin:14px 0 16px">Margin <span class="serif grad">Master</span></h2>
-    <p style="color:#b6c7d3;font-size:17.5px;max-width:520px">Trace the margin line on three preparations, from an easy molar to a timed incisor on a ditched die. We measure your line against the true margin in microns. Share your score card and challenge your lab.</p>
-    <div class="ctas" style="margin-top:22px"><a class="btn" href="margin/">Play Margin Master <span class="arr">→</span></a></div>
+<section id="tools" aria-labelledby="tl-h"><div class="wrap">
+  <div class="hd"><div><div class="eyebrow rv">Free tools for labs</div><h2 id="tl-h" class="rv d1">Built by designers, <span class="serif grad">free for every lab.</span></h2></div><p class="rv d2">Small tools we made for our own workflow. No sign-up, nothing uploaded, use them as often as you like.</p></div>
+  <div class="bento">
+    <a class="bx big rv d1" href="margin/"><div class="art"><img src="img/margin.jpg" loading="lazy" alt="Margin Master: a premolar preparation with a traced margin line"></div><span class="new">NEW GAME</span><div class="k">Margin Master</div><h3>How accurate is your margin line?</h3><p>Trace the margin on three preps. We measure your line in microns. Share the score card and challenge your lab.</p><span class="go">Play now</span></a>
+    <a class="bx wide rv d2" href="check/"><div class="art"><img src="img/stl-check.jpg" loading="lazy" alt="STL Check marking holes and debris on a dental arch scan"></div><div class="k">STL Check</div><h3>Is your scan ready for design?</h3><p>Holes, broken edges, debris and wrong units, found in seconds.</p><span class="go">Check a scan</span></a>
+    <a class="bx rv d3" href="cases/"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7FD1C7" stroke-width="2"><path d="M12 2 3 7v10l9 5 9-5V7z"/><path d="m3 7 9 5 9-5M12 12v10"/></svg></div><div class="k">3D library</div><h3>Open our designs in 3D</h3><span class="go">Rotate a case</span></a>
+    <a class="bx rv d4" href="for/"><div class="meter"><i></i></div><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7FD1C7" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h2M12 11h2M16 11h0M8 15h2M12 15h2M8 19h8"/></svg></div><div class="k">Calculator</div><h3>Hiring vs. outsourcing</h3><span class="go">See your numbers</span></a>
   </div>
 </div></section>
-<style>@media (max-width:980px){#mmg{grid-template-columns:1fr!important;gap:30px!important}#margin{padding:60px 0!important}}</style>
 
 <div class="trust" aria-label="Standards"><div class="wrap"><ul><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 3 7v10l9 5 9-5V7z"/><path d="m3 7 9 5 9-5M12 12v10"/></svg>Designed in exocad DentalCAD</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>STL · PLY · OBJ · exocad projects</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg>Your parameters &amp; libraries</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Case codes only, no patient names</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>Overnight option for crowns</li></ul></div></div>
 
@@ -571,7 +624,7 @@ addEventListener('pointermove',e=>{glow.style.left=e.clientX+'px';glow.style.top
 
 /* 3D tilt */
 const tilt=document.getElementById('tilt');
-if(!reduce&&matchMedia('(hover:hover)').matches){tilt.addEventListener('pointermove',e=>{const r=tilt.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;tilt.style.transform=`rotateY(${(x-.5)*16}deg) rotateX(${(.5-y)*14}deg) scale(1.02)`;tilt.style.setProperty('--mx',x*100+'%');tilt.style.setProperty('--my',y*100+'%')});tilt.addEventListener('pointerleave',()=>tilt.style.transform='')}
+if(false&&!reduce&&matchMedia('(hover:hover)').matches){tilt.addEventListener('pointermove',e=>{const r=tilt.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;tilt.style.transform=`rotateY(${(x-.5)*16}deg) rotateX(${(.5-y)*14}deg) scale(1.02)`;tilt.style.setProperty('--mx',x*100+'%');tilt.style.setProperty('--my',y*100+'%')});tilt.addEventListener('pointerleave',()=>tilt.style.transform='')}
 
 /* hero particle network */
 (function(){const c=document.getElementById('net');if(reduce||!c)return;const x=c.getContext('2d');let W,H,P=[],m={x:-999,y:-999};const dpr=Math.min(devicePixelRatio||1,2);
@@ -600,6 +653,83 @@ const go=async file=>{if(!file)return;const z=d.querySelector('.zone b');z.textC
 ['dragenter','dragover'].forEach(e=>d.addEventListener(e,v=>{v.preventDefault();d.classList.add('over')}));
 ['dragleave','drop'].forEach(e=>d.addEventListener(e,v=>{v.preventDefault();d.classList.remove('over')}));
 d.addEventListener('drop',v=>go(v.dataTransfer.files[0]));f.addEventListener('change',()=>go(f.files[0]));})();
+</script>
+
+<script>
+(()=>{const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+/* spotlight cards */
+document.querySelectorAll('.bx,.price,.item,.step').forEach(el=>el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect();el.style.setProperty('--x',(e.clientX-r.left)+'px');el.style.setProperty('--y',(e.clientY-r.top)+'px')}));
+/* magnetic buttons */
+if(fine&&!reduce)document.querySelectorAll('.btn').forEach(b=>{b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.18}px,${(e.clientY-r.top-r.height/2)*.28}px)`});b.addEventListener('pointerleave',()=>b.style.transform='')});
+/* scramble eyebrows */
+const CH='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789·/+';
+function scr(el){const T=el.textContent;let f=0;const N=T.length;const id=setInterval(()=>{f++;el.textContent=T.split('').map((c,i)=>c===' '?' ':(i<f*1.4?c:CH[Math.random()*CH.length|0])).join('');if(f*1.4>=N){clearInterval(id);el.textContent=T}},28)}
+if(!reduce){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){scr(e.target);io.unobserve(e.target)}}),{threshold:.6});document.querySelectorAll('section .eyebrow').forEach(e=>io.observe(e));}
+/* velocity marquee skew */
+const tr=document.getElementById('track');let ly=scrollY,v=0;if(tr&&!reduce)(function f(){const y=scrollY;v+=((y-ly)-v)*.12;ly=y;tr.style.transform=`skewX(${Math.max(-12,Math.min(12,-v*.35))}deg)`;requestAnimationFrame(f)})();
+/* bento reveal for meter */
+const io2=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.3});document.querySelectorAll('.bx').forEach(e=>io2.observe(e));
+})();
+</script>
+<script type="importmap">{"imports":{"three":"./cases/lib/three.module.min.js"}}</script>
+<script type="module">
+import * as THREE from 'three';
+import {RoomEnvironment} from './cases/lib/RoomEnvironment.js';
+const box=document.getElementById('tilt'),cv=document.getElementById('h3d');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let ren;try{ren=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});}catch(e){box.classList.add('nogl');throw e;}
+ren.setPixelRatio(Math.min(2,devicePixelRatio));ren.toneMapping=THREE.ACESFilmicToneMapping;ren.outputColorSpace=THREE.SRGBColorSpace;
+const scene=new THREE.Scene();const pm=new THREE.PMREMGenerator(ren);scene.environment=pm.fromScene(new RoomEnvironment(),0.04).texture;
+const cam=new THREE.PerspectiveCamera(30,1,0.1,200);cam.position.set(0,9,42);cam.lookAt(0,2.2,0);
+const rim=new THREE.PointLight(0x7FD1C7,90,60);rim.position.set(-9,6,-6);scene.add(rim);
+const gold=new THREE.PointLight(0xf2c98a,60,60);gold.position.set(10,-2,6);scene.add(gold);
+scene.add(new THREE.DirectionalLight(0xffffff,.9).translateX(6).translateY(12).translateZ(10));
+const TAU=Math.PI*2,NT=160;
+const R=(t,a,b,n)=>{const c=Math.abs(Math.cos(t)),s=Math.abs(Math.sin(t));return 1/Math.pow(Math.pow(c/a,n)+Math.pow(s/b,n),1/n)};
+const A=4.9,B=4.5,N=2.6;
+function lathe(rows,col,opts={}){const NR=rows[0].length,pos=[],idx=[];for(let j=0;j<NT;j++){for(let i=0;i<NR;i++){const [x,y,z]=rows[j][i];pos.push(x,y,z)}}
+ for(let j=0;j<NT;j++){const jn=(j+1)%NT;for(let i=0;i<NR-1;i++){const a=j*NR+i,b=jn*NR+i,c=jn*NR+i+1,d=j*NR+i+1;idx.push(a,d,b,b,d,c)}}
+ const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));g.setIndex(idx);g.computeVertexNormals();return g}
+/* prep die */
+const prepRows=[];for(let j=0;j<NT;j++){const t=j/NT*TAU,c=Math.cos(t),s=Math.sin(t),r0=R(t,A,B,N),row=[];
+ const prof=[[r0*.86,-5],[r0*.93,-2.4],[r0,0],[r0-.25,.06],[r0-.6,.35],[r0-.75,.8],[r0-1.05,3.2],[r0-1.5,3.9],[r0-2.4,4.15],[0,4.3]];
+ for(const [r,y] of prof)row.push([r*c,y,r*s]);prepRows.push(row)}
+const prep=new THREE.Mesh(lathe(prepRows),new THREE.MeshStandardMaterial({color:0xcaa77a,roughness:.55,metalness:.05}));
+/* crown */
+const cusp=(x,z)=>{const P=[[1.9,1.7],[-1.9,1.6],[1.8,-1.8],[-2,-1.7]];let h=0;for(const [a,b] of P)h+=1.05*Math.exp(-((x-a)**2+(z-b)**2)/2.6);h-=.55*Math.exp(-(x*x+z*z)/1.4);return h};
+const crRows=[];const NS=26;for(let j=0;j<NT;j++){const t=j/NT*TAU,c=Math.cos(t),s=Math.sin(t),r0=R(t,A,B,N),row=[];
+ for(let i=0;i<NS;i++){const u=i/(NS-1);let r,y;
+  if(u<.55){const v=u/.55;r=r0*(1+.09*Math.sin(v*Math.PI*.95));y=v*4.6;}
+  else{const v=(u-.55)/.45;r=r0*(1+.09*Math.sin(Math.PI*.95))*(1-v)*Math.cos(v*.4);const x=r*c,z=r*s;y=4.6+.9*Math.sin(v*Math.PI/2)+cusp(x,z)*(.4+.6*v);}
+  row.push([r*c,y,r*s])}crRows.push(row)}
+const crown=new THREE.Mesh(lathe(crRows),new THREE.MeshPhysicalMaterial({color:0xf3eee4,roughness:.28,clearcoat:1,clearcoatRoughness:.25,sheen:.4,sheenColor:new THREE.Color(0x7FD1C7)}));
+const wire=new THREE.LineSegments(new THREE.WireframeGeometry(crown.geometry),new THREE.LineBasicMaterial({color:0x7FD1C7,transparent:true,opacity:0}));
+const crownG=new THREE.Group();crownG.add(crown,wire);
+/* margin ring */
+const mp=[];for(let k=0;k<200;k++){const t=k/200*TAU,r0=R(t,A,B,N)+.03;mp.push(new THREE.Vector3(r0*Math.cos(t),.02,r0*Math.sin(t)))}
+const ring=new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(mp,true),300,.07,8,true),new THREE.MeshBasicMaterial({color:0x7FD1C7,transparent:true,opacity:.9}));
+const all=new THREE.Group();all.add(prep,crownG,ring);all.position.y=-2.4;scene.add(all);
+/* particles */
+const pg=new THREE.BufferGeometry(),pp=[];for(let i=0;i<260;i++){const r=9+Math.random()*7,a=Math.random()*TAU,y=(Math.random()-.5)*14;pp.push(Math.cos(a)*r,y,Math.sin(a)*r)}
+pg.setAttribute('position',new THREE.Float32BufferAttribute(pp,3));const dots=new THREE.Points(pg,new THREE.PointsMaterial({color:0x7FD1C7,size:.07,transparent:true,opacity:.7}));scene.add(dots);
+function size(){const w=cv.clientWidth,h=cv.clientHeight;if(!w)return;ren.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix()}new ResizeObserver(size).observe(cv);size();
+let tx=0,ty=0,rx=0,ry=0,drag=null,spin=0;
+box.addEventListener('pointermove',e=>{const r=box.getBoundingClientRect();tx=((e.clientX-r.left)/r.width-.5);ty=((e.clientY-r.top)/r.height-.5);if(drag){spin+=(e.clientX-drag)*.012;drag=e.clientX}});
+box.addEventListener('pointerdown',e=>{drag=e.clientX;cv.style.cursor='grabbing'});addEventListener('pointerup',()=>{drag=null;cv.style.cursor='grab'});
+box.addEventListener('pointerleave',()=>{tx=ty=0});
+const hero=document.querySelector('.hero'),hA=document.getElementById('hudA'),hB=document.getElementById('hudB');let vis=true;new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(box);
+const clock=new THREE.Clock();let lastState=-1;
+(function loop(){requestAnimationFrame(loop);if(!vis)return;const t=clock.getElapsedTime();
+ const p=Math.min(1,Math.max(0,scrollY/(hero.offsetHeight*.55)));
+ const cyc=reduce?0:(Math.sin(t*.55)*.5+.5);const lift=Math.max(p,cyc*.85);
+ crownG.position.y=lift*4.2;crownG.rotation.y=lift*.6;
+ wire.material.opacity=.35*lift;crown.material.opacity=1;
+ ring.material.opacity=.35+.65*lift;ring.scale.setScalar(1+.015*Math.sin(t*4));
+ rx+=(ty*.35-rx)*.06;ry+=(tx*.8-ry)*.06;
+ all.rotation.y=(reduce?0:t*.25)+spin+ry;all.rotation.x=.18+rx;
+ dots.rotation.y=-t*.03;
+ const st=lift>.5?1:0;if(st!==lastState){lastState=st;hA.textContent=st?'MARGIN · 360° TRACED':'MARGIN · LOCKED';hB.textContent=st?'DESIGN MODE · EXOCAD':'STL IN · STL OUT';}
+ ren.render(scene,cam)})();
 </script>
 </body>
 </html>

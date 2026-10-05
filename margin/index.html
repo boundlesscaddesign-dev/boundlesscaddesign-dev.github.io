@@ -387,7 +387,7 @@ if(matchMedia('(pointer:coarse)').matches)$('hint').textContent='Tap the margin 
 const q=new URLSearchParams(location.search);const qs=parseInt(q.get('s'),10);
 if(qs>=0&&qs<=100){const qn=(q.get('n')||'').replace(/[<>]/g,'').slice(0,28);const ch=$('chal');ch.style.display='block';ch.textContent=(qn?qn:'A colleague')+' scored '+qs+'/100 on Margin Master. Can you beat it?';}
 
-window.__mm={addPt:p=>addPt(p),submit:()=>submit(false),trueAt:t=>trueAt(t),get lv(){return lv},results};
+window.__mm={cam,ctl,ren,scene,start:i=>startLevel(i),addPt:p=>addPt(p),submit:()=>submit(false),trueAt:t=>trueAt(t),get lv(){return lv},results};
 /* loop */
 (function loop(){requestAnimationFrame(loop);
   if(playing){elapsed=(performance.now()-t0)/1000;
