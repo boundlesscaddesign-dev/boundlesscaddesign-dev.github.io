@@ -1,8 +1,4 @@
 [
-  {"slug":"crown-33","title":"Single crown","category":"single","type":"exocad","file":"files/crown-33.html"},
-  {"slug":"crown-12","title":"Single anterior crown","category":"single","type":"exocad","file":"files/crown-12.html"},
-  {"slug":"implant-bridges-posterior","title":"Posterior implant bridges","category":"bridge","type":"exocad","file":"files/implant-bridges-posterior.html"},
-  {"slug":"anterior-14-24","title":"Anterior aesthetic","category":"bridge","type":"exocad","file":"files/anterior-14-24.html"},
   {"slug":"upper-bridges-15-25","title":"Upper bridges","category":"bridge","type":"exocad","file":"files/upper-bridges-15-25.html"},
   {"slug":"upper-bridge-16-26","title":"Upper full-arch bridge","category":"bridge","type":"exocad","file":"files/upper-bridge-16-26.html"},
   {"slug":"full-mouth-bridges","title":"Full-mouth bridges","category":"bridge","type":"exocad","file":"files/full-mouth-bridges.html"},

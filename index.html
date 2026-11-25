@@ -565,23 +565,19 @@ document.getElementById('track').innerHTML=[...svc,...svc].map(s=>`<span>${s}</s
 
 /* cases */
 const cases=[
-["Full-arch rehabilitation on eight implants per arch","full","Dual-arch, 8 abutments per jaw, one set-up."],
-["Full-arch implant prostheses on four implants","full","Aesthetics and occlusion in a single session."],
-["Full-arch implant design from pre-op anatomy","full","Pre-op scans used for tooth position and lip support."],
-["Full-mouth bridge rehabilitation","bridge","Maxillary full-arch bridge plus two mandibular bridges."],
-["12-unit maxillary full-arch bridge","bridge","16–26 on six abutments, even contacts."],
-["Anterior aesthetic restoration, 14–24","bridge","Proportions, incisal line and embrasures."],
-["Full-arch prostheses on six implants per arch","full","Set-up, occlusion and screw channels planned together."],
-["Dual-arch implant bridges, six abutments each","full","Smile line and vertical dimension settled first."],
-["Full-arch rehabilitation, symmetric implant layout","full","Screw access kept palatal and lingual."],
-["Mandibular full arch on four implants","full","Stable occlusal plane against the opposing scan."],
-["Posterior implant bridges on abutments","single","Abutment interfaces and emergence designed with the bridges."],
-["Single implant crown with custom abutment","single","Emergence profile supports the gingiva."],
-["Segmented maxillary bridges, 15 to 25","bridge","Eleven units in three bridges that read as one smile."],
-["Canine crown with cut-back for layering","single","Full contour plus a cut-back for ceramic layering."]];
+["Full-arch rehabilitation on eight implants per arch", "full", "Dual-arch, 8 abutments per jaw, one set-up.", "01"],
+["Full-arch implant prostheses on four implants", "full", "Aesthetics and occlusion in a single session.", "02"],
+["Full-arch implant design from pre-op anatomy", "full", "Pre-op scans used for tooth position and lip support.", "03"],
+["Full-mouth bridge rehabilitation", "bridge", "Maxillary full-arch bridge plus two mandibular bridges.", "04"],
+["12-unit maxillary full-arch bridge", "bridge", "16–26 on six abutments, even contacts.", "05"],
+["Full-arch prostheses on six implants per arch", "full", "Set-up, occlusion and screw channels planned together.", "07"],
+["Dual-arch implant bridges, six abutments each", "full", "Smile line and vertical dimension settled first.", "08"],
+["Full-arch rehabilitation, symmetric implant layout", "full", "Screw access kept palatal and lingual.", "09"],
+["Mandibular full arch on four implants", "full", "Stable occlusal plane against the opposing scan.", "10"],
+["Segmented maxillary bridges, 15 to 25", "bridge", "Eleven units in three bridges that read as one smile.", "13"]];
 const g=document.getElementById('cases');let visible=[];
 cases.forEach((c,i)=>{const n=String(i+1).padStart(2,'0');const d=document.createElement('div');d.className='case rv';d.dataset.cat=c[1];d.dataset.i=i;
-d.innerHTML=`<img loading="lazy" src="img/case${n}.jpg" alt="${c[0]}"><div class="ov"><div class="k">CASE ${n}</div><h4>${c[0]}</h4><div class="more">${c[2]}</div></div>`;
+d.innerHTML=`<img loading="lazy" src="img/case${c[3]}.jpg" alt="${c[0]}"><div class="ov"><div class="k">CASE ${c[3]}</div><h4>${c[0]}</h4><div class="more">${c[2]}</div></div>`;
 d.onclick=()=>openLb(i);g.appendChild(d)});
 document.querySelectorAll('.chip').forEach(ch=>ch.onclick=()=>{document.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));ch.classList.add('on');const f=ch.dataset.f;
 document.querySelectorAll('.case').forEach(el=>{const show=f==='all'||el.dataset.cat===f;el.classList.toggle('hide',!show);if(show){el.classList.remove('in');requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.add('in')))}})});
@@ -589,7 +585,7 @@ document.querySelectorAll('.case').forEach(el=>{const show=f==='all'||el.dataset
 /* lightbox */
 const lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg');let cur=0;
 function list(){return [...document.querySelectorAll('.case:not(.hide)')].map(e=>+e.dataset.i)}
-function show(i){cur=i;lbimg.src=`img/case${String(i+1).padStart(2,'0')}_full.jpg`;lbimg.alt=cases[i][0]}
+function show(i){cur=i;lbimg.src=`img/case${cases[i][3]}_full.jpg`;lbimg.alt=cases[i][0]}
 function openLb(i){show(i);lb.classList.add('on')}
 function step(dir){const l=list();const p=l.indexOf(cur);show(l[(p+dir+l.length)%l.length])}
 lb.querySelector('.x').onclick=()=>lb.classList.remove('on');

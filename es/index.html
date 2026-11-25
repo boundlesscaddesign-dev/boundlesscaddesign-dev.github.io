@@ -464,23 +464,19 @@ document.getElementById('track').innerHTML=[...svc,...svc].map(s=>`<span>${s}</s
 
 /* cases */
 const cases=[
-["Rehabilitación completa sobre ocho implantes por arcada","full","Ambas arcadas, 8 pilares por maxilar, un solo montaje."],
-["Prótesis completas sobre cuatro implantes","full","Estética y oclusión en una sola sesión."],
-["Arcada completa a partir de la anatomía preoperatoria","full","Escaneos preoperatorios para posición dental y soporte labial."],
-["Rehabilitación completa con puentes","bridge","Puente maxilar de arcada completa y dos puentes mandibulares."],
-["Puente maxilar de 12 unidades","bridge","16–26 sobre seis pilares, contactos uniformes."],
-["Restauración estética anterior, 14–24","bridge","Proporciones, línea incisal y troneras."],
-["Prótesis completas sobre seis implantes por arcada","full","Montaje, oclusión y chimeneas planificados juntos."],
-["Puentes sobre implantes en ambas arcadas, seis pilares cada una","full","Primero la línea de sonrisa y la dimensión vertical."],
-["Rehabilitación completa, implantes simétricos","full","Accesos de tornillo por palatino y lingual."],
-["Arcada mandibular completa sobre cuatro implantes","full","Plano oclusal estable frente al antagonista."],
-["Puentes posteriores sobre implantes","single","Interfaces y perfil de emergencia diseñados junto con los puentes."],
-["Corona unitaria sobre implante con pilar personalizado","single","El perfil de emergencia soporta la encía."],
-["Puentes maxilares segmentados, 15 a 25","bridge","Once unidades en tres puentes que se leen como una sola sonrisa."],
-["Corona de canino con cut-back para estratificar","single","Contorno completo más cut-back para estratificación cerámica."]];
+["Rehabilitación completa sobre ocho implantes por arcada", "full", "Ambas arcadas, 8 pilares por maxilar, un solo montaje.", "01"],
+["Prótesis completas sobre cuatro implantes", "full", "Estética y oclusión en una sola sesión.", "02"],
+["Arcada completa a partir de la anatomía preoperatoria", "full", "Escaneos preoperatorios para posición dental y soporte labial.", "03"],
+["Rehabilitación completa con puentes", "bridge", "Puente maxilar de arcada completa y dos puentes mandibulares.", "04"],
+["Puente maxilar de 12 unidades", "bridge", "16–26 sobre seis pilares, contactos uniformes.", "05"],
+["Prótesis completas sobre seis implantes por arcada", "full", "Montaje, oclusión y chimeneas planificados juntos.", "07"],
+["Puentes sobre implantes en ambas arcadas, seis pilares cada una", "full", "Primero la línea de sonrisa y la dimensión vertical.", "08"],
+["Rehabilitación completa, implantes simétricos", "full", "Accesos de tornillo por palatino y lingual.", "09"],
+["Arcada mandibular completa sobre cuatro implantes", "full", "Plano oclusal estable frente al antagonista.", "10"],
+["Puentes maxilares segmentados, 15 a 25", "bridge", "Once unidades en tres puentes que se leen como una sola sonrisa.", "13"]];
 const g=document.getElementById('cases');let visible=[];
 cases.forEach((c,i)=>{const n=String(i+1).padStart(2,'0');const d=document.createElement('div');d.className='case rv';d.dataset.cat=c[1];d.dataset.i=i;
-d.innerHTML=`<img loading="lazy" src="../img/case${n}.jpg" alt="${c[0]}"><div class="ov"><div class="k">CASO ${n}</div><h4>${c[0]}</h4><div class="more">${c[2]}</div></div>`;
+d.innerHTML=`<img loading="lazy" src="../img/case${c[3]}.jpg" alt="${c[0]}"><div class="ov"><div class="k">CASO ${c[3]}</div><h4>${c[0]}</h4><div class="more">${c[2]}</div></div>`;
 d.onclick=()=>openLb(i);g.appendChild(d)});
 document.querySelectorAll('.chip').forEach(ch=>ch.onclick=()=>{document.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));ch.classList.add('on');const f=ch.dataset.f;
 document.querySelectorAll('.case').forEach(el=>{const show=f==='all'||el.dataset.cat===f;el.classList.toggle('hide',!show);if(show){el.classList.remove('in');requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.add('in')))}})});
@@ -488,7 +484,7 @@ document.querySelectorAll('.case').forEach(el=>{const show=f==='all'||el.dataset
 /* lightbox */
 const lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg');let cur=0;
 function list(){return [...document.querySelectorAll('.case:not(.hide)')].map(e=>+e.dataset.i)}
-function show(i){cur=i;lbimg.src=`../img/case${String(i+1).padStart(2,'0')}_full.jpg`;lbimg.alt=cases[i][0]}
+function show(i){cur=i;lbimg.src=`../img/case${cases[i][3]}_full.jpg`;lbimg.alt=cases[i][0]}
 function openLb(i){show(i);lb.classList.add('on')}
 function step(dir){const l=list();const p=l.indexOf(cur);show(l[(p+dir+l.length)%l.length])}
 lb.querySelector('.x').onclick=()=>lb.classList.remove('on');
