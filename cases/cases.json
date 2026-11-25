@@ -1,13 +1,161 @@
 [
-  {"slug":"upper-bridges-15-25","title":"Upper bridges","category":"bridge","type":"exocad","file":"files/upper-bridges-15-25.html"},
-  {"slug":"upper-bridge-16-26","title":"Upper full-arch bridge","category":"bridge","type":"exocad","file":"files/upper-bridge-16-26.html"},
-  {"slug":"full-mouth-bridges","title":"Full-mouth bridges","category":"bridge","type":"exocad","file":"files/full-mouth-bridges.html"},
-  {"slug":"full-mouth-bridges-gingiva","title":"Full-mouth bridges with gingiva","category":"bridge","type":"exocad","file":"files/full-mouth-bridges-gingiva.html"},
-  {"slug":"lower-full-arch-4-implants","title":"Lower full-arch on 4 implants","category":"full","type":"exocad","file":"files/lower-full-arch-4-implants.html"},
-  {"slug":"lower-full-arch-implant","title":"Lower full-arch implant","category":"full","type":"exocad","file":"files/lower-full-arch-implant.html"},
-  {"slug":"all-on-4-both-arches","title":"All-on-4 both arches","category":"full","type":"exocad","file":"files/all-on-4-both-arches.html"},
-  {"slug":"full-mouth-implant-a","title":"Full-mouth implant 6+6","category":"full","type":"exocad","file":"files/full-mouth-implant-a.html"},
-  {"slug":"full-mouth-implant-b","title":"Full-mouth implant 5+4","category":"full","type":"exocad","file":"files/full-mouth-implant-b.html"},
-  {"slug":"full-mouth-implant-c","title":"Full-mouth implant 6+6","category":"full","type":"exocad","file":"files/full-mouth-implant-c.html"},
-  {"slug":"full-mouth-implant-d","title":"Full-mouth implant 6+6","category":"full","type":"exocad","file":"files/full-mouth-implant-d.html"}
+ {
+  "slug": "crown-16",
+  "title": "Single molar crown 16",
+  "category": "single",
+  "type": "exocad",
+  "file": "files/crown-16.html",
+  "thumb": "../img/case15.jpg",
+  "teeth": "16",
+  "details": [
+   "Full contour",
+   "Antagonist"
+  ]
+ },
+ {
+  "slug": "implant-bridge-22-26",
+  "title": "Implant bridge 22–26",
+  "category": "bridge",
+  "type": "exocad",
+  "file": "files/implant-bridge-22-26.html",
+  "thumb": "../img/case16.jpg",
+  "details": [
+   "5 units",
+   "3 abutments"
+  ]
+ },
+ {
+  "slug": "full-mouth-implant-6-6",
+  "title": "Full-mouth implant 6+6 (both arches)",
+  "category": "full",
+  "type": "exocad",
+  "file": "files/full-mouth-implant-6-6.html",
+  "thumb": "../img/case17.jpg",
+  "details": [
+   "Both arches",
+   "12 abutments"
+  ]
+ },
+ {
+  "slug": "full-mouth-implant-4-4",
+  "title": "Full-mouth implant 4+4",
+  "category": "full",
+  "type": "exocad",
+  "file": "files/full-mouth-implant-4-4.html",
+  "thumb": "../img/case18.jpg",
+  "details": [
+   "Both arches",
+   "8 abutments"
+  ]
+ },
+ {
+  "slug": "surgical-guide-8-implants",
+  "title": "Surgical guide, 8 maxillary implants",
+  "category": "guide",
+  "type": "mesh",
+  "up": "z",
+  "startView": "occlusal",
+  "thumb": "../img/case19.jpg",
+  "details": [
+   "Flapless",
+   "Fixation pins",
+   "3 parts"
+  ],
+  "parts": [
+   {
+    "name": "Guide body",
+    "file": "files/surgical-guide-split-a.ply",
+    "color": "#e9ecef"
+   },
+   {
+    "name": "Split part 2",
+    "file": "files/surgical-guide-split-b.ply",
+    "color": "#9fd9cf",
+    "visible": false
+   },
+   {
+    "name": "Connector",
+    "file": "files/surgical-guide-connector.ply",
+    "color": "#f2c58a",
+    "visible": false
+   }
+  ]
+ },
+ {
+  "slug": "upper-bridges-15-25",
+  "title": "Upper bridges",
+  "category": "bridge",
+  "type": "exocad",
+  "file": "files/upper-bridges-15-25.html"
+ },
+ {
+  "slug": "upper-bridge-16-26",
+  "title": "Upper full-arch bridge",
+  "category": "bridge",
+  "type": "exocad",
+  "file": "files/upper-bridge-16-26.html"
+ },
+ {
+  "slug": "full-mouth-bridges",
+  "title": "Full-mouth bridges",
+  "category": "bridge",
+  "type": "exocad",
+  "file": "files/full-mouth-bridges.html"
+ },
+ {
+  "slug": "full-mouth-bridges-gingiva",
+  "title": "Full-mouth bridges with gingiva",
+  "category": "bridge",
+  "type": "exocad",
+  "file": "files/full-mouth-bridges-gingiva.html"
+ },
+ {
+  "slug": "lower-full-arch-4-implants",
+  "title": "Lower full-arch on 4 implants",
+  "category": "full",
+  "type": "exocad",
+  "file": "files/lower-full-arch-4-implants.html"
+ },
+ {
+  "slug": "lower-full-arch-implant",
+  "title": "Lower full-arch implant",
+  "category": "full",
+  "type": "exocad",
+  "file": "files/lower-full-arch-implant.html"
+ },
+ {
+  "slug": "all-on-4-both-arches",
+  "title": "All-on-4 both arches",
+  "category": "full",
+  "type": "exocad",
+  "file": "files/all-on-4-both-arches.html"
+ },
+ {
+  "slug": "full-mouth-implant-a",
+  "title": "Full-mouth implant 6+6",
+  "category": "full",
+  "type": "exocad",
+  "file": "files/full-mouth-implant-a.html"
+ },
+ {
+  "slug": "full-mouth-implant-b",
+  "title": "Full-mouth implant 5+4",
+  "category": "full",
+  "type": "exocad",
+  "file": "files/full-mouth-implant-b.html"
+ },
+ {
+  "slug": "full-mouth-implant-c",
+  "title": "Full-mouth implant 6+6",
+  "category": "full",
+  "type": "exocad",
+  "file": "files/full-mouth-implant-c.html"
+ },
+ {
+  "slug": "full-mouth-implant-d",
+  "title": "Full-mouth implant 6+6",
+  "category": "full",
+  "type": "exocad",
+  "file": "files/full-mouth-implant-d.html"
+ }
 ]

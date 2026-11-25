@@ -376,7 +376,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   <div class="eyebrow rv">Nuestro trabajo</div>
   <h2 class="rv d1">Casos recientes, <span class="serif">diseñados en exocad DentalCAD.</span></h2>
   <p class="sub rv d2">Una selección de nuestro portafolio, sin datos de pacientes. Toque cualquier caso para ver la ficha completa.</p>
-  <div class="filters rv d3" id="filters"><button class="chip on" data-f="all">Todos</button><button class="chip" data-f="full">Arcada completa</button><button class="chip" data-f="bridge">Puentes</button></div>
+  <div class="filters rv d3" id="filters"><button class="chip on" data-f="all">Todos</button><button class="chip" data-f="full">Arcada completa</button><button class="chip" data-f="bridge">Puentes</button><button class="chip" data-f="single">Coronas unitarias</button><button class="chip" data-f="guide">Guías quirúrgicas</button></div>
   <a class="b3d" id="b3d" href="../cases/" hidden><span class="cube"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 3 7v10l9 5 9-5V7z"/><path d="m3 7 9 5 9-5M12 12v10"/></svg></span><span><b>Nuevo: vea nuestros diseños en 3D</b><small>Gire, haga zoom y revise márgenes, contactos y oclusión en su navegador.</small></span><span class="go">Abrir biblioteca 3D →</span></a>
   <div class="cases" id="cases"></div>
 </div></section>
@@ -464,6 +464,11 @@ document.getElementById('track').innerHTML=[...svc,...svc].map(s=>`<span>${s}</s
 
 /* cases */
 const cases=[
+["Corona molar unitaria, diente 16", "single", "Corona anatómica completa frente al antagonista.", "15"],
+["Puente sobre implantes 22–26 con tres pilares", "bridge", "Cinco unidades, perfil de emergencia y chimeneas planificados juntos.", "16"],
+["Rehabilitación completa sobre implantes, 6 + 6", "full", "Ambas arcadas en un solo montaje, seis pilares cada una.", "17"],
+["Prótesis completas sobre implantes, 4 + 4", "full", "Cuatro pilares por arcada, oclusión ajustada en ambos maxilares.", "18"],
+["Guía quirúrgica para ocho implantes maxilares", "guide", "Mucosoportada, sin colgajo, con pines de fijación.", "19"],
 ["Rehabilitación completa sobre ocho implantes por arcada", "full", "Ambas arcadas, 8 pilares por maxilar, un solo montaje.", "01"],
 ["Prótesis completas sobre cuatro implantes", "full", "Estética y oclusión en una sola sesión.", "02"],
 ["Arcada completa a partir de la anatomía preoperatoria", "full", "Escaneos preoperatorios para posición dental y soporte labial.", "03"],

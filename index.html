@@ -477,7 +477,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opa
   <div class="eyebrow rv">Our work</div>
   <h2 class="rv d1">Recent cases, <span class="serif">designed in exocad DentalCAD.</span></h2>
   <p class="sub rv d2">A selection from our portfolio, shown without patient data. Tap any case to open the full case sheet.</p>
-  <div class="filters rv d3" id="filters"><button class="chip on" data-f="all">All</button><button class="chip" data-f="full">Full-arch implant</button><button class="chip" data-f="bridge">Bridges</button></div>
+  <div class="filters rv d3" id="filters"><button class="chip on" data-f="all">All</button><button class="chip" data-f="full">Full-arch implant</button><button class="chip" data-f="bridge">Bridges</button><button class="chip" data-f="single">Single crowns</button><button class="chip" data-f="guide">Surgical guides</button></div>
   <a class="b3d" id="b3d" href="cases/" hidden><span class="cube"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 3 7v10l9 5 9-5V7z"/><path d="m3 7 9 5 9-5M12 12v10"/></svg></span><span><b>New: open our designs in 3D</b><small>Rotate, zoom and check margins, contacts and occlusion in your browser.</small></span><span class="go">Open 3D library →</span></a>
   <div class="cases" id="cases"></div>
 </div></section>
@@ -565,6 +565,11 @@ document.getElementById('track').innerHTML=[...svc,...svc].map(s=>`<span>${s}</s
 
 /* cases */
 const cases=[
+["Single molar crown, tooth 16", "single", "Full-contour crown against the antagonist scan.", "15"],
+["Implant bridge 22–26 on three abutments", "bridge", "Five units, emergence and screw access planned together.", "16"],
+["Full-mouth implant rehabilitation, 6 + 6", "full", "Both arches in one set-up, six abutments each.", "17"],
+["Full-mouth implant prostheses, 4 + 4", "full", "Four abutments per arch, occlusion settled across both jaws.", "18"],
+["Surgical guide for eight maxillary implants", "guide", "Mucosa-supported, flapless, with fixation pins.", "19"],
 ["Full-arch rehabilitation on eight implants per arch", "full", "Dual-arch, 8 abutments per jaw, one set-up.", "01"],
 ["Full-arch implant prostheses on four implants", "full", "Aesthetics and occlusion in a single session.", "02"],
 ["Full-arch implant design from pre-op anatomy", "full", "Pre-op scans used for tooth position and lip support.", "03"],
