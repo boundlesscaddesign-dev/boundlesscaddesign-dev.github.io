@@ -142,7 +142,7 @@ function exocad(c){
 async function mesh(c){
   const cv=document.createElement('canvas');
   const gl=cv.getContext('webgl2')||cv.getContext('webgl');
-  if(!gl){fail((c.thumb?`<img src="${esc(c.thumb)}" alt="">`:'')+'Your browser can\'t show 3D here. Try a recent Chrome, Edge, Firefox or Safari.');return}
+  if(!gl){fail((c.thumb?`<img src="${esc(c.thumb)}" alt="${esc(c.title)}">`:'')+'Your browser can\'t show 3D here. Try a recent Chrome, Edge, Firefox or Safari.');return}
   const THREE=await import('three');
   const {OrbitControls}=await import('./lib/OrbitControls.js');
   const {STLLoader}=await import('./lib/STLLoader.js');
